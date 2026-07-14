@@ -174,14 +174,6 @@ export default async function Portfolio() {
               <GitHubIcon />
               Acessar Repositórios
             </a>
-            <a 
-              href="/Curriculo_Genesis.docx" 
-              download="Curriculo_Genesis.docx"
-              className="flex items-center gap-2 bg-slate-800 text-slate-200 border border-slate-700 px-8 py-3.5 rounded-md font-bold hover:bg-slate-700 hover:text-white transition-all cursor-pointer"
-            >
-              <DocumentIcon />
-              Baixar Currículo
-            </a>
           </div>
         </div>
       </section>
