@@ -100,28 +100,11 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-const DocumentIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-    <polyline points="14 2 14 8 20 8"></polyline>
-    <line x1="16" y1="13" x2="8" y2="13"></line>
-    <line x1="16" y1="17" x2="8" y2="17"></line>
-    <polyline points="10 9 9 9 8 9"></polyline>
-  </svg>
-);
-
 const ExternalLinkIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
     <polyline points="15 3 21 3 21 9"></polyline>
     <line x1="10" y1="14" x2="21" y2="3"></line>
-  </svg>
-);
-
-const TrendingDownIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-emerald-400">
-    <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
-    <polyline points="17 18 23 18 23 12"></polyline>
   </svg>
 );
 
@@ -189,38 +172,53 @@ export default async function Portfolio() {
           <p className="text-slate-400 mt-3 max-w-2xl">Aplicações reais desenvolvidas e implementadas operando no mercado.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
+          {/* Docctor Med Jacarepaguá */}
           <a href="https://docctormedjacarepagua.com.br/odontologia/" target="_blank" rel="noreferrer" className="flex flex-col bg-slate-900 border border-slate-800 rounded-xl p-8 hover:border-emerald-500/50 transition-all group relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-[60px] rounded-full group-hover:bg-emerald-500/10 transition-colors"></div>
             <div className="flex justify-between items-start mb-4 relative z-10">
-              <h4 className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">Docctor Med Odontologia</h4>
+              <h4 className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">Docctor Med Jacarepaguá</h4>
               <ExternalLinkIcon />
             </div>
-            <p className="text-slate-400 leading-relaxed mb-6 flex-grow relative z-10">
-              Página de alta conversão (Landing Page) desenvolvida para clínica odontológica. Otimizada para captação de leads, SEO local e velocidade de carregamento.
+            <p className="text-slate-400 leading-relaxed mb-6 flex-grow relative z-10 text-sm">
+              Landing Page de alta conversão para clínica odontológica. Otimizada para captação de leads e SEO local.
             </p>
             <div className="flex items-center justify-between mt-auto relative z-10">
-              <span className="text-xs font-semibold px-3 py-1 bg-emerald-900/30 text-emerald-400 border border-emerald-500/20 rounded-md">Assinatura: GmS</span>
-              <span className="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">Acessar Sistema</span>
+              <span className="text-xs font-semibold px-3 py-1 bg-emerald-900/30 text-emerald-400 border border-emerald-500/20 rounded-md">GmS</span>
+              <span className="text-xs font-bold text-white group-hover:text-emerald-400 transition-colors">Acessar Sistema</span>
             </div>
           </a>
 
+          {/* Docctor Med Caxias do Sul */}
+          <a href="https://docctormedcaxiasdosul.com.br/odontologia/" target="_blank" rel="noreferrer" className="flex flex-col bg-slate-900 border border-slate-800 rounded-xl p-8 hover:border-emerald-500/50 transition-all group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-[60px] rounded-full group-hover:bg-emerald-500/10 transition-colors"></div>
+            <div className="flex justify-between items-start mb-4 relative z-10">
+              <h4 className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">Docctor Med Caxias</h4>
+              <ExternalLinkIcon />
+            </div>
+            <p className="text-slate-400 leading-relaxed mb-6 flex-grow relative z-10 text-sm">
+              Implementação de alta performance integrada a campanhas de tráfego pago (Google Ads) para aquisição.
+            </p>
+            <div className="flex items-center justify-between mt-auto relative z-10">
+              <span className="text-xs font-semibold px-3 py-1 bg-emerald-900/30 text-emerald-400 border border-emerald-500/20 rounded-md">GmS</span>
+              <span className="text-xs font-bold text-white group-hover:text-emerald-400 transition-colors">Acessar Sistema</span>
+            </div>
+          </a>
+
+          {/* MeetPoint */}
           <a href="https://novalab.me/meetpoint" target="_blank" rel="noreferrer" className="flex flex-col bg-slate-900 border border-slate-800 rounded-xl p-8 hover:border-blue-500/50 transition-all group relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 blur-[60px] rounded-full group-hover:bg-blue-500/10 transition-colors"></div>
             <div className="flex justify-between items-start mb-4 relative z-10">
-              <h4 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">MeetPoint</h4>
+              <h4 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">MeetPoint</h4>
               <ExternalLinkIcon />
             </div>
-            <p className="text-slate-400 leading-relaxed mb-6 flex-grow relative z-10">
-              Hub de links e sistema de ponto de encontro. Atuação Full Stack, desenvolvendo a interface focada em UX e toda a arquitetura e lógica de Backend.
+            <p className="text-slate-400 leading-relaxed mb-6 flex-grow relative z-10 text-sm">
+              Hub de links e automação operacional. Atuação Full Stack focada em arquitetura de Backend e UX.
             </p>
             <div className="flex items-center justify-between mt-auto relative z-10">
-              <div className="flex gap-2">
-                <span className="text-xs font-semibold px-3 py-1 bg-slate-800 text-slate-300 rounded-md">Full Stack</span>
-                <span className="text-xs font-semibold px-3 py-1 bg-slate-800 text-slate-300 rounded-md">Backend</span>
-              </div>
-              <span className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">Acessar Sistema</span>
+              <span className="text-xs font-semibold px-3 py-1 bg-blue-900/30 text-blue-400 border border-blue-500/20 rounded-md">Full Stack</span>
+              <span className="text-xs font-bold text-white group-hover:text-blue-400 transition-colors">Acessar Sistema</span>
             </div>
           </a>
 
