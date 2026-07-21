@@ -303,6 +303,10 @@ export default async function Portfolio() {
               <h5 className="font-bold text-white text-lg">Ciência da Computação</h5>
               <p className="text-slate-400 mt-1">Estácio</p>
             </div>
+              <div className="p-6 bg-slate-900/40 rounded-lg border border-slate-800">
+              <h5 className="font-bold text-white text-lg">Engenharia de Software</h5>
+              <p className="text-slate-400 mt-1">UniGrande</p>
+            </div>
             <div className="p-6 bg-slate-900/40 rounded-lg border border-slate-800">
               <h5 className="font-bold text-white text-lg">Análise de Dados (Python, SQL)</h5>
               <p className="text-slate-400 mt-1">EBAC</p>
