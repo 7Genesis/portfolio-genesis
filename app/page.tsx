@@ -293,7 +293,7 @@ export default async function Portfolio() {
               <p className="text-slate-400">Escala de campanhas, funis de captação e análise de dados para suporte à tomada de decisão.</p>
             </div>
             <div className="relative pl-6 border-l border-slate-800">
-              <h4 className="text-xl font-bold text-white">Engenheiro de Software</h4>
+              <h4 className="text-xl font-bold text-white">Desenvolvedor</h4>
               <span className="text-slate-400 text-sm font-semibold block mb-3">Autônomo</span>
               <p className="text-slate-400">Construção de APIs REST, modelagem multi-tenant e integração de IA para agilidade operacional.</p>
             </div>
