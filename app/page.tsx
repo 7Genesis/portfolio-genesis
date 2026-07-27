@@ -189,6 +189,21 @@ export default async function Portfolio() {
               <span className="text-xs font-bold text-white group-hover:text-emerald-400 transition-colors">Acessar Sistema</span>
             </div>
           </a>
+                    {/* NovaLab */}
+          <a href="https://novalab.me/" target="_blank" rel="noreferrer" className="flex flex-col bg-slate-900 border border-slate-800 rounded-xl p-8 hover:border-emerald-500/50 transition-all group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-[60px] rounded-full group-hover:bg-emerald-500/10 transition-colors"></div>
+            <div className="flex justify-between items-start mb-4 relative z-10">
+              <h2 className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">NovaLab</h2>
+              <ExternalLinkIcon />
+            </div>
+            <p className="text-slate-400 leading-relaxed mb-6 flex-grow relative z-10 text-sm">
+              Landing Page de alta conversão para clínica odontológica. Otimizada para captação de leads e SEO local.
+            </p>
+            <div className="flex items-center justify-between mt-auto relative z-10">
+              <span className="text-xs font-semibold px-3 py-1 bg-emerald-900/30 text-emerald-400 border border-emerald-500/20 rounded-md">GmS</span>
+              <span className="text-xs font-bold text-white group-hover:text-emerald-400 transition-colors">Acessar Sistema</span>
+            </div>
+          </a>
 
           {/* Docctor Med Caxias do Sul */}
           <a href="https://docctormedcaxiasdosul.com.br/odontologia/" target="_blank" rel="noreferrer" className="flex flex-col bg-slate-900 border border-slate-800 rounded-xl p-8 hover:border-emerald-500/50 transition-all group relative overflow-hidden">
