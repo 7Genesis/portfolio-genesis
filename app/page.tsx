@@ -197,7 +197,7 @@ export default async function Portfolio() {
               <ExternalLinkIcon />
             </div>
             <p className="text-slate-400 leading-relaxed mb-6 flex-grow relative z-10 text-sm">
-              Landing Page de alta conversão para clínica odontológica. Otimizada para captação de leads e SEO local.
+              Landing Page de alta conversão para agencia de marketing e otimizacões com IA.
             </p>
             <div className="flex items-center justify-between mt-auto relative z-10">
               <span className="text-xs font-semibold px-3 py-1 bg-emerald-900/30 text-emerald-400 border border-emerald-500/20 rounded-md">GmS</span>
