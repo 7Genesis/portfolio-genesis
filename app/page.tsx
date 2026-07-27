@@ -5,6 +5,7 @@ import About from './components/about';
 import Constellation from './components/constellation';
 import { Reveal, RevealStagger } from './components/animations';
 import { ArrowUpRight } from './components/ui';
+import RevealFailsafe from './components/reveal-failsafe';
 
 // ==========================================
 // INTEGRAÇÃO COM A API DO GITHUB (ISR)
@@ -121,6 +122,7 @@ export default async function Portfolio() {
 
   return (
     <main className="bg-[#0a0a0a] font-sans">
+      <RevealFailsafe />
       <Nav />
 
       {/* HERO — bloco preto cósmico */}

@@ -70,11 +70,11 @@ export default function Counter({
     { scope: ref },
   );
 
+  const finalText = `${prefix}${format(value)}${suffix}`;
+
   return (
-    <span ref={ref} className={className}>
-      {prefix}
-      {format(value)}
-      {suffix}
+    <span ref={ref} className={className} data-counter-fallback={finalText}>
+      {finalText}
     </span>
   );
 }

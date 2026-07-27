@@ -77,7 +77,7 @@ export function Reveal({
     { scope: ref },
   );
 
-  return React.createElement(as, { ref, className }, children);
+  return React.createElement(as, { ref, className, 'data-reveal': true }, children);
 }
 
 // ==========================================
@@ -127,7 +127,7 @@ export function RevealStagger({
   );
 
   return (
-    <div ref={ref} className={className}>
+    <div ref={ref} className={className} data-reveal-stagger>
       {children}
     </div>
   );
