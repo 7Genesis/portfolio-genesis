@@ -15,21 +15,16 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Genesis Melo | Engenheiro de Software & Growth",
-  description: "Engenheiro de Software especializado em arquiteturas escaláveis (Node.js, Next.js) e Gestor de Tráfego focado em alavancagem de ROAS e eficiência operacional.",
+  metadataBase: new URL("https://portfolio-genesis-one.vercel.app"),
+  title: "Genesis Melo | Desenvolvedor Full Stack",
+  description:
+    "Desenvolvedor Full Stack — APIs escaláveis e seguras em Node.js, TypeScript e PostgreSQL, interfaces modernas com Next.js e integrações com IA.",
   openGraph: {
-    title: "Genesis Melo | Engenheiro de Software & Growth",
-    description: "Construindo APIs robustas, arquiteturas escaláveis e estratégias orientadas a dados para alavancagem comercial.",
-    url: "https://seusite.vercel.app", 
-    siteName: "Genesis Melo Portfolio",
-    images: [
-      {
-        url: "/og-image.jpg", 
-        width: 1200,
-        height: 630,
-        alt: "Genesis Melo - Engenheiro de Software & Growth",
-      },
-    ],
+    title: "Genesis Melo | Desenvolvedor Full Stack",
+    description:
+      "Construo APIs escaláveis, interfaces modernas e integrações com IA, com foco em arquitetura em camadas e alta performance.",
+    url: "https://portfolio-genesis-one.vercel.app",
+    siteName: "Genesis Melo — Portfólio",
     locale: "pt_BR",
     type: "website",
   },
