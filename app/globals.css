@@ -1,7 +1,57 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), Georgia, "Times New Roman", serif;
+}
+
 @layer base {
-  body {
-    @apply bg-slate-950 text-slate-50 antialiased selection:bg-blue-500/30;
+  html {
+    scroll-behavior: smooth;
   }
+  body {
+    @apply bg-[#0a0a0a] text-slate-50 antialiased selection:bg-emerald-400/30;
+  }
+}
+
+/* ==========================================
+   Utilitários editoriais (estilo Editions)
+   ========================================== */
+
+/* Serifada de display para taglines/pull-quotes */
+.font-display {
+  font-family: var(--font-serif);
+}
+
+/* Capitular decorativa (drop cap) */
+.dropcap::first-letter {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 2.1em;
+  line-height: 0.7;
+  float: left;
+  padding: 0.08em 0.12em 0 0;
+  font-weight: 400;
+}
+
+/* Céu estrelado do hero */
+.starfield {
+  background-image:
+    radial-gradient(1.5px 1.5px at 20% 30%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(1px 1px at 60% 20%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 80% 50%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1.5px 1.5px at 35% 70%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 50% 45%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 90% 80%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 12% 85%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 70% 90%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 45% 12%, rgba(255, 255, 255, 0.5), transparent);
+  background-repeat: repeat;
+  background-size: 600px 600px;
+}
+
+/* Tracking bem fechado para os headlines pesados */
+.headline {
+  letter-spacing: -0.04em;
+  line-height: 0.92;
 }

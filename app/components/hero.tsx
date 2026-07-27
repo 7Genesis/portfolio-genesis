@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ArrowUpRight } from './ui';
 
 const WhatsAppIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -10,41 +11,42 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-const GitHubIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-  </svg>
-);
-
 export default function Hero() {
-  const scope = useRef<HTMLDivElement>(null);
+  const scope = useRef<HTMLElement>(null);
 
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
       mm.add('(prefers-reduced-motion: no-preference)', () => {
-      const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
-      tl.from('[data-hero="eyebrow"]', { opacity: 0, y: 20, duration: 0.7 })
-        .from(
-          '[data-hero="line"]',
-          { opacity: 0, yPercent: 120, duration: 1.1, stagger: 0.12 },
-          '-=0.3',
-        )
-        .from(
-          '[data-hero="sub"]',
-          { opacity: 0, y: 24, duration: 0.9 },
-          '-=0.6',
-        )
-        .from(
-          '[data-hero="desc"]',
-          { opacity: 0, y: 24, duration: 0.9 },
-          '-=0.7',
-        )
-        .from(
-          '[data-hero="cta"]',
-          { opacity: 0, y: 20, duration: 0.7, stagger: 0.1 },
-          '-=0.6',
-        );
+        const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+        tl.from('[data-hero="eyebrow"]', { opacity: 0, y: 20, duration: 0.7 })
+          .from(
+            '[data-hero="line"]',
+            { opacity: 0, yPercent: 110, duration: 1.15, stagger: 0.12 },
+            '-=0.3',
+          )
+          .from(
+            '[data-hero="sub"]',
+            { opacity: 0, y: 26, duration: 1 },
+            '-=0.55',
+          )
+          .from(
+            '[data-hero="cta"]',
+            { opacity: 0, y: 20, duration: 0.7, stagger: 0.1 },
+            '-=0.6',
+          );
+
+        // parallax suave do brilho ao rolar
+        gsap.to('[data-hero="glow"]', {
+          yPercent: 30,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: scope.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+          },
+        });
       });
     },
     { scope },
@@ -54,56 +56,59 @@ export default function Hero() {
     <section
       id="inicio"
       ref={scope}
-      className="relative max-w-6xl mx-auto px-6 pt-36 pb-20"
+      className="relative flex min-h-screen items-center overflow-hidden bg-[#0a0a0a] px-6 pt-28 pb-16"
     >
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-96 bg-blue-900/10 blur-[120px] rounded-full pointer-events-none" />
+      {/* céu estrelado + brilho */}
+      <div className="starfield pointer-events-none absolute inset-0 opacity-70" />
+      <div
+        data-hero="glow"
+        className="pointer-events-none absolute -top-1/4 left-1/2 h-[80vh] w-[80vh] -translate-x-1/2 rounded-full bg-emerald-500/15 blur-[140px]"
+      />
+      <div className="pointer-events-none absolute right-0 top-1/4 h-[50vh] w-[50vh] rounded-full bg-blue-600/10 blur-[130px]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
 
-      <div className="relative z-10">
+      <div className="relative z-10 mx-auto w-full max-w-6xl">
         <div
           data-hero="eyebrow"
-          className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-slate-800 bg-slate-900/60 backdrop-blur-sm"
+          className="mb-10 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 backdrop-blur-sm"
         >
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
           </span>
-          <span className="text-xs font-semibold tracking-wide text-slate-300">
+          <span className="text-xs font-semibold tracking-wide text-white/80">
             Disponível para novos projetos
           </span>
         </div>
 
-        <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-white mb-6 leading-[0.95]">
+        <h1 className="headline text-[19vw] font-black text-white sm:text-[15vw] lg:text-[11rem]">
           <span className="block overflow-hidden">
             <span data-hero="line" className="block">
-              Genesis Melo<span className="text-blue-500">.</span>
+              Genesis
+            </span>
+          </span>
+          <span className="block overflow-hidden">
+            <span data-hero="line" className="block">
+              Melo<span className="text-emerald-400">.</span>
             </span>
           </span>
         </h1>
 
-        <h2
-          data-hero="sub"
-          className="text-2xl md:text-3xl font-light text-slate-300 mb-6 max-w-3xl leading-relaxed"
-        >
-          Engenheiro de Software &{' '}
-          <span className="font-semibold text-white">Estrategista de Growth</span>.
-        </h2>
-
         <p
-          data-hero="desc"
-          className="text-lg text-slate-400 leading-relaxed max-w-2xl mb-12 font-medium"
+          data-hero="sub"
+          className="font-display mt-8 max-w-3xl text-3xl italic leading-tight text-white/85 md:text-5xl"
         >
-          Projeto arquiteturas escaláveis, implemento soluções de IA para
-          agilidade operacional e desenvolvo sistemas de alta performance
-          integrados a funis avançados de aquisição.
+          Engenheiro de Software e estrategista de growth — do código à campanha,
+          construindo o que <span className="text-emerald-400">gera receita</span>.
         </p>
 
-        <div className="flex flex-wrap gap-4">
+        <div className="mt-12 flex flex-wrap items-center gap-4">
           <a
             data-hero="cta"
             href="https://wa.me/5511939281926?text=Ol%C3%A1%20Genesis%2C%20vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%21"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2 bg-emerald-600 text-white px-8 py-3.5 rounded-md font-bold hover:bg-emerald-500 transition-all shadow-[0_0_20px_rgba(5,150,105,0.2)] hover:shadow-[0_0_30px_rgba(5,150,105,0.4)]"
+            className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-bold text-[#0a0a0a] transition-all hover:bg-white/85"
           >
             <WhatsAppIcon />
             Falar no WhatsApp
@@ -113,10 +118,12 @@ export default function Hero() {
             href="https://github.com/7Genesis?tab=repositories"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2 bg-blue-600/10 text-blue-400 border border-blue-500/30 px-8 py-3.5 rounded-md font-bold hover:bg-blue-600/20 transition-all"
+            className="group inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-white/10"
           >
-            <GitHubIcon />
-            Acessar Repositórios
+            Repositórios
+            <span className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+              <ArrowUpRight />
+            </span>
           </a>
         </div>
       </div>
