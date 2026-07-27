@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { runReveal } from './animations';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -52,37 +53,41 @@ export default function Constellation() {
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
+      let cleanup = () => {};
       mm.add('(prefers-reduced-motion: no-preference)', () => {
-        // linhas surgem
-        gsap.from('[data-cst="line"]', {
-          opacity: 0,
-          duration: 1,
-          stagger: 0.05,
-          ease: 'power2.out',
-          scrollTrigger: { trigger: scope.current, start: 'top 70%', once: true },
-        });
-        // tags aparecem
-        gsap.from('[data-cst="tag"]', {
-          opacity: 0,
-          scale: 0.8,
-          y: 20,
-          duration: 0.8,
-          stagger: 0.08,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: scope.current, start: 'top 70%', once: true },
-        });
-        // float contínuo e sutil
-        gsap.utils.toArray<HTMLElement>('[data-cst="tag"]').forEach((el, i) => {
-          gsap.to(el, {
-            y: '+=12',
-            duration: 3 + (i % 4) * 0.6,
-            ease: 'sine.inOut',
-            repeat: -1,
-            yoyo: true,
-            delay: i * 0.15,
+        cleanup = runReveal(() => {
+          // linhas surgem
+          gsap.from('[data-cst="line"]', {
+            opacity: 0,
+            duration: 1,
+            stagger: 0.05,
+            ease: 'power2.out',
+            scrollTrigger: { trigger: scope.current, start: 'top 70%', once: true },
+          });
+          // tags aparecem
+          gsap.from('[data-cst="tag"]', {
+            opacity: 0,
+            scale: 0.8,
+            y: 20,
+            duration: 0.8,
+            stagger: 0.08,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: scope.current, start: 'top 70%', once: true },
+          });
+          // float contínuo e sutil
+          gsap.utils.toArray<HTMLElement>('[data-cst="tag"]').forEach((el, i) => {
+            gsap.to(el, {
+              y: '+=12',
+              duration: 3 + (i % 4) * 0.6,
+              ease: 'sine.inOut',
+              repeat: -1,
+              yoyo: true,
+              delay: i * 0.15,
+            });
           });
         });
       });
+      return () => cleanup();
     },
     { scope },
   );

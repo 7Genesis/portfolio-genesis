@@ -5,6 +5,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import Counter from './counter';
+import { runReveal } from './animations';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -50,25 +51,29 @@ export default function About() {
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
+      let cleanup = () => {};
       mm.add('(prefers-reduced-motion: no-preference)', () => {
-        gsap.from('[data-ab="head"] > *', {
-          opacity: 0,
-          y: 40,
-          duration: 0.9,
-          ease: 'power3.out',
-          stagger: 0.12,
-          scrollTrigger: { trigger: '[data-ab="head"]', start: 'top 85%', once: true },
-        });
+        cleanup = runReveal(() => {
+          gsap.from('[data-ab="head"] > *', {
+            opacity: 0,
+            y: 40,
+            duration: 0.9,
+            ease: 'power3.out',
+            stagger: 0.12,
+            scrollTrigger: { trigger: '[data-ab="head"]', start: 'top 85%', once: true },
+          });
 
-        gsap.from('[data-ab="metric"]', {
-          opacity: 0,
-          y: 40,
-          duration: 0.8,
-          ease: 'power3.out',
-          stagger: 0.12,
-          scrollTrigger: { trigger: '[data-ab="metrics"]', start: 'top 85%', once: true },
+          gsap.from('[data-ab="metric"]', {
+            opacity: 0,
+            y: 40,
+            duration: 0.8,
+            ease: 'power3.out',
+            stagger: 0.12,
+            scrollTrigger: { trigger: '[data-ab="metrics"]', start: 'top 85%', once: true },
+          });
         });
       });
+      return () => cleanup();
     },
     { scope },
   );

@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ArrowUpRight } from './ui';
+import { runReveal } from './animations';
 
 const WhatsAppIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -17,37 +18,37 @@ export default function Hero() {
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
+      let cleanup = () => {};
       mm.add('(prefers-reduced-motion: no-preference)', () => {
-        const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
-        tl.from('[data-hero="eyebrow"]', { opacity: 0, y: 20, duration: 0.7 })
-          .from(
-            '[data-hero="line"]',
-            { opacity: 0, yPercent: 110, duration: 1.15, stagger: 0.12 },
-            '-=0.3',
-          )
-          .from(
-            '[data-hero="sub"]',
-            { opacity: 0, y: 26, duration: 1 },
-            '-=0.55',
-          )
-          .from(
-            '[data-hero="cta"]',
-            { opacity: 0, y: 20, duration: 0.7, stagger: 0.1 },
-            '-=0.6',
-          );
+        cleanup = runReveal(() => {
+          const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+          tl.from('[data-hero="eyebrow"]', { opacity: 0, y: 16, duration: 0.4 })
+            .from(
+              '[data-hero="line"]',
+              { opacity: 0, yPercent: 108, duration: 0.7, stagger: 0.08 },
+              '-=0.15',
+            )
+            .from('[data-hero="sub"]', { opacity: 0, y: 20, duration: 0.5 }, '-=0.35')
+            .from(
+              '[data-hero="cta"]',
+              { opacity: 0, y: 16, duration: 0.4, stagger: 0.08 },
+              '-=0.3',
+            );
 
-        // parallax suave do brilho ao rolar
-        gsap.to('[data-hero="glow"]', {
-          yPercent: 30,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: scope.current,
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true,
-          },
+          // parallax suave do brilho ao rolar
+          gsap.to('[data-hero="glow"]', {
+            yPercent: 30,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: scope.current,
+              start: 'top top',
+              end: 'bottom top',
+              scrub: true,
+            },
+          });
         });
       });
+      return () => cleanup();
     },
     { scope },
   );

@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { runReveal } from './animations';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -43,24 +44,28 @@ export default function Counter({
       const node = ref.current;
       if (!node) return;
       const mm = gsap.matchMedia();
+      let cleanup = () => {};
       mm.add('(prefers-reduced-motion: no-preference)', () => {
-        const obj = { val: 0 };
-        node.textContent = `${prefix}${format(0)}${suffix}`;
+        cleanup = runReveal(() => {
+          const obj = { val: 0 };
+          node.textContent = `${prefix}${format(0)}${suffix}`;
 
-        gsap.to(obj, {
-          val: value,
-          duration,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: node,
-            start: 'top 90%',
-            once: true,
-          },
-          onUpdate: () => {
-            node.textContent = `${prefix}${format(obj.val)}${suffix}`;
-          },
+          gsap.to(obj, {
+            val: value,
+            duration,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: node,
+              start: 'top 90%',
+              once: true,
+            },
+            onUpdate: () => {
+              node.textContent = `${prefix}${format(obj.val)}${suffix}`;
+            },
+          });
         });
       });
+      return () => cleanup();
     },
     { scope: ref },
   );
