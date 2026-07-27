@@ -3,11 +3,11 @@
 import { useState } from 'react';
 
 const links = [
-  { label: 'NovaLab', href: '#novalab' },
+  { label: 'Sobre', href: '#sobre' },
   { label: 'Projetos', href: '#projetos' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Experiência', href: '#experiencia' },
   { label: 'GitHub', href: '#github' },
-  { label: 'Trajetória', href: '#trajetoria' },
 ];
 
 export default function Nav() {

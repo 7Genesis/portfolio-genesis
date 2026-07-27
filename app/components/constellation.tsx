@@ -10,17 +10,17 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 // Tags de capacidade, posicionadas como uma constelação (estilo Editions).
 // x/y em % dentro do container; size dá hierarquia visual.
 const tags = [
-  { label: '/tráfego-pago', x: 30, y: 22, size: 'lg' },
-  { label: '/meta-ads', x: 66, y: 14, size: 'sm' },
-  { label: '/landing-pages', x: 12, y: 44, size: 'sm' },
-  { label: '/ia-&-llms', x: 50, y: 40, size: 'lg' },
-  { label: '/seo', x: 82, y: 38, size: 'sm' },
-  { label: '/roas', x: 72, y: 56, size: 'md' },
-  { label: '/next.js', x: 22, y: 66, size: 'sm' },
-  { label: '/automação', x: 45, y: 72, size: 'md' },
+  { label: '/node.js', x: 30, y: 22, size: 'lg' },
+  { label: '/postgresql', x: 66, y: 14, size: 'sm' },
+  { label: '/prisma', x: 12, y: 44, size: 'sm' },
+  { label: '/typescript', x: 50, y: 40, size: 'lg' },
+  { label: '/docker', x: 82, y: 38, size: 'sm' },
+  { label: '/apis-rest', x: 72, y: 56, size: 'md' },
+  { label: '/jwt', x: 22, y: 66, size: 'sm' },
+  { label: '/next.js', x: 45, y: 72, size: 'md' },
   { label: '/.net', x: 63, y: 82, size: 'sm' },
-  { label: '/growth', x: 15, y: 86, size: 'md' },
-  { label: '/python', x: 88, y: 74, size: 'sm' },
+  { label: '/python', x: 15, y: 86, size: 'md' },
+  { label: '/power-bi', x: 88, y: 74, size: 'sm' },
 ] as const;
 
 // Cadeia de conexões (índices dos tags) para desenhar as linhas.

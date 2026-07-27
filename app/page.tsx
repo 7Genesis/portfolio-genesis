@@ -1,7 +1,7 @@
 import React from 'react';
 import Nav from './components/nav';
 import Hero from './components/hero';
-import NovaLabShowcase from './components/novalab';
+import About from './components/about';
 import Constellation from './components/constellation';
 import { Reveal, RevealStagger } from './components/animations';
 import { ArrowUpRight } from './components/ui';
@@ -49,6 +49,12 @@ const projects = [
     href: 'https://docctormedjacarepagua.com.br/odontologia/',
   },
   {
+    title: 'NovaLab',
+    tag: 'Web',
+    desc: 'Site da agência de marketing digital, com apresentação de serviços e foco em captação de clientes.',
+    href: 'https://novalab.me/',
+  },
+  {
     title: 'Docctor Med Caxias',
     tag: 'Performance',
     desc: 'Implementação de alta performance integrada a campanhas de tráfego pago (Google Ads) para aquisição.',
@@ -60,6 +66,45 @@ const projects = [
     desc: 'Hub de links e automação operacional. Atuação Full Stack focada em arquitetura de Backend e UX.',
     href: 'https://novalab.me/meetpoint',
   },
+];
+
+// Experiências profissionais (currículo)
+const experiences = [
+  {
+    role: 'Desenvolvedor Backend / Full Stack',
+    org: 'Autônomo · Tecnologia',
+    period: '2024 — Atual',
+    desc: 'APIs REST em Node.js e TypeScript, integração frontend (Next.js) e backend via Prisma ORM, automação de rotinas e modelagem de bancos PostgreSQL.',
+  },
+  {
+    role: 'Gestor de Tráfego Meta',
+    org: 'NovaLab · Marketing Digital',
+    period: '2026 — Atual',
+    desc: 'Campanhas de tráfego pago no Meta Ads, funis de vendas, análise de CPC/CTR/CPA/ROAS, testes A/B e dashboards de KPIs para decisão orientada por dados.',
+  },
+  {
+    role: 'Auxiliar de Compras',
+    org: 'Copylan · Administrativo',
+    period: '2025 — 2026',
+    desc: 'Negociações estratégicas com economia direta de 10% e dashboards em Excel Avançado para monitoramento de estoque e indicadores.',
+  },
+  {
+    role: 'Consultor de Vendas',
+    org: 'Batalha Serviços Adm.',
+    period: '2024 — 2025',
+    desc: 'Atendimento consultivo multicanal, ticket médio de R$ 2–6 mil e gestão de pipeline em CRM contribuindo para faturamento mensal de até R$ 120 mil.',
+  },
+];
+
+const education = [
+  { t: 'Ciência da Computação', s: 'Estácio · cursando (2029)' },
+  { t: 'Engenharia de Software', s: 'Unigrande · cursando (2029)' },
+];
+
+const courses = [
+  { t: 'Análise de Dados (Python, SQL, ETL)', s: 'EBAC · em andamento' },
+  { t: 'Power BI — Data Science', s: 'Data Science Academy · concluído' },
+  { t: 'Fundamentos de Java', s: 'LinkedIn Learning · concluído' },
 ];
 
 const GitHubIcon = () => (
@@ -81,8 +126,8 @@ export default async function Portfolio() {
       {/* HERO — bloco preto cósmico */}
       <Hero />
 
-      {/* NOVALAB — bloco esmeralda */}
-      <NovaLabShowcase />
+      {/* SOBRE + RESULTADOS — bloco esmeralda */}
+      <About />
 
       {/* PROJETOS — bloco creme */}
       <section id="projetos" className="bg-[#ece8de] py-28 text-[#0a0a0a]">
@@ -97,7 +142,7 @@ export default async function Portfolio() {
             </p>
           </Reveal>
 
-          <RevealStagger className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <RevealStagger className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {projects.map((p) => (
               <a
                 key={p.title}
@@ -130,16 +175,78 @@ export default async function Portfolio() {
         <div className="starfield pointer-events-none absolute inset-0 opacity-40" />
         <div className="relative z-10 mx-auto max-w-6xl px-6">
           <Reveal>
-            <Eyebrow className="text-emerald-400">Capacidades</Eyebrow>
+            <Eyebrow className="text-emerald-400">Stack & Skills</Eyebrow>
             <h2 className="headline mt-6 max-w-4xl text-5xl font-black text-white md:text-7xl">
               Uma constelação de skills.
             </h2>
             <p className="font-display mt-6 max-w-2xl text-2xl italic leading-snug text-white/60 md:text-3xl">
-              Engenharia, dados e growth conectados num só sistema — do backend
-              ao criativo que converte.
+              Backend, dados e frontend conectados num só sistema — do banco de
+              dados à interface.
             </p>
           </Reveal>
           <Constellation />
+        </div>
+      </section>
+
+      {/* EXPERIÊNCIA & FORMAÇÃO — bloco esmeralda */}
+      <section id="experiencia" className="bg-[#053b2c] py-28 text-[#f2efe6]">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid gap-16 lg:grid-cols-[1.3fr_1fr]">
+            {/* Experiência */}
+            <div>
+              <Reveal>
+                <Eyebrow className="text-emerald-300">Experiência Profissional</Eyebrow>
+              </Reveal>
+              <RevealStagger className="mt-12 border-t border-[#f2efe6]/15">
+                {experiences.map((e) => (
+                  <div
+                    key={e.role}
+                    className="grid gap-1 border-b border-[#f2efe6]/15 py-7 md:grid-cols-[1fr_auto] md:items-baseline md:gap-6"
+                  >
+                    <div>
+                      <h3 className="text-xl font-black tracking-tight md:text-2xl">{e.role}</h3>
+                      <span className="mt-1 block font-display text-lg italic text-emerald-300">
+                        {e.org}
+                      </span>
+                      <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#f2efe6]/70">
+                        {e.desc}
+                      </p>
+                    </div>
+                    <span className="text-sm font-semibold text-[#f2efe6]/50 md:text-right">
+                      {e.period}
+                    </span>
+                  </div>
+                ))}
+              </RevealStagger>
+            </div>
+
+            {/* Formação & Cursos */}
+            <div>
+              <Reveal>
+                <Eyebrow className="text-emerald-300">Formação & Cursos</Eyebrow>
+              </Reveal>
+              <RevealStagger className="mt-12 space-y-4">
+                {education.map((f) => (
+                  <div
+                    key={f.t}
+                    className="rounded-2xl border border-[#f2efe6]/15 bg-[#f2efe6]/[0.04] p-6"
+                  >
+                    <h4 className="text-lg font-black">{f.t}</h4>
+                    <p className="mt-1 text-sm text-[#f2efe6]/60">{f.s}</p>
+                  </div>
+                ))}
+                {courses.map((c) => (
+                  <div
+                    key={c.t}
+                    className="flex items-center justify-between gap-4 rounded-2xl border border-[#f2efe6]/10 bg-[#f2efe6]/[0.02] px-6 py-4"
+                  >
+                    <span className="text-sm font-semibold">{c.t}</span>
+                    <span className="whitespace-nowrap text-xs text-[#f2efe6]/50">{c.s}</span>
+                  </div>
+                ))}
+              </RevealStagger>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -179,45 +286,6 @@ export default async function Portfolio() {
         </div>
       </section>
 
-      {/* TRAJETÓRIA — bloco esmeralda */}
-      <section id="trajetoria" className="bg-[#053b2c] py-28 text-[#f2efe6]">
-        <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
-            <Eyebrow className="text-emerald-300">Trajetória & Formação</Eyebrow>
-          </Reveal>
-          <div className="mt-12 grid gap-16 md:grid-cols-2">
-            <Reveal className="space-y-10">
-              <div className="border-l border-[#f2efe6]/25 pl-6">
-                <h3 className="text-2xl font-black tracking-tight">Estrategista de Growth & Tráfego</h3>
-                <span className="mt-1 block font-display text-lg italic text-emerald-300">NovaLab</span>
-                <p className="mt-3 text-[#f2efe6]/70">
-                  Escala de campanhas, funis de captação e análise de dados para suporte à tomada de decisão.
-                </p>
-              </div>
-              <div className="border-l border-[#f2efe6]/25 pl-6">
-                <h3 className="text-2xl font-black tracking-tight">Desenvolvedor</h3>
-                <span className="mt-1 block font-display text-lg italic text-[#f2efe6]/60">Autônomo</span>
-                <p className="mt-3 text-[#f2efe6]/70">
-                  Construção de APIs REST, modelagem multi-tenant e integração de IA para agilidade operacional.
-                </p>
-              </div>
-            </Reveal>
-            <Reveal className="space-y-4">
-              {[
-                { t: 'Ciência da Computação', s: 'Estácio' },
-                { t: 'Engenharia de Software', s: 'UniGrande' },
-                { t: 'Análise de Dados (Python, SQL)', s: 'EBAC' },
-              ].map((f) => (
-                <div key={f.t} className="rounded-2xl border border-[#f2efe6]/15 bg-[#f2efe6]/[0.04] p-6">
-                  <h4 className="text-lg font-black">{f.t}</h4>
-                  <p className="mt-1 text-[#f2efe6]/60">{f.s}</p>
-                </div>
-              ))}
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
       {/* CTA FINAL — bloco preto */}
       <footer className="relative overflow-hidden bg-[#0a0a0a] py-28">
         <div className="starfield pointer-events-none absolute inset-0 opacity-40" />
@@ -225,15 +293,15 @@ export default async function Portfolio() {
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
           <Reveal>
             <h2 className="headline text-5xl font-black text-white md:text-8xl">
-              Vamos construir seu
+              Vamos construir algo
               <br />
-              próximo <span className="font-display italic font-normal text-emerald-400">resultado</span>?
+              <span className="font-display italic font-normal text-emerald-400">juntos</span>?
             </h2>
             <p className="mx-auto mt-8 max-w-xl text-lg text-white/60">
-              Do código à campanha — engenharia e growth em um só lugar para
-              escalar o seu negócio.
+              Desenvolvedor Full Stack disponível para novos projetos e início
+              imediato.
             </p>
-            <div className="mt-10 flex justify-center">
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
               <a
                 href="https://wa.me/5511939281926?text=Ol%C3%A1%20Genesis%2C%20vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%21"
                 target="_blank"
@@ -242,11 +310,19 @@ export default async function Portfolio() {
               >
                 Falar no WhatsApp
               </a>
+              <a
+                href="https://www.linkedin.com/in/genesis-melo"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border border-white/20 px-9 py-4 text-lg font-semibold text-white transition-all hover:bg-white/10"
+              >
+                LinkedIn
+              </a>
             </div>
           </Reveal>
 
           <p className="mt-16 text-sm text-white/30">
-            © {new Date().getFullYear()} Genesis Melo · Engenharia de Software & Growth
+            © {new Date().getFullYear()} Genesis Melo · Desenvolvedor Full Stack
           </p>
         </div>
       </footer>

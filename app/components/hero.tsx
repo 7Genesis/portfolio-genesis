@@ -98,8 +98,8 @@ export default function Hero() {
           data-hero="sub"
           className="font-display mt-8 max-w-3xl text-3xl italic leading-tight text-white/85 md:text-5xl"
         >
-          Engenheiro de Software e estrategista de growth — do código à campanha,
-          construindo o que <span className="text-emerald-400">gera receita</span>.
+          Desenvolvedor Full Stack — construo APIs escaláveis, interfaces modernas
+          e integrações com <span className="text-emerald-400">IA</span>.
         </p>
 
         <div className="mt-12 flex flex-wrap items-center gap-4">
