@@ -67,6 +67,18 @@ const projects = [
     desc: 'Hub de links e automação operacional. Atuação Full Stack focada em arquitetura de Backend e UX.',
     href: 'https://novalab.me/meetpoint',
   },
+  {
+    title: 'StarFit — Transnordestina',
+    tag: 'Landing Page',
+    desc: 'Página de vendas para academia, com modalidades, planos e integração direta com WhatsApp para conversão.',
+    href: 'https://starfitpnz.com.br/transnordestina/',
+  },
+  {
+    title: 'ConectaLab',
+    tag: 'Growth',
+    desc: 'Landing page de captação para programa de crescimento empresarial gamificado, com níveis de evolução e CTA para WhatsApp.',
+    href: 'https://lp.novalab.me/conectalab/',
+  },
 ];
 
 // Experiências profissionais (currículo)
@@ -144,7 +156,7 @@ export default async function Portfolio() {
             </p>
           </Reveal>
 
-          <RevealStagger className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <RevealStagger className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((p) => (
               <a
                 key={p.title}
