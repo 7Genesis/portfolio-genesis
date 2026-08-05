@@ -62,12 +62,6 @@ const projects = [
     href: 'https://docctormedcaxiasdosul.com.br/odontologia/',
   },
   {
-    title: 'MeetPoint',
-    tag: 'Full Stack',
-    desc: 'Hub de links e automação operacional. Atuação Full Stack focada em arquitetura de Backend e UX.',
-    href: 'https://novalab.me/meetpoint',
-  },
-  {
     title: 'StarFit — Transnordestina',
     tag: 'Landing Page',
     desc: 'Página de vendas para academia, com modalidades, planos e integração direta com WhatsApp para conversão.',
