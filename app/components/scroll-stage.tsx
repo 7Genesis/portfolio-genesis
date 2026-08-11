@@ -94,11 +94,15 @@ export default function ScrollStage() {
     const film = video.current;
     if (!film) return;
 
-    // No celular carregamos um arquivo mais leve (3,5 MB contra 7,1 MB). A
-    // escolha é feita aqui, e não por <source media>, porque o WebKit avalia
-    // aquele atributo de forma inconsistente.
+    // No celular usamos um clipe vertical, enquadrado para retrato — recortar
+    // o de 16:9 jogaria fora justamente as laterais da cena. A escolha é feita
+    // aqui, e não por <source media>, porque o WebKit avalia aquele atributo
+    // de forma inconsistente.
     if (window.matchMedia('(max-width: 768px)').matches) {
       film.src = '/stage-mobile.mp4';
+      film.poster = '/stage-poster-mobile.jpg';
+      const palco = film.parentElement;
+      if (palco) palco.style.backgroundImage = 'url(/stage-poster-mobile.jpg)';
     }
 
     let primed = false;
