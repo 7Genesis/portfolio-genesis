@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from './components/nav';
-import Hero from './components/hero';
+import ScrollStage from './components/scroll-stage';
 import About from './components/about';
 import Constellation from './components/constellation';
 import { Reveal, RevealStagger } from './components/animations';
@@ -137,8 +137,8 @@ export default async function Portfolio() {
       <RevealFailsafe />
       <Nav />
 
-      {/* HERO — bloco preto cósmico */}
-      <Hero />
+      {/* HERO — palco cinematográfico: vídeo dirigido pela rolagem */}
+      <ScrollStage />
 
       {/* SOBRE + RESULTADOS — bloco esmeralda */}
       <About />
