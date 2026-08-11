@@ -82,6 +82,57 @@ export default function ScrollStage() {
     });
   }, []);
 
+  /**
+   * O Safari do iOS não decodifica um vídeo que nunca tocou: o elemento fica
+   * vazio e o currentTime não produz quadro nenhum. Um play() seguido de
+   * pause() acorda o decodificador — depois disso o seek funciona.
+   *
+   * Com muted + playsInline o autoplay costuma passar, mas nem sempre; por
+   * isso repetimos na primeira interação, que é quando o navegador libera.
+   */
+  useEffect(() => {
+    const film = video.current;
+    if (!film) return;
+
+    // No celular carregamos um arquivo mais leve (3,5 MB contra 7,1 MB). A
+    // escolha é feita aqui, e não por <source media>, porque o WebKit avalia
+    // aquele atributo de forma inconsistente.
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      film.src = '/stage-mobile.mp4';
+    }
+
+    let primed = false;
+    const prime = () => {
+      if (primed) return;
+      const attempt = film.play();
+      if (attempt?.then) {
+        attempt
+          .then(() => {
+            film.pause();
+            film.currentTime = 0;
+            primed = true;
+          })
+          .catch(() => {
+            /* autoplay bloqueado: tentamos de novo no primeiro toque */
+          });
+      }
+    };
+
+    film.load();
+    film.addEventListener('loadedmetadata', prime);
+    film.addEventListener('canplay', prime);
+    window.addEventListener('touchstart', prime, { once: true, passive: true });
+    window.addEventListener('pointerdown', prime, { once: true });
+    prime();
+
+    return () => {
+      film.removeEventListener('loadedmetadata', prime);
+      film.removeEventListener('canplay', prime);
+      window.removeEventListener('touchstart', prime);
+      window.removeEventListener('pointerdown', prime);
+    };
+  }, []);
+
   useEffect(() => {
     const el = stage.current;
     const film = video.current;
@@ -189,7 +240,12 @@ export default function ScrollStage() {
         style={{ height: `${SCREENS * 100}vh` }}
         className="relative bg-[#0a0a0a]"
       >
-        <div className="sticky top-0 h-screen overflow-hidden bg-[#0a0a0a]">
+        {/* O poster também vai como fundo do palco: se o vídeo falhar em
+            decodificar, sobra o primeiro quadro em vez de um retângulo preto. */}
+        <div
+          className="sticky top-0 h-screen overflow-hidden bg-[#0a0a0a] bg-cover bg-center"
+          style={{ backgroundImage: 'url(/stage-poster.jpg)' }}
+        >
           <video
             ref={video}
             className="absolute inset-0 h-full w-full object-cover"
