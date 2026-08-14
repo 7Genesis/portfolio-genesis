@@ -98,7 +98,7 @@ const experiences = [
   {
     role: 'Gestor de Tráfego Meta',
     org: 'NovaLab · Marketing Digital',
-    period: '2026 — Atual',
+    period: '2026',
     desc: 'Campanhas de tráfego pago no Meta Ads, funis de vendas, análise de CPC/CTR/CPA/ROAS, testes A/B e dashboards de KPIs para decisão orientada por dados.',
   },
   {
