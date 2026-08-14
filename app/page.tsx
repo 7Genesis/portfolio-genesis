@@ -84,6 +84,12 @@ const projects = [
 // Experiências profissionais (currículo)
 const experiences = [
   {
+    role: 'Estagiário de Engenharia da Computação',
+    org: 'SAAE Juazeiro · Água e Esgoto',
+    period: '2026 — Atual',
+    desc: 'Apoio no desenvolvimento e manutenção de software, administração e atualização de bancos de dados, participação em projetos com metodologia ágil Scrum, testes e correção de sistemas e elaboração de documentação técnica.',
+  },
+  {
     role: 'Desenvolvedor Backend / Full Stack',
     org: 'Autônomo · Tecnologia',
     period: '2024 — Atual',
