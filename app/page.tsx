@@ -421,7 +421,8 @@ export default function Portfolio() {
               <span className="font-display italic font-normal text-emerald-400">juntos</span>?
             </h2>
             <p className="mx-auto mt-8 max-w-xl text-lg text-white/60">
-              Aberto a vagas de desenvolvedor full stack e a projetos freelance.
+              Aberto a vagas de desenvolvedor full stack e a projetos freelance. Remoto ou presencial,
+              e com disponibilidade para mudar de cidade.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <a
