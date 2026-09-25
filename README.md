@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio — Genesis Melo
 
-## Getting Started
+Meu portfólio de desenvolvedor Full Stack: https://portfolio-genesis-one.vercel.app
 
-First, run the development server:
+Feito com **Next.js 16** (App Router), **React 19**, **TypeScript** e **Tailwind CSS 4**. As animações de rolagem usam **GSAP** (ScrollTrigger), e o hero é um vídeo dirigido pela rolagem.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Estrutura
+
+```
+app/page.tsx                 seções: projetos, skills, experiência, GitHub e contato
+app/layout.tsx               metadados (Open Graph, Twitter) e dados estruturados (schema.org)
+app/opengraph-image.png      imagem de compartilhamento (1200x630)
+app/robots.ts, sitemap.ts    SEO
+app/components/              hero (scroll-stage), sobre, constelação de skills, animações
+public/                      vídeos e pôsteres do hero, retrato
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Os textos de experiência e projetos são os mesmos do meu LinkedIn: https://www.linkedin.com/in/genesis-melo/
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Rodar localmente
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # build de produção
+npm run lint
+```
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Cada commit na branch `main` é publicado automaticamente pela Vercel.

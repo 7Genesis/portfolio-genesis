@@ -306,8 +306,8 @@ export default function ScrollStage() {
                 data-hero="sub"
                 className="font-display mt-8 max-w-3xl text-3xl italic leading-tight text-white/85 drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)] md:text-5xl"
               >
-                Desenvolvedor Full Stack — construo APIs escaláveis, interfaces modernas e
-                integrações com <span className="text-emerald-400">IA</span>.
+                Desenvolvedor Full Stack — construo chatbots com{' '}
+                <span className="text-emerald-400">IA</span>, apps e sistemas sob medida.
               </p>
 
               <div className="mt-12 flex flex-wrap items-center gap-4">

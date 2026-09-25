@@ -22,6 +22,11 @@ const tags = [
   { label: '/.net', x: 63, y: 82, size: 'sm' },
   { label: '/python', x: 15, y: 86, size: 'md' },
   { label: '/power-bi', x: 88, y: 74, size: 'sm' },
+  { label: '/nestjs', x: 48, y: 10, size: 'sm' },
+  { label: '/django', x: 7, y: 24, size: 'sm' },
+  { label: '/redis', x: 91, y: 20, size: 'sm' },
+  { label: '/react-native', x: 28, y: 56, size: 'md' },
+  { label: '/llm', x: 82, y: 91, size: 'sm' },
 ] as const;
 
 // Cadeia de conexões (índices dos tags) para desenhar as linhas.
@@ -39,6 +44,15 @@ const links: [number, number][] = [
   [4, 10],
   [2, 6],
   [6, 7],
+  [0, 11],
+  [11, 1],
+  [9, 12],
+  [12, 0],
+  [4, 13],
+  [13, 1],
+  [3, 14],
+  [14, 7],
+  [5, 15],
 ];
 
 const sizeClass: Record<string, string> = {

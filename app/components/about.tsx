@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -9,38 +10,38 @@ import { runReveal } from './animations';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-// Resultados reais (baseados no currículo)
+// Números que dá para conferir nos repositórios e no GitHub (24/09/2026)
 const metrics = [
   {
-    value: 300,
+    value: 185,
     prefix: '',
-    suffix: 'ms',
+    suffix: '',
     decimals: 0,
-    label: 'Tempo de resposta de APIs (100–300ms) após otimização de queries SQL.',
+    label: 'Testes automatizados no app do cidadão do SAAE, escrito em React Native e TypeScript.',
     accent: false,
   },
   {
-    value: 15,
+    value: 1000,
     prefix: '+',
-    suffix: '%',
+    suffix: '',
     decimals: 0,
-    label: 'Taxa de conversão em vendas complexas com atendimento consultivo.',
+    label: 'Contribuições no GitHub nos últimos 12 meses, contando os repositórios privados da equipe.',
     accent: true,
   },
   {
-    value: 20,
-    prefix: '−',
-    suffix: '%',
+    value: 8,
+    prefix: '',
+    suffix: ' mil',
     decimals: 0,
-    label: 'Erros de expedição, com otimização de fluxos e rastreabilidade.',
+    label: 'Linhas de Dart do app antigo reescritas em React Native e TypeScript.',
     accent: false,
   },
   {
-    value: 100,
-    prefix: '',
-    suffix: '%',
+    value: 10,
+    prefix: '+',
+    suffix: '',
     decimals: 0,
-    label: 'Arquitetura em camadas e autenticação JWT para modularidade e segurança.',
+    label: 'Projetos com código público no GitHub, de APIs a apps web e mobile.',
     accent: true,
   },
 ];
@@ -88,24 +89,32 @@ export default function About() {
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div data-ab="head" className="max-w-4xl">
-          <div className="mb-8 flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-emerald-300">
-            <span className="h-px w-10 bg-emerald-300/60" />
-            Resumo Profissional
+          <div className="mb-8 flex items-center gap-4">
+            <Image
+              src="/genesis-melo.jpg"
+              alt="Retrato de Genesis Melo"
+              width={72}
+              height={72}
+              className="h-[72px] w-[72px] rounded-full object-cover ring-2 ring-emerald-300/50"
+            />
+            <div className="flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-emerald-300">
+              <span className="h-px w-10 bg-emerald-300/60" />
+              Resumo Profissional
+            </div>
           </div>
 
           <h2 className="font-display dropcap text-3xl italic leading-tight text-[#f2efe6]/90 md:text-4xl">
-            Desenvolvedor com base sólida em Ciência da Computação e especialização
-            em Análise de Dados e IA Generativa — construindo interfaces modernas
-            com React/Next.js e APIs escaláveis e seguras em Node.js, TypeScript e
-            PostgreSQL.
+            Desenvolvedor Full Stack cursando Ciência da Computação e Engenharia de
+            Software — construo chatbots com IA, apps em React Native e APIs em
+            Python, Node.js e TypeScript, do banco de dados à interface.
           </h2>
 
           <p className="mt-6 max-w-2xl leading-relaxed text-[#f2efe6]/70">
-            Especialista em automação de processos, integração de webhooks e
-            consumo de APIs REST. Aplico Git e metodologias ágeis em projetos reais,
-            com foco em arquitetura em camadas e alta performance. Atualmente
-            focado em soluções SaaS e na integração de modelos de IA para
-            otimização de fluxos operacionais.
+            No SAAE de Juazeiro, coloquei em produção uma plataforma de atendimento
+            por WhatsApp com IA e reescrevi o app do cidadão, hoje em análise para
+            publicação. Venho de vendas, compras e logística, o que me ajuda a
+            entender o problema do negócio antes de escrever código. Trabalho com
+            Git, pull requests com code review e testes automatizados.
           </p>
         </div>
 
@@ -131,7 +140,6 @@ export default function About() {
                     prefix={m.prefix}
                     suffix={m.suffix}
                     decimals={m.decimals}
-                    locale={false}
                   />
                 </p>
                 <p className="mt-3 text-sm text-[#f2efe6]/70">{m.label}</p>
