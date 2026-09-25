@@ -106,7 +106,7 @@ export default function Hero() {
         <div className="mt-12 flex flex-wrap items-center gap-4">
           <a
             data-hero="cta"
-            href="https://wa.me/5511939281926?text=Ol%C3%A1%20Genesis%2C%20vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%21"
+            href="https://wa.me/5574998055726?text=Ol%C3%A1%20Genesis%2C%20vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%21"
             target="_blank"
             rel="noreferrer"
             className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-bold text-[#0a0a0a] transition-all hover:bg-white/85"

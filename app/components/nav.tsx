@@ -40,7 +40,7 @@ export default function Nav() {
 
         <div className="flex items-center gap-3">
           <a
-            href="https://wa.me/5511939281926?text=Ol%C3%A1%20Genesis%2C%20vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%21"
+            href="https://wa.me/5574998055726?text=Ol%C3%A1%20Genesis%2C%20vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%21"
             target="_blank"
             rel="noreferrer"
             className="rounded-full bg-white px-5 py-2 text-sm font-bold text-[#0a0a0a] transition-all hover:bg-white/85"
