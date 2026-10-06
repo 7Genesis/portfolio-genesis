@@ -18,13 +18,14 @@ const siteUrl = "https://portfolio-genesis-one.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Genesis Melo | Desenvolvedor Full Stack",
+  title: "Genesis Melo | Desenvolvedor Full Stack Júnior",
   description:
-    "Desenvolvedor Full Stack. Chatbots com IA, apps mobile, automações e sistemas sob medida em Python, Node.js, TypeScript e React.",
+    "Desenvolvedor Full Stack Júnior com foco em backend e APIs. Python, Django, TypeScript, Node.js, PostgreSQL, React e aplicações com IA.",
   alternates: { canonical: "/" },
   authors: [{ name: "Genesis Melo", url: siteUrl }],
   keywords: [
-    "Desenvolvedor Full Stack",
+    "Desenvolvedor Full Stack Júnior",
+    "Desenvolvedor Backend Júnior",
     "Python",
     "Node.js",
     "TypeScript",
@@ -33,9 +34,9 @@ export const metadata: Metadata = {
     "chatbot com IA",
   ],
   openGraph: {
-    title: "Genesis Melo | Desenvolvedor Full Stack",
+    title: "Genesis Melo | Desenvolvedor Full Stack Júnior",
     description:
-      "Chatbots com IA, apps mobile, automações e sistemas sob medida em Python, Node.js, TypeScript e React.",
+      "Desenvolvedor Full Stack Júnior com foco em backend e APIs. Python, Django, TypeScript, Node.js, PostgreSQL, React e aplicações com IA.",
     url: siteUrl,
     siteName: "Genesis Melo — Portfólio",
     locale: "pt_BR",
@@ -43,9 +44,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Genesis Melo | Desenvolvedor Full Stack",
+    title: "Genesis Melo | Desenvolvedor Full Stack Júnior",
     description:
-      "Chatbots com IA, apps mobile, automações e sistemas sob medida em Python, Node.js, TypeScript e React.",
+      "Desenvolvedor Full Stack Júnior com foco em backend e APIs. Python, Django, TypeScript, Node.js, PostgreSQL, React e aplicações com IA.",
   },
 };
 
@@ -54,7 +55,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Genesis Melo",
-  jobTitle: "Desenvolvedor Full Stack",
+  jobTitle: "Desenvolvedor Full Stack Júnior",
   url: siteUrl,
   image: `${siteUrl}/genesis-melo.jpg`,
   sameAs: ["https://www.linkedin.com/in/genesis-melo/", "https://github.com/7Genesis"],

@@ -25,6 +25,7 @@ interface Project {
   href?: string;
   cta?: string;
   note?: string;
+  secondaryNote?: string;
 }
 
 // Sistemas e APIs: o que construí e onde está o código.
@@ -38,8 +39,10 @@ const systems: Project[] = [
   {
     title: 'App do cidadão do SAAE',
     tag: 'Mobile',
-    desc: 'Reescrito de Flutter para React Native (Expo) e TypeScript, com 185 testes automatizados. Faturas, serviços e chamados. Em análise para publicação.',
-    note: 'Código privado da equipe',
+    desc: 'Publicado na Google Play. Reescrito de Flutter para React Native (Expo) e TypeScript, com 185 testes automatizados. Faturas, serviços e chamados.',
+    href: 'https://play.google.com/store/apps/details?id=com.saaejuazeiro.app',
+    cta: 'Ver na Google Play',
+    secondaryNote: 'Código privado da equipe',
   },
   {
     title: 'CoreAcademy MeetPoint',
@@ -218,6 +221,9 @@ function ProjectCard({ p }: { p: Project }) {
       >
         {p.href ? p.cta : p.note}
       </span>
+      {p.secondaryNote && (
+        <span className="mt-2 text-xs font-medium text-[#0a0a0a]/45">{p.secondaryNote}</span>
+      )}
     </>
   );
 
@@ -421,8 +427,8 @@ export default function Portfolio() {
               <span className="font-display italic font-normal text-emerald-400">juntos</span>?
             </h2>
             <p className="mx-auto mt-8 max-w-xl text-lg text-white/60">
-              Aberto a vagas de desenvolvedor full stack e a projetos freelance. Remoto ou presencial,
-              e com disponibilidade para mudar de cidade.
+              Aberto a oportunidades júnior em desenvolvimento Backend ou Full Stack e a projetos
+              freelance. Disponível para remoto, híbrido ou presencial e para mudança de cidade.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <a
@@ -451,7 +457,7 @@ export default function Portfolio() {
           </Reveal>
 
           <p className="mt-16 text-sm text-white/30">
-            © {new Date().getFullYear()} Genesis Melo · Desenvolvedor Full Stack
+            © {new Date().getFullYear()} Genesis Melo · Desenvolvedor Full Stack Júnior
           </p>
         </div>
       </footer>

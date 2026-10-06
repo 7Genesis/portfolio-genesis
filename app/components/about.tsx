@@ -104,15 +104,15 @@ export default function About() {
           </div>
 
           <h2 className="font-display dropcap text-3xl italic leading-tight text-[#f2efe6]/90 md:text-4xl">
-            Desenvolvedor Full Stack cursando Ciência da Computação e Engenharia de
+            Desenvolvedor Full Stack Júnior, cursando Ciência da Computação e Engenharia de
             Software — construo chatbots com IA, apps em React Native e APIs em
             Python, Node.js e TypeScript, do banco de dados à interface.
           </h2>
 
           <p className="mt-6 max-w-2xl leading-relaxed text-[#f2efe6]/70">
             No SAAE de Juazeiro, coloquei em produção uma plataforma de atendimento
-            por WhatsApp com IA e reescrevi o app do cidadão, hoje em análise para
-            publicação. Venho de vendas, compras e logística, o que me ajuda a
+            por WhatsApp com IA e reescrevi o app do cidadão, publicado na Google
+            Play. Venho de vendas, compras e logística, o que me ajuda a
             entender o problema do negócio antes de escrever código. Trabalho com
             Git, pull requests com code review e testes automatizados.
           </p>
