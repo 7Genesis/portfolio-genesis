@@ -107,8 +107,12 @@ export default function PortfolioIdeShell({ children }: { children: ReactNode })
   const commands = [
     ...FILES.map((file) => ({ label: `Abrir ${file.name}`, detail: `Ir para ${file.id === 'inicio' ? 'o início' : file.id}`, run: () => navigate(file.id) })),
     { label: 'Abrir LeadFlow Engine', detail: 'Projeto de backend com NestJS, Redis e PostgreSQL', run: () => navigate('projetos') },
+    { label: 'Abrir Atendimento SAAE', detail: 'Integração com WhatsApp, GSAN e Django', run: () => navigate('projetos') },
     { label: 'Abrir app do cidadão', detail: 'Aplicativo React Native publicado na Google Play', run: () => navigate('projetos') },
     { label: 'Ver landing pages', detail: 'Páginas publicadas e projetos web', run: () => navigate('landing-pages') },
+    { label: 'Abrir CoreAcademy MeetPoint', detail: 'SaaS multi-tenant', run: () => navigate('projetos') },
+    { label: 'Abrir CreditFlow', detail: 'API .NET com Clean Architecture', run: () => navigate('projetos') },
+    { label: 'Abrir StockFlow', detail: 'Produto web feito com Next.js', run: () => navigate('projetos') },
     { label: 'Abrir terminal de exemplo', detail: 'Mostrar uma requisição de integração', run: () => { setTerminalOpen(true); setPaletteOpen(false); commandCenterRef.current?.focus(); } },
     { label: 'Abrir GitHub', detail: 'Ver repositórios e código', run: () => navigate('github') },
     { label: 'Ir para contato', detail: 'Encontrar e-mail e redes', run: () => navigate('contato') },
