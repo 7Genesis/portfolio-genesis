@@ -1,11 +1,11 @@
 'use client';
 
 import { useCallback, useEffect, useRef } from 'react';
-import Image from 'next/image';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ArrowUpRight } from './ui';
 import { runReveal } from './animations';
+import HeroIde from './hero-ide';
 
 const SCREENS = 3;
 const PHRASES = [
@@ -146,65 +146,8 @@ export default function ScrollStage() {
                 </div>
               </div>
 
-              <div data-hero="artifact" className="hero-artifact relative mx-auto w-full max-w-[42rem]">
-                <div className="hero-artifact__backdrop" aria-hidden="true" />
-                <div className="hero-artifact__sheet">
-                  <div className="hero-artifact__topline">
-                    <span>PROJETO EM DESTAQUE</span>
-                    <span>01 / 03</span>
-                  </div>
-                  <div className="hero-artifact__title-row">
-                    <div>
-                      <p className="hero-artifact__eyebrow">NestJS · Redis · PostgreSQL</p>
-                      <h2>LeadFlow <i>Engine</i></h2>
-                    </div>
-                    <span className="hero-artifact__mark" aria-hidden="true">↗</span>
-                  </div>
-
-                  <div className="hero-artifact__showcase">
-                    <svg className="hero-artifact__route" viewBox="0 0 600 235" role="img" aria-labelledby="flow-title flow-desc">
-                      <title id="flow-title">Fluxo de distribuição do LeadFlow Engine</title>
-                      <desc id="flow-desc">Um lead chega por webhook, passa por validação, entra na fila Redis e segue para o vendedor certo.</desc>
-                      <path className="hero-artifact__route-line" d="M82 118 C170 118 157 64 242 64 S326 174 411 174 S483 118 530 118" />
-                      <path className="hero-artifact__route-line hero-artifact__route-line--fine" d="M82 128 C170 128 157 74 242 74 S326 184 411 184 S483 128 530 128" />
-                      <g className="hero-artifact__node" transform="translate(82 118)">
-                        <circle r="35" /><circle className="hero-artifact__node-core" r="7" />
-                        <text y="59">WEBHOOK</text>
-                      </g>
-                      <g className="hero-artifact__node" transform="translate(242 64)">
-                        <circle r="35" /><circle className="hero-artifact__node-core" r="7" />
-                        <text y="59">VALIDAÇÃO</text>
-                      </g>
-                      <g className="hero-artifact__node hero-artifact__node--active" transform="translate(411 174)">
-                        <circle r="35" /><circle className="hero-artifact__node-core" r="7" />
-                        <text y="59">FILA REDIS</text>
-                      </g>
-                      <g className="hero-artifact__node" transform="translate(530 118)">
-                        <circle r="35" /><circle className="hero-artifact__node-core" r="7" />
-                        <text y="59">RODÍZIO</text>
-                      </g>
-                      <circle className="hero-artifact__traveler" r="5"><animateMotion dur="5s" repeatCount="indefinite" path="M82 118 C170 118 157 64 242 64 S326 174 411 174 S483 118 530 118" /></circle>
-                    </svg>
-
-                    <div className="hero-artifact__proofs" aria-label="Landing pages em destaque">
-                      <span className="hero-artifact__proof-heading">WEB · NO AR</span>
-                      <a className="hero-artifact__proof-link" href="https://lp.novalab.me/conectalab/" target="_blank" rel="noreferrer" aria-label="Abrir a landing page ConectaLab">
-                        <Image src="/evidence/lp-conectalab.webp" alt="" width={960} height={576} sizes="(max-width: 900px) 0px, 180px" />
-                        <span>ConectaLab <i>↗</i></span>
-                      </a>
-                      <a className="hero-artifact__proof-link" href="https://docctormedjacarepagua.com.br/odontologia/" target="_blank" rel="noreferrer" aria-label="Abrir a landing page Docctor Med Jacarepaguá">
-                        <Image src="/evidence/lp-docctor-jacarepagua.webp" alt="" width={960} height={576} sizes="(max-width: 900px) 0px, 180px" />
-                        <span>Docctor Med <i>↗</i></span>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="hero-artifact__foot">
-                    <span>Receber → validar → enfileirar → distribuir</span>
-                    <a href="https://github.com/7Genesis/leadflow-engine" target="_blank" rel="noreferrer">Ver código <ArrowUpRight /></a>
-                  </div>
-                </div>
-                <div className="hero-artifact__note">Uma oportunidade por vez.<br />O sistema cuida do caminho.</div>
+              <div data-hero="artifact" className="hero-ide-wrap relative mx-auto w-full max-w-[48rem]">
+                <HeroIde />
               </div>
             </div>
           </div>
