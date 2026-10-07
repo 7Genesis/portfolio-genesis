@@ -1,6 +1,5 @@
 import React from 'react';
-import Nav from './components/nav';
-import ScrollStage from './components/scroll-stage';
+import PortfolioIdeShell from './components/portfolio-ide-shell';
 import AppProof from './components/app-proof';
 import LandingGallery from './components/landing-gallery';
 import { Reveal } from './components/animations';
@@ -61,10 +60,31 @@ function FolioLabel({ n, children }: { n: string; children: React.ReactNode }) {
 
 export default function Portfolio() {
   return (
-    <main className="portfolio-folio">
+    <div className="portfolio-folio">
       <RevealFailsafe />
-      <Nav />
-      <ScrollStage />
+      <PortfolioIdeShell>
+      <section id="inicio" className="folio-welcome">
+        <div className="folio-welcome__eyebrow"><span>README.md</span><span>01 · PERFIL</span></div>
+        <div className="folio-welcome__body">
+          <div>
+            <p className="folio-welcome__comment"># Olá, eu sou</p>
+            <h1>Genesis<br /><i>Melo.</i></h1>
+            <p className="folio-welcome__role">Desenvolvedor Full Stack Júnior</p>
+            <p className="folio-welcome__intro">Construo APIs, integrações e produtos web e mobile. Gosto de entender o problema, organizar o fluxo e entregar software que funciona no dia a dia.</p>
+            <div className="folio-welcome__actions">
+              <a href="#projetos">Ver projetos <ArrowUpRight /></a>
+              <a href="https://www.linkedin.com/in/genesis-melo/" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight /></a>
+            </div>
+          </div>
+          <aside className="folio-welcome__snapshot" aria-label="Resumo profissional">
+            <div><span>FOCO</span><strong>Backend, APIs<br />e integrações</strong></div>
+            <div><span>STACK PRINCIPAL</span><strong>Node.js · TypeScript<br />NestJS · PostgreSQL</strong></div>
+            <div><span>AGORA</span><strong>Desenvolvimento no<br />SAAE Juazeiro</strong></div>
+            <a href="#percurso">Abrir percurso <span>↗</span></a>
+          </aside>
+        </div>
+        <div className="folio-welcome__footer"><span>Full Stack · Backend em destaque</span><span>Juazeiro, Bahia · Brasil</span><a href="#sobre">Leia o README ↓</a></div>
+      </section>
 
       <section id="sobre" className="folio-intro">
         <div className="folio-origin" aria-label="A trajetória de Genesis: pessoas, processos e tecnologia">
@@ -189,6 +209,7 @@ export default function Portfolio() {
         <div className="folio-footer__content"><h2>Tem um problema<br />interessante?</h2><a href="https://wa.me/5574998055726?text=Ol%C3%A1%20Genesis%2C%20vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%21" target="_blank" rel="noreferrer">Me conta. <ArrowUpRight /></a></div>
         <div className="folio-footer__bottom"><span>Genesis Melo · Desenvolvedor Full Stack Júnior</span><div><a href="https://www.linkedin.com/in/genesis-melo/" target="_blank" rel="noreferrer">LinkedIn</a><a href="mailto:genesis.melo4398@hotmail.com">E-mail</a><span>© {new Date().getFullYear()}</span></div></div>
       </footer>
-    </main>
+      </PortfolioIdeShell>
+    </div>
   );
 }

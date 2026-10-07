@@ -50,7 +50,7 @@ const landingPages = [
 
 export default function LandingGallery() {
   return (
-    <section className="folio-lp-gallery" aria-labelledby="folio-lp-title">
+    <section id="landing-pages" className="folio-lp-gallery" aria-labelledby="folio-lp-title">
       <div className="folio-lp-gallery__head">
         <div>
           <span className="folio-lp-gallery__eyebrow">WEB · AQUISIÇÃO · EXPERIÊNCIA</span>
