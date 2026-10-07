@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from './components/nav';
-import ScrollStage from './components/scroll-stage';
+import Hero from './components/hero';
 import About from './components/about';
 import Constellation from './components/constellation';
 import { Reveal, RevealStagger } from './components/animations';
@@ -27,47 +27,47 @@ interface Project {
   note?: string;
 }
 
-// Sistemas e APIs: o que construí e onde está o código.
+// Projetos priorizados para vagas júnior de backend.
 const systems: Project[] = [
   {
-    title: 'Plataforma de atendimento do SAAE',
-    tag: 'IA · WhatsApp',
-    desc: 'Chatbot com LLM integrado ao GSAN, com passagem para atendente humano, painel de atendimento e pesquisa de satisfação. Python, Django, Celery e Redis.',
-    note: 'Código privado da equipe',
+    title: 'LeadFlow Engine',
+    tag: 'Backend · NestJS',
+    desc: 'API que recebe leads por webhook, enfileira no Redis e distribui entre vendedores em rodízio, com painel Bull Board. NestJS, Prisma e PostgreSQL.',
+    href: 'https://github.com/7Genesis/leadflow-engine',
+    cta: 'Ver código no GitHub',
   },
   {
-    title: 'App do cidadão do SAAE',
-    tag: 'Mobile',
-    desc: 'Reescrito de Flutter para React Native (Expo) e TypeScript, com 185 testes automatizados. Faturas, serviços e chamados. Em análise para publicação.',
+    title: 'Plataforma de atendimento do SAAE',
+    tag: 'Backend · Python',
+    desc: 'Plataforma de atendimento por WhatsApp com chatbot integrado ao GSAN, encaminhamento para atendente, painel e pesquisa de satisfação. Python, Django, Celery e Redis.',
     note: 'Código privado da equipe',
   },
   {
     title: 'CoreAcademy MeetPoint',
-    tag: 'SaaS',
-    desc: 'Plataforma white-label e multi-tenant com cursos, comunidades, chat privado, vagas e eventos, pagamentos e criptografia de dados sensíveis. NestJS, Prisma e React.',
+    tag: 'Backend · SaaS',
+    desc: 'Plataforma white-label e multi-tenant com cursos, comunidades, chat, vagas, eventos, pagamentos e proteção de dados sensíveis. NestJS, Prisma e React.',
     href: 'https://novalab.me/meetpoint',
-    cta: 'Ver demo',
-  },
-  {
-    title: 'LeadFlow Engine',
-    tag: 'Backend',
-    desc: 'Recebe leads por webhook, enfileira no Redis e distribui entre vendedores em rodízio, com painel Bull Board. NestJS, Prisma e PostgreSQL.',
-    href: 'https://github.com/7Genesis/leadflow-engine',
-    cta: 'Ver no GitHub',
+    cta: 'Ver demonstração',
   },
   {
     title: 'CreditFlow',
-    tag: 'API .NET',
-    desc: 'API de propostas de crédito em .NET 10 com Clean Architecture, FluentValidation e testes xUnit.',
+    tag: 'Backend · .NET',
+    desc: 'API de propostas de crédito em .NET 10, organizada com Clean Architecture, FluentValidation e testes xUnit.',
     href: 'https://github.com/7Genesis/CreditFlow',
-    cta: 'Ver no GitHub',
+    cta: 'Ver código no GitHub',
   },
   {
     title: 'StockFlow',
-    tag: 'SaaS',
-    desc: 'Estoque multiempresa com solicitações e aprovação, fornecedores e importação de NF-e (XML). Next.js e Prisma.',
+    tag: 'SaaS · Next.js',
+    desc: 'Sistema multiempresa de estoque com solicitações, aprovações, fornecedores e importação de NF-e (XML). Next.js e Prisma.',
     href: 'https://stockflow-cyan.vercel.app',
-    cta: 'Ver demo',
+    cta: 'Ver demonstração',
+  },
+  {
+    title: 'App do cidadão do SAAE',
+    tag: 'Mobile',
+    desc: 'Reescrito de Flutter para React Native (Expo) e TypeScript. Reúne faturas, serviços e chamados e está em análise para publicação.',
+    note: 'Código privado da equipe',
   },
 ];
 
@@ -119,7 +119,7 @@ const experiences = [
     desc: 'Plataforma de atendimento por WhatsApp em Python/Django, com chatbot de IA integrado ao GSAN, painel de atendimento e testes com pytest. Reescrita do app do cidadão em React Native (Expo) e TypeScript. APIs REST e pull requests com code review.',
   },
   {
-    role: 'Desenvolvedor Full Stack',
+    role: 'Desenvolvedor Backend — projetos próprios e freelance',
     org: 'Projetos próprios e freelance',
     period: 'Dez 2025 — Atual',
     desc: 'Sites e landing pages para clientes, LeadFlow Engine (webhooks, fila e round-robin), StockFlow (estoque multiempresa) e APIs REST com JWT, em camadas, sobre PostgreSQL.',
@@ -245,8 +245,8 @@ export default function Portfolio() {
       <RevealFailsafe />
       <Nav />
 
-      {/* HERO — palco cinematográfico: vídeo dirigido pela rolagem */}
-      <ScrollStage />
+      {/* Apresentação direta para recrutamento de backend júnior. */}
+      <Hero />
 
       {/* SOBRE + RESULTADOS — bloco esmeralda */}
       <About />
@@ -260,7 +260,7 @@ export default function Portfolio() {
               Sistemas que eu construí.
             </h2>
             <p className="font-display mt-6 max-w-2xl text-2xl italic leading-snug text-[#0a0a0a]/70 md:text-3xl">
-              Do chatbot com IA ao app mobile: o que cada projeto faz e onde está o código.
+              APIs, integrações e sistemas backend: veja o problema, as tecnologias e o código disponível.
             </p>
           </Reveal>
 
@@ -292,8 +292,8 @@ export default function Portfolio() {
               Uma constelação de skills.
             </h2>
             <p className="font-display mt-6 max-w-2xl text-2xl italic leading-snug text-white/60 md:text-3xl">
-              Backend, dados, mobile e frontend conectados num só sistema — do banco de
-              dados à interface.
+              Foco em APIs e serviços backend, com experiência complementar em dados,
+              integrações e aplicações web e mobile.
             </p>
           </Reveal>
           <Constellation />
@@ -421,7 +421,7 @@ export default function Portfolio() {
               <span className="font-display italic font-normal text-emerald-400">juntos</span>?
             </h2>
             <p className="mx-auto mt-8 max-w-xl text-lg text-white/60">
-              Aberto a vagas de desenvolvedor full stack e a projetos freelance. Remoto ou presencial,
+              Em busca de oportunidade júnior em desenvolvimento backend. Também aberto a projetos freelance. Remoto ou presencial,
               e com disponibilidade para mudar de cidade.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -451,7 +451,7 @@ export default function Portfolio() {
           </Reveal>
 
           <p className="mt-16 text-sm text-white/30">
-            © {new Date().getFullYear()} Genesis Melo · Desenvolvedor Full Stack
+            © {new Date().getFullYear()} Genesis Melo · Desenvolvedor Backend Júnior
           </p>
         </div>
       </footer>

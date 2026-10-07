@@ -18,13 +18,13 @@ const siteUrl = "https://portfolio-genesis-one.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Genesis Melo | Desenvolvedor Full Stack",
+  title: "Genesis Melo | Desenvolvedor Backend Júnior",
   description:
-    "Desenvolvedor Full Stack. Chatbots com IA, apps mobile, automações e sistemas sob medida em Python, Node.js, TypeScript e React.",
+    "Desenvolvedor Backend Júnior com experiência em APIs, integrações e sistemas usando Node.js, TypeScript, NestJS, Python, Django e PostgreSQL.",
   alternates: { canonical: "/" },
   authors: [{ name: "Genesis Melo", url: siteUrl }],
   keywords: [
-    "Desenvolvedor Full Stack",
+    "Desenvolvedor Backend Júnior",
     "Python",
     "Node.js",
     "TypeScript",
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     "chatbot com IA",
   ],
   openGraph: {
-    title: "Genesis Melo | Desenvolvedor Full Stack",
+    title: "Genesis Melo | Desenvolvedor Backend Júnior",
     description:
-      "Chatbots com IA, apps mobile, automações e sistemas sob medida em Python, Node.js, TypeScript e React.",
+      "APIs, integrações e sistemas backend usando Node.js, TypeScript, NestJS, Python, Django e PostgreSQL.",
     url: siteUrl,
     siteName: "Genesis Melo — Portfólio",
     locale: "pt_BR",
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Genesis Melo | Desenvolvedor Full Stack",
+    title: "Genesis Melo | Desenvolvedor Backend Júnior",
     description:
-      "Chatbots com IA, apps mobile, automações e sistemas sob medida em Python, Node.js, TypeScript e React.",
+      "APIs, integrações e sistemas backend usando Node.js, TypeScript, NestJS, Python, Django e PostgreSQL.",
   },
 };
 
@@ -54,18 +54,21 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Genesis Melo",
-  jobTitle: "Desenvolvedor Full Stack",
+  jobTitle: "Desenvolvedor Backend Júnior",
   url: siteUrl,
   image: `${siteUrl}/genesis-melo.jpg`,
   sameAs: ["https://www.linkedin.com/in/genesis-melo/", "https://github.com/7Genesis"],
   knowsAbout: [
+    "NestJS",
+    "PostgreSQL",
+    "Redis",
     "Python",
     "Django",
     "Node.js",
     "TypeScript",
+    "APIs REST",
     "React",
     "React Native",
-    "PostgreSQL",
     "Chatbots com IA",
   ],
 };
