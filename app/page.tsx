@@ -80,6 +80,7 @@ export default function Portfolio() {
       <PortfolioIdeShell>
       <section id="inicio" className="folio-welcome">
         <div className="folio-welcome__eyebrow"><span>README.md</span><span>01 · PERFIL</span></div>
+        <AssistantOrbits />
         <div className="folio-welcome__body">
           <div>
             <p className="folio-welcome__comment"># Olá, eu sou</p>
@@ -98,7 +99,6 @@ export default function Portfolio() {
             <a href="#percurso">Abrir percurso <span>↗</span></a>
           </aside>
         </div>
-        <AssistantOrbits />
         <div className="folio-welcome__footer"><span>Full Stack · Backend em destaque</span><span>Juazeiro, Bahia · Brasil</span><a href="#sobre">Leia o README ↓</a></div>
       </section>
 
