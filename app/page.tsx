@@ -28,7 +28,7 @@ interface Project {
   secondaryNote?: string;
 }
 
-// Projetos priorizados para vagas júnior de backend.
+// Projetos full stack, com APIs e serviços backend em primeiro plano.
 const systems: Project[] = [
   {
     title: 'LeadFlow Engine',
@@ -427,8 +427,8 @@ export default function Portfolio() {
               <span className="font-display italic font-normal text-emerald-400">juntos</span>?
             </h2>
             <p className="mx-auto mt-8 max-w-xl text-lg text-white/60">
-              Em busca de oportunidades júnior em desenvolvimento backend e aberto a projetos
-              freelance. Disponível para trabalho remoto, híbrido ou presencial e para mudança de cidade.
+              Em busca de oportunidades júnior Full Stack, com foco especial em backend, APIs e
+              integrações. Também aberto a projetos freelance e a trabalho remoto, híbrido ou presencial.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <a
@@ -457,7 +457,7 @@ export default function Portfolio() {
           </Reveal>
 
           <p className="mt-16 text-sm text-white/30">
-            © {new Date().getFullYear()} Genesis Melo · Desenvolvedor Backend Júnior
+            © {new Date().getFullYear()} Genesis Melo · Desenvolvedor Full Stack Júnior
           </p>
         </div>
       </footer>

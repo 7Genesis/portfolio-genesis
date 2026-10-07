@@ -22,7 +22,7 @@ export default function Nav() {
           </span>
           <span className="leading-tight">
             <span className="block text-sm font-bold text-white">Genesis Melo</span>
-            <span className="block text-xs text-white/50">Backend Júnior</span>
+            <span className="block text-xs text-white/50">Full Stack Júnior</span>
           </span>
         </a>
 

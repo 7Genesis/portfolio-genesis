@@ -18,14 +18,14 @@ const siteUrl = "https://portfolio-genesis-one.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Genesis Melo | Desenvolvedor Backend Júnior",
+  title: "Genesis Melo | Desenvolvedor Full Stack Júnior",
   description:
-    "Desenvolvedor Backend Júnior com experiência em APIs, integrações e sistemas usando Node.js, TypeScript, NestJS, Python, Django e PostgreSQL.",
+    "Desenvolvedor Full Stack Júnior com foco em backend, APIs e integrações. Node.js, TypeScript, NestJS, Python, Django, PostgreSQL, React e React Native.",
   alternates: { canonical: "/" },
   authors: [{ name: "Genesis Melo", url: siteUrl }],
   keywords: [
-    "Desenvolvedor Backend Júnior",
     "Desenvolvedor Full Stack Júnior",
+    "Backend e APIs",
     "Python",
     "Node.js",
     "TypeScript",
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
     "chatbot com IA",
   ],
   openGraph: {
-    title: "Genesis Melo | Desenvolvedor Backend Júnior",
+    title: "Genesis Melo | Desenvolvedor Full Stack Júnior",
     description:
-      "APIs, integrações e sistemas backend usando Node.js, TypeScript, NestJS, Python, Django e PostgreSQL.",
+      "Full Stack Júnior com foco em backend: APIs, integrações e aplicações web e mobile com Node.js, TypeScript, NestJS, Python, React e PostgreSQL.",
     url: siteUrl,
     siteName: "Genesis Melo — Portfólio",
     locale: "pt_BR",
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Genesis Melo | Desenvolvedor Backend Júnior",
+    title: "Genesis Melo | Desenvolvedor Full Stack Júnior",
     description:
-      "APIs, integrações e sistemas backend usando Node.js, TypeScript, NestJS, Python, Django e PostgreSQL.",
+      "Full Stack Júnior com foco em backend: APIs, integrações e aplicações web e mobile com Node.js, TypeScript, NestJS, Python, React e PostgreSQL.",
   },
 };
 
@@ -55,7 +55,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Genesis Melo",
-  jobTitle: "Desenvolvedor Backend Júnior",
+  jobTitle: "Desenvolvedor Full Stack Júnior",
   url: siteUrl,
   image: `${siteUrl}/genesis-melo.jpg`,
   sameAs: ["https://www.linkedin.com/in/genesis-melo/", "https://github.com/7Genesis"],

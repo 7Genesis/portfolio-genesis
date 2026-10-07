@@ -80,10 +80,10 @@ export default function Hero() {
             data-hero="sub"
             className="mt-6 max-w-3xl text-2xl font-semibold leading-tight text-emerald-300 md:text-4xl"
           >
-            Desenvolvedor Backend Júnior
+            Desenvolvedor Full Stack Júnior
           </p>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/75">
-            Construo APIs e integrações com Node.js, TypeScript, NestJS, Python e PostgreSQL. Atualmente, desenvolvo soluções digitais no SAAE Juazeiro enquanto curso Ciência da Computação e Engenharia de Software.
+            Construo APIs e serviços com Node.js, TypeScript, NestJS, Python e PostgreSQL, além de aplicações web e mobile com React, Next.js e React Native. Meu foco principal é backend, integrações e qualidade de entrega. Atualmente, desenvolvo soluções digitais no SAAE Juazeiro enquanto curso Ciência da Computação e Engenharia de Software.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -92,7 +92,7 @@ export default function Hero() {
               href="#projetos"
               className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-bold text-[#0a0a0a] transition-colors hover:bg-white/85"
             >
-              Ver projetos backend
+              Ver projetos e código
               <ArrowUpRight />
             </a>
             <a
