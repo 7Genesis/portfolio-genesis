@@ -84,6 +84,26 @@
 .folio-welcome h1 i { color: #a5bd91; font-family: var(--font-serif); font-weight: 400; }
 .folio-welcome__role { margin-top: 1.5rem; color: #83aeca; font-family: ui-monospace, monospace; font-size: clamp(0.85rem, 1.4vw, 1.15rem); }
 .folio-welcome__intro { max-width: 40rem; margin-top: 1rem; color: #b8b8b8; font-size: clamp(1rem, 1.4vw, 1.2rem); line-height: 1.75; }
+.folio-welcome__code-editor { max-width: 39rem; margin-top: 1.15rem; overflow: hidden; border: 1px solid #3b3b3b; background: #191919; color: #d4d4d4; font: 0.59rem/1.65 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.folio-welcome__code-tab { display: flex; height: 1.65rem; align-items: center; gap: 0.6rem; padding: 0 0.65rem; border-bottom: 1px solid #333; background: #252526; color: #bdbdbd; }
+.folio-welcome__code-tab > span { display: flex; gap: 0.22rem; }
+.folio-welcome__code-tab > span i { width: 0.38rem; height: 0.38rem; border-radius: 50%; background: #ed6a5e; }
+.folio-welcome__code-tab > span i:nth-child(2) { background: #f4bf50; }
+.folio-welcome__code-tab > span i:nth-child(3) { background: #61c554; }
+.folio-welcome__code-tab strong { font-weight: 500; }
+.folio-welcome__code-tab small { margin-left: auto; color: #888; font-size: 0.52rem; }
+.folio-welcome__code-lines { overflow-x: auto; padding: 0.38rem 0 0.48rem; scrollbar-width: thin; }
+.folio-welcome__code-line { display: grid; width: max-content; min-width: 100%; grid-template-columns: 2rem max-content; padding-right: 0.75rem; }
+.folio-welcome__code-line > span { padding-right: 0.55rem; color: #707070; text-align: right; user-select: none; }
+.folio-welcome__code-line code { display: block; width: 0; overflow: hidden; color: #d4d4d4; white-space: nowrap; animation: code-type 2.25s steps(38, end) forwards; }
+.folio-welcome__code-line:nth-child(2) code { animation-delay: 1.6s; }
+.folio-welcome__code-line:nth-child(3) code { animation-delay: 3.2s; }
+.folio-welcome__code-line i { color: #c586c0; font-style: normal; }
+.folio-welcome__code-line b { color: #ce9178; font-weight: 400; }
+.folio-welcome__code-line em { color: #dcdcaa; font-style: normal; }
+.folio-welcome__code-line mark { display: inline-block; width: 1px; height: 0.82em; margin-left: 0.15rem; background: #a6c390; vertical-align: -0.1em; animation: code-caret 1s steps(2, start) infinite; }
+@keyframes code-type { to { width: 38ch; } }
+@keyframes code-caret { to { visibility: hidden; } }
 .folio-welcome__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.8rem; }
 .folio-welcome__actions a { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 0.9rem; border: 1px solid #555; border-radius: 0.25rem; color: #ddd; font-size: 0.72rem; text-decoration: none; }
 .folio-welcome__actions a:first-child { border-color: #607f56; background: #31422c; }
@@ -176,6 +196,7 @@
   .folio-welcome__eyebrow, .folio-welcome__footer { font-size: 0.52rem; }
   .folio-welcome__body { grid-template-columns: 1fr; gap: 2rem; padding: 2.3rem 0; }
   .folio-welcome__companion { width: 2.35rem; height: 2.35rem; }
+  .folio-welcome__code-editor { max-width: 100%; }
   .folio-welcome h1 { font-size: clamp(4rem, 17vw, 6.8rem); }
   .folio-welcome__role { margin-top: 1.1rem; }
   .folio-welcome__intro { font-size: 0.95rem; }
@@ -193,6 +214,8 @@
   .folio-welcome__companion { animation: none; }
   .folio-welcome__companion--claude { top: 1.5rem; left: 1.5rem; }
   .folio-welcome__companion--codex { top: auto; right: 1.5rem; bottom: 1.5rem; left: auto; }
+  .folio-welcome__code-line code { width: auto; animation: none; }
+  .folio-welcome__code-line mark { animation: none; }
 }
 
 /* A small imprint-style masthead replaces the familiar pill navbar. */
