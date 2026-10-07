@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from './components/nav';
 import ScrollStage from './components/scroll-stage';
 import AppProof from './components/app-proof';
+import LandingGallery from './components/landing-gallery';
 import { Reveal } from './components/animations';
 import { ArrowUpRight } from './components/ui';
 import RevealFailsafe from './components/reveal-failsafe';
@@ -34,11 +35,7 @@ const otherWork = [
 ];
 
 const webWork = [
-  { title: 'Docctor Med · Jacarepaguá', kind: 'SEO local', href: 'https://docctormedjacarepagua.com.br/odontologia/' },
-  { title: 'Docctor Med · Caxias do Sul', kind: 'Performance', href: 'https://docctormedcaxiasdosul.com.br/odontologia/' },
   { title: 'NovaLab', kind: 'Site institucional', href: 'https://novalab.me/' },
-  { title: 'StarFit · Transnordestina', kind: 'Página de vendas', href: 'https://starfitpnz.com.br/transnordestina/' },
-  { title: 'ConectaLab', kind: 'Captação de leads', href: 'https://lp.novalab.me/conectalab/' },
 ];
 
 const experience = [
@@ -126,6 +123,7 @@ export default function Portfolio() {
         </div>
 
         <AppProof />
+        <LandingGallery />
 
         <div className="folio-indexes">
           <div>
