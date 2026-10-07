@@ -610,3 +610,24 @@
   .folio-lp-card, .folio-lp-card__screen img { transition: none; }
   .folio-nav__links a, .folio-nav__mobile a, .hero-stage__secondary { transition: none; }
 }
+
+/* Keep older portfolio sections on the same dark IDE surface. */
+.folio-origin { border-color: var(--rule); background: #252526; }
+.folio-origin::after { border-color: var(--rule); }
+.folio-origin__drawing path { stroke: #8fa283; }
+.folio-origin__drawing circle { fill: #252526; stroke: #8fa283; }
+.app-proof { border-color: var(--rule); }
+.app-proof__visual::before, .app-proof__visual::after { border-color: rgb(143 162 131 / 27%); }
+.app-proof__visual::after { border-color: var(--rule); }
+.app-proof__device { border-color: #555; box-shadow: 0 1.7rem 3rem rgb(0 0 0 / 36%), 0 0 0 0.45rem rgb(255 255 255 / 7%); }
+.app-proof__device figcaption { border-color: #555; background: rgb(37 37 38 / 94%); color: #c5c5c5; box-shadow: 0 10px 22px rgb(0 0 0 / 22%); }
+.folio-lp-card { border-color: var(--rule); background: #252526; }
+.folio-lp-card:hover, .folio-lp-card:focus-visible { border-color: rgb(143 181 122 / 60%); box-shadow: 0 1.2rem 2.6rem rgb(0 0 0 / 24%); }
+.folio-stack, .folio-footer { background: #252526; color: var(--ink); }
+.folio-stack .folio-label, .folio-stack__columns > div > span, .folio-footer .folio-label { color: #a3a3a3; }
+.folio-stack .folio-label > span:first-child, .folio-footer .folio-label > span:first-child { color: var(--olive); }
+.folio-stack__columns > div { border-color: var(--rule); }
+.folio-stack__columns > div:last-child { border-bottom-color: var(--rule); }
+.folio-stack__columns p { color: #b0b0b0; }
+.folio-footer__content > a { border-bottom-color: rgb(255 255 255 / 35%); color: var(--ink); }
+.folio-footer__bottom { border-top-color: var(--rule); color: #a3a3a3; }
