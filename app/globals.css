@@ -118,6 +118,7 @@
 .folio-welcome__footer { padding-top: 0.9rem; border-top: 1px solid var(--rule); font-size: 0.56rem; letter-spacing: 0.02em; }
 .folio-welcome__footer a { color: #a6bd94; text-decoration: none; }
 .folio-welcome__companions { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; }
+.folio-welcome > *:not(.folio-welcome__companions) { position: relative; z-index: 3; }
 .folio-welcome__companion { position: absolute; top: 1.5rem; left: 1.5rem; display: grid; width: 2.65rem; height: 2.65rem; place-items: center; border: 1px solid #454545; border-radius: 50%; background: rgb(37 37 38 / 84%); color: #c9c9c9; box-shadow: 0 0.4rem 1.4rem rgb(0 0 0 / 22%); opacity: 0.65; animation: assistant-bounce 28s linear infinite; }
 .folio-welcome__companion svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
 .folio-welcome__companion--claude { border-color: rgb(204 142 105 / 44%); color: #d9a17f; }
