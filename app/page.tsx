@@ -3,6 +3,7 @@ import Nav from './components/nav';
 import ScrollStage from './components/scroll-stage';
 import About from './components/about';
 import Constellation from './components/constellation';
+import SystemLab from './components/system-lab';
 import { Reveal, RevealStagger } from './components/animations';
 import { ArrowUpRight } from './components/ui';
 import RevealFailsafe from './components/reveal-failsafe';
@@ -270,8 +271,14 @@ export default function Portfolio() {
             </p>
           </Reveal>
 
+          <SystemLab />
+
+          <Reveal className="mt-24">
+            <Eyebrow className="text-[#0a0a0a]">Mais sistemas e produtos</Eyebrow>
+          </Reveal>
+
           <RevealStagger className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {systems.map((p) => (
+            {systems.slice(3).map((p) => (
               <ProjectCard key={p.title} p={p} />
             ))}
           </RevealStagger>
