@@ -709,6 +709,10 @@
   border-left-color: rgb(255 255 255 / 9%);
   background: radial-gradient(ellipse at center, rgb(143 181 122 / 5%), transparent 72%);
 }
+.gesture-flow i, .gesture-chat i, .gesture-app { transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease; }
+.folio-project:hover .gesture-flow i, .folio-project:focus-within .gesture-flow i,
+.folio-project:hover .gesture-chat i, .folio-project:focus-within .gesture-chat i { transform: translateY(-3px); border-color: rgb(143 181 122 / 72%); }
+.folio-project:hover .gesture-app, .folio-project:focus-within .gesture-app { transform: rotate(0) scale(1.06); border-color: rgb(143 181 122 / 82%); background: rgb(143 181 122 / 5%); }
 
 @media (max-width: 1100px) {
   .folio-project { grid-template-columns: 2rem minmax(0, 1.25fr) minmax(12rem, 0.75fr); gap: 1.25rem; }
@@ -727,4 +731,66 @@
 @media (prefers-reduced-motion: reduce) {
   .folio-project { transition: none; }
   .folio-project:hover, .folio-project:focus-within { transform: none; }
+}
+
+/* A little discovery inside each project, using native disclosure instead of client state. */
+.folio-project__details { margin-top: 1.15rem; border-top: 1px solid rgb(255 255 255 / 9%); }
+.folio-project__details summary {
+  display: grid;
+  min-height: 2.65rem;
+  grid-template-columns: minmax(0, 1fr) auto 1.35rem;
+  align-items: center;
+  gap: 0.75rem;
+  color: #d5d5d2;
+  font-size: 0.68rem;
+  cursor: pointer;
+  list-style: none;
+}
+.folio-project__details summary::-webkit-details-marker { display: none; }
+.folio-project__details summary > span { color: #d5d5d2; transition: color 160ms ease; }
+.folio-project__details summary:hover > span, .folio-project__details[open] summary > span { color: var(--olive); }
+.folio-project__details summary small { color: var(--muted); font: 0.54rem ui-monospace, monospace; }
+.folio-project__details summary i {
+  display: grid;
+  width: 1.25rem;
+  height: 1.25rem;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 50%;
+  color: var(--olive);
+  font: normal 0.8rem ui-sans-serif, sans-serif;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+.folio-project__details[open] summary i { transform: rotate(45deg); border-color: rgb(143 181 122 / 55%); }
+.folio-project__details summary:focus-visible { outline: 2px solid var(--ide-accent); outline-offset: 3px; }
+.folio-project__detail-body { padding: 0.15rem 0 0.55rem; animation: project-detail-in 220ms ease-out both; }
+.folio-project__detail-body > p { max-width: 40rem; margin-bottom: 0.8rem; color: #b8b8b5; font-size: 0.69rem; line-height: 1.6; }
+.folio-project__detail-body ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.45rem; margin: 0; padding: 0; list-style: none; }
+.folio-project__detail-body li { position: relative; display: grid; min-height: 3.6rem; align-content: center; gap: 0.28rem; padding: 0.55rem 0.65rem; border: 1px solid rgb(255 255 255 / 8%); background: rgb(255 255 255 / 2%); }
+.folio-project__detail-body li + li::before { position: absolute; top: 50%; left: -0.46rem; z-index: 1; width: 0.45rem; height: 1px; background: rgb(143 181 122 / 62%); content: ''; }
+.folio-project__detail-body li small { color: #9da594; font: 0.5rem ui-monospace, monospace; letter-spacing: 0.04em; text-transform: uppercase; }
+.folio-project__detail-body li strong { color: #dededb; font-size: 0.64rem; font-weight: 500; line-height: 1.35; }
+@keyframes project-detail-in { from { opacity: 0; transform: translateY(-0.35rem); } to { opacity: 1; transform: translateY(0); } }
+
+/* Keep the moving assistant marks playful and legible over the portfolio content. */
+.portfolio-ide__screensaver-mark { opacity: 0.2; }
+@media (max-width: 650px) {
+  .portfolio-ide__breadcrumb { display: none; }
+  .portfolio-ide__code-preview { top: 4.45rem; height: 1.35rem; }
+  .folio-welcome, .folio-intro, .folio-projects, .folio-stack, .folio-career, .folio-github, .folio-footer, .folio-lp-gallery { scroll-margin-top: 5.8rem; }
+  .folio-welcome h1 { font-size: clamp(3.4rem, 14vw, 5.25rem); line-height: 0.88; }
+  .folio-intro__copy h2, .folio-section-head h2, .folio-stack__intro h2, .folio-career__head h2, .folio-github__head h2 { font-size: clamp(2.55rem, 10.5vw, 3.75rem); line-height: 0.94; }
+  .folio-lp-gallery__head h3 { font-size: clamp(2.45rem, 10.5vw, 3.9rem); }
+  .folio-project__detail-body ol { gap: 0.3rem; }
+  .folio-project__detail-body li { padding: 0.45rem; }
+  .folio-project__detail-body li small { font-size: 0.46rem; }
+  .folio-project__detail-body li strong { font-size: 0.58rem; overflow-wrap: anywhere; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio-project__details summary > span, .folio-project__details summary i { transition: none; }
+  .gesture-flow i, .gesture-chat i, .gesture-app { transition: none; }
+  .folio-project:hover .gesture-flow i, .folio-project:focus-within .gesture-flow i,
+  .folio-project:hover .gesture-chat i, .folio-project:focus-within .gesture-chat i { transform: none; }
+  .folio-project:hover .gesture-app, .folio-project:focus-within .gesture-app { transform: rotate(-8deg); }
+  .folio-project__detail-body { animation: none; }
 }

@@ -12,18 +12,24 @@ const featured = [
     description: 'Uma API recebe leads por webhook, valida os dados, organiza o trabalho no Redis e distribui cada oportunidade entre vendedores em rodízio.',
     stack: 'NestJS · Redis · BullMQ · Prisma · PostgreSQL',
     href: 'https://github.com/7Genesis/leadflow-engine', link: 'Explorar repositório',
+    detail: 'O fluxo liga a entrada do lead à fila de processamento e à distribuição entre vendedores.',
+    flow: [{ label: 'Entrada', value: 'Webhook' }, { label: 'Fila', value: 'Redis · BullMQ' }, { label: 'Entrega', value: 'Rodízio' }],
   },
   {
     n: '02', title: 'Atendimento SAAE', note: 'Produto em produção · Python',
     description: 'Atendimento por WhatsApp integrado ao GSAN. O chatbot consulta informações, evita solicitações duplicadas e transfere conversas à equipe com contexto.',
     stack: 'Python · Django · Celery · Redis · pytest',
     href: null, link: 'Projeto interno · código da equipe',
+    detail: 'A conversa consulta informações no GSAN e pode seguir para a equipe sem perder o contexto do atendimento.',
+    flow: [{ label: 'Canal', value: 'WhatsApp' }, { label: 'Consulta', value: 'GSAN' }, { label: 'Continuidade', value: 'Equipe' }],
   },
   {
     n: '03', title: 'App do cidadão', note: 'Google Play · React Native',
     description: 'Reescrita do aplicativo de Flutter para React Native e TypeScript. Faturas, serviços e chamados em um app com 185 testes automatizados.',
     stack: 'React Native · Expo · TypeScript · 185 testes',
     href: 'https://play.google.com/store/apps/details?id=com.saaejuazeiro.app', link: 'Ver na Google Play',
+    detail: 'A reescrita modernizou a base do app e manteve em um só lugar as funções usadas pelos moradores.',
+    flow: [{ label: 'Origem', value: 'Flutter' }, { label: 'Nova base', value: 'React Native' }, { label: 'Verificação', value: '185 testes' }],
   },
 ];
 
@@ -148,6 +154,15 @@ export default function Portfolio() {
                   <span>{project.stack}</span>
                   {project.href ? <a href={project.href} target="_blank" rel="noreferrer">{project.link}<ArrowUpRight /></a> : <span className="folio-private">{project.link}</span>}
                 </div>
+                <details className="folio-project__details">
+                  <summary><span>Ver por dentro</span><small>3 etapas</small><i aria-hidden="true">+</i></summary>
+                  <div className="folio-project__detail-body">
+                    <p>{project.detail}</p>
+                    <ol>
+                      {project.flow.map((step) => <li key={step.label}><small>{step.label}</small><strong>{step.value}</strong></li>)}
+                    </ol>
+                  </div>
+                </details>
               </div>
               <div className="folio-project__gesture" aria-hidden="true">
                 {project.n === '01' ? <span className="gesture-flow"><i>entrada</i><b>→</b><i>fila</i><b>→</b><i>entrega</i></span> : project.n === '02' ? <span className="gesture-chat"><i>morador</i><b>↗</b><i>equipe</i></span> : <span className="gesture-app"><i>185</i><small>checks</small></span>}
