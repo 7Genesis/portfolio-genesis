@@ -113,7 +113,7 @@ bootstrap();`,
   },
 ];
 
-const TOKEN = /(?:\/\/.*|\/\*[\s\S]*?\*\/|'[^']*'|"[^"]*"|`[^`]*`|\b(?:import|from|export|interface|type|class|async|await|return|private|public|readonly|constructor|new|throw|for|let|const|if|true|false)\b|\b\d+\b|\b[A-Z][A-Za-z0-9_]*\b)/g;
+const TOKEN = /(\/\/.*|\/\*[\s\S]*?\*\/|'[^']*'|"[^"]*"|`[^`]*`|\b(?:import|from|export|interface|type|class|async|await|return|private|public|readonly|constructor|new|throw|for|let|const|if|true|false)\b|\b\d+\b|\b[A-Z][A-Za-z0-9_]*\b)/g;
 
 function highlight(line: string) {
   return line.split(TOKEN).filter((part) => part !== undefined && part !== '').map((part, index) => {
