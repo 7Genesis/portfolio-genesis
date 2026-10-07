@@ -127,7 +127,7 @@ export default function Constellation() {
             y2={tags[b].y}
             stroke="currentColor"
             strokeWidth="0.12"
-            className="text-white/20"
+            className="text-[#748568]/35"
             vectorEffect="non-scaling-stroke"
           />
         ))}
@@ -139,7 +139,7 @@ export default function Constellation() {
           key={t.label}
           data-cst="tag"
           style={{ left: `${t.x}%`, top: `${t.y}%` }}
-          className={`font-display absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap italic text-white/85 ${sizeClass[t.size]}`}
+          className={`font-display absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap italic text-[#263025]/80 ${sizeClass[t.size]}`}
         >
           {t.label}
         </span>

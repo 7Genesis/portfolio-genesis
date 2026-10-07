@@ -10,7 +10,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-[#0a0a0a] text-slate-50 antialiased selection:bg-emerald-400/30;
+    @apply bg-[#eeeae0] text-[#263025] antialiased selection:bg-[#748568]/30;
   }
 }
 
@@ -54,6 +54,56 @@
 .headline {
   letter-spacing: -0.04em;
   line-height: 0.92;
+}
+
+.hero-stage {
+  background-image:
+    radial-gradient(ellipse at 74% 40%, rgb(255 255 255 / 15%), transparent 42%),
+    linear-gradient(115deg, #eeeae0 10%, #e8e4d9 100%);
+}
+
+.hero-stage__film {
+  filter: saturate(0.78) contrast(0.94);
+}
+
+.hero-stage__wash {
+  background: linear-gradient(90deg, #eeeae0 0%, rgb(238 234 224 / 97%) 30%, rgb(238 234 224 / 42%) 60%, transparent 100%);
+}
+
+.hero-stage__ghost {
+  color: transparent;
+  font-size: clamp(8rem, 25vw, 25rem);
+  font-weight: 800;
+  letter-spacing: -0.085em;
+  line-height: 0.8;
+  -webkit-text-stroke: 1px rgb(38 48 37 / 13%);
+  transform: translateY(-5%);
+}
+
+.hero-stage__availability {
+  border-color: rgb(38 48 37 / 14%);
+  background: rgb(255 255 255 / 45%);
+  color: rgb(38 48 37 / 78%);
+  box-shadow: inset 0 1px rgb(255 255 255 / 80%);
+}
+
+.hero-stage__title { color: #263025; }
+
+.hero-stage__secondary {
+  border-color: rgb(38 48 37 / 22%);
+  color: #263025;
+}
+
+.hero-stage__secondary:hover { background: rgb(255 255 255 / 42%); }
+
+.hero-stage__phrase {
+  padding: clamp(1rem, 4vw, 3rem);
+  border: 1px solid rgb(255 255 255 / 62%);
+  border-radius: 2rem 1.3rem 2.2rem 1.5rem;
+  background: rgb(245 242 233 / 70%);
+  box-shadow: 0 24px 80px rgb(38 48 37 / 9%), inset 0 1px rgb(255 255 255 / 90%);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 }
 
 /* Mapa editorial em vidro fosco: a linha em movimento mostra o percurso dos dados. */
@@ -431,6 +481,25 @@
 }
 
 @media (max-width: 600px) {
+  .hero-stage__film {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    opacity: 0.22;
+    box-shadow: none;
+  }
+  .hero-stage__wash {
+    background: linear-gradient(180deg, rgb(238 234 224 / 76%), rgb(238 234 224 / 89%));
+  }
+  .hero-stage__ghost {
+    top: 25%;
+    font-size: 28vw;
+    opacity: 0.65;
+  }
+  .hero-stage__title { font-size: clamp(4rem, 18vw, 7rem); }
+  .hero-stage__phrase { border-radius: 1.3rem; }
   .system-lab__heading { grid-template-columns: 1fr; gap: 0.8rem; }
   .system-lab__heading h3 { max-width: 20rem; }
   .system-lab__heading > p { max-width: 20rem; }
@@ -475,9 +544,134 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .scroll-stage { height: 100svh !important; }
+  .hero-stage__phrase { display: none; }
+  .hero-stage__film { object-position: center; }
   .system-lab__story,
   .system-lab__route,
   .system-lab__traveler { animation: none; }
   .system-lab__tab,
   .system-lab__tab-arrow { transition: none; }
+}
+
+/* A carreira vira um percurso, em vez de uma cópia linear do currículo. */
+.career-path {
+  position: relative;
+  display: grid;
+  gap: 0.85rem;
+  padding-left: 3.25rem;
+}
+
+.career-path::before {
+  position: absolute;
+  top: 1.7rem;
+  bottom: 1.7rem;
+  left: 1.2rem;
+  width: 1px;
+  background: linear-gradient(to bottom, rgb(180 208 153 / 18%), rgb(180 208 153 / 76%), rgb(180 208 153 / 18%));
+  content: '';
+}
+
+.career-path__item {
+  position: relative;
+}
+
+.career-path__marker {
+  position: absolute;
+  top: 1.25rem;
+  left: -3.25rem;
+  display: grid;
+  width: 2.45rem;
+  height: 2.45rem;
+  place-items: center;
+  border: 1px solid rgb(226 235 211 / 30%);
+  border-radius: 50%;
+  background: rgb(5 59 44 / 82%);
+  color: #c0d1ae;
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 0.85rem;
+  font-style: italic;
+  box-shadow: 0 0 0 5px rgb(5 59 44 / 55%);
+}
+
+.career-path__glass,
+.career-path__education,
+.career-path__course {
+  border-color: rgb(242 239 230 / 17%) !important;
+  background: rgb(242 239 230 / 5%) !important;
+  box-shadow: inset 0 1px rgb(255 255 255 / 5%);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.career-path__glass {
+  padding: 1.15rem 1.25rem 1.25rem;
+  border: 1px solid;
+  border-radius: 1.3rem 1rem 1.5rem 0.9rem;
+  transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+
+.career-path__item:nth-child(even) .career-path__glass {
+  border-radius: 1rem 1.45rem 0.9rem 1.35rem;
+}
+
+.career-path__item:hover .career-path__glass {
+  transform: translateX(4px);
+  border-color: rgb(242 239 230 / 27%);
+  background: rgb(242 239 230 / 8%) !important;
+}
+
+.career-path__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35rem 1rem;
+}
+
+.career-path__period {
+  color: rgb(242 239 230 / 50%);
+  font-size: 0.7rem;
+  font-weight: 650;
+}
+
+.career-path__glass h3 {
+  margin-top: 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.career-path__glass p {
+  max-width: 42rem;
+  margin-top: 0.55rem;
+  color: rgb(242 239 230 / 69%);
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.career-path__education {
+  box-shadow: inset 0 1px rgb(255 255 255 / 6%), 0 12px 30px rgb(0 0 0 / 5%);
+}
+
+.career-path__course {
+  box-shadow: inset 0 1px rgb(255 255 255 / 5%);
+}
+
+@media (max-width: 600px) {
+  .career-path { padding-left: 2.5rem; }
+  .career-path::before { left: 0.9rem; }
+  .career-path__marker {
+    left: -2.5rem;
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+  .career-path__glass { padding: 0.95rem; }
+  .career-path__glass h3 { font-size: 1.03rem; }
+  .career-path__glass p { font-size: 0.78rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .career-path__glass { transition: none; }
 }

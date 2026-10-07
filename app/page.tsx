@@ -248,7 +248,7 @@ function ProjectCard({ p }: { p: Project }) {
 // ==========================================
 export default function Portfolio() {
   return (
-    <main className="bg-[#0a0a0a] font-sans">
+    <main className="bg-[#eeeae0] font-sans text-[#263025]">
       <RevealFailsafe />
       <Nav />
 
@@ -296,15 +296,14 @@ export default function Portfolio() {
       </section>
 
       {/* SKILLS — constelação em bloco preto */}
-      <section id="skills" className="relative overflow-hidden bg-[#0a0a0a] py-28">
-        <div className="starfield pointer-events-none absolute inset-0 opacity-40" />
+      <section id="skills" className="relative overflow-hidden bg-[#e5e1d7] py-28">
         <div className="relative z-10 mx-auto max-w-6xl px-6">
           <Reveal>
-            <Eyebrow className="text-emerald-400">Stack & Skills</Eyebrow>
-            <h2 className="headline mt-6 max-w-4xl text-5xl font-black text-white md:text-7xl">
-              Uma constelação de skills.
+            <Eyebrow className="text-[#748568]">Stack & Skills</Eyebrow>
+            <h2 className="headline mt-6 max-w-4xl text-5xl font-black text-[#263025] md:text-7xl">
+              O que uso para construir.
             </h2>
-            <p className="font-display mt-6 max-w-2xl text-2xl italic leading-snug text-white/60 md:text-3xl">
+            <p className="font-display mt-6 max-w-2xl text-2xl italic leading-snug text-[#263025]/65 md:text-3xl">
               Foco em APIs e serviços backend, com experiência complementar em dados,
               integrações e aplicações web e mobile.
             </p>
@@ -316,31 +315,34 @@ export default function Portfolio() {
       {/* EXPERIÊNCIA & FORMAÇÃO — bloco esmeralda */}
       <section id="experiencia" className="bg-[#053b2c] py-28 text-[#f2efe6]">
         <div className="mx-auto max-w-6xl px-6">
+          <Reveal className="mb-16 max-w-4xl">
+            <Eyebrow className="text-emerald-300">Uma trajetória em movimento</Eyebrow>
+            <h2 className="font-display mt-6 text-4xl italic leading-tight text-[#f2efe6] md:text-6xl">
+              De entender pessoas e processos a construir os sistemas que os conectam.
+            </h2>
+          </Reveal>
           <div className="grid gap-16 lg:grid-cols-[1.3fr_1fr]">
             {/* Experiência */}
             <div>
               <Reveal>
                 <Eyebrow className="text-emerald-300">Experiência Profissional</Eyebrow>
               </Reveal>
-              <RevealStagger className="mt-12 border-t border-[#f2efe6]/15">
-                {experiences.map((e) => (
-                  <div
+              <RevealStagger className="career-path mt-12">
+                {[...experiences].reverse().map((e, i) => (
+                  <article
                     key={e.role + e.org}
-                    className="grid gap-1 border-b border-[#f2efe6]/15 py-7 md:grid-cols-[1fr_auto] md:items-baseline md:gap-6"
+                    className="career-path__item"
                   >
-                    <div>
-                      <h3 className="text-xl font-black tracking-tight md:text-2xl">{e.role}</h3>
-                      <span className="mt-1 block font-display text-lg italic text-emerald-300">
-                        {e.org}
-                      </span>
-                      <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#f2efe6]/70">
-                        {e.desc}
-                      </p>
+                    <span className="career-path__marker" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                    <div className="career-path__glass">
+                      <div className="career-path__meta">
+                        <span className="career-path__period">{e.period}</span>
+                        <span className="font-display text-base italic text-emerald-300">{e.org}</span>
+                      </div>
+                      <h3>{e.role}</h3>
+                      <p>{e.desc}</p>
                     </div>
-                    <span className="text-sm font-semibold text-[#f2efe6]/50 md:text-right">
-                      {e.period}
-                    </span>
-                  </div>
+                  </article>
                 ))}
               </RevealStagger>
             </div>
@@ -354,7 +356,7 @@ export default function Portfolio() {
                 {education.map((f) => (
                   <div
                     key={f.t}
-                    className="rounded-2xl border border-[#f2efe6]/15 bg-[#f2efe6]/[0.04] p-6"
+                    className="career-path__education rounded-2xl border border-[#f2efe6]/15 bg-[#f2efe6]/[0.04] p-6"
                   >
                     <h4 className="text-lg font-black">{f.t}</h4>
                     <p className="mt-1 text-sm text-[#f2efe6]/60">{f.s}</p>
@@ -363,7 +365,7 @@ export default function Portfolio() {
                 {courses.map((c) => (
                   <div
                     key={c.t}
-                    className="flex items-center justify-between gap-4 rounded-2xl border border-[#f2efe6]/10 bg-[#f2efe6]/[0.02] px-6 py-4"
+                    className="career-path__course flex items-center justify-between gap-4 rounded-2xl border border-[#f2efe6]/10 bg-[#f2efe6]/[0.02] px-6 py-4"
                   >
                     <span className="text-sm font-semibold">{c.t}</span>
                     <span className="whitespace-nowrap text-xs text-[#f2efe6]/50">{c.s}</span>

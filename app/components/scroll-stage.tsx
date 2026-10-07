@@ -18,7 +18,7 @@ import { runReveal } from './animations';
  */
 
 /** Altura do palco, em telas cheias. Mais alto = avanço mais lento. */
-const SCREENS = 5;
+const SCREENS = 4;
 /** Quanto da distância restante é percorrida por quadro. Menor = mais macio. */
 const EASING = 0.16;
 /** Se um seek não completa nesse tempo, liberamos o próximo para não travar. */
@@ -140,6 +140,8 @@ export default function ScrollStage() {
     let seeking = false;
     let seekStartedAt = 0;
     let raf = 0;
+    let seekWatchdog = 0;
+    let inView = false;
 
     const read = () => {
       const scrollable = el.offsetHeight - window.innerHeight;
@@ -147,19 +149,30 @@ export default function ScrollStage() {
       return Math.min(1, Math.max(0, -el.getBoundingClientRect().top / scrollable));
     };
 
+    const schedule = () => {
+      if (!reduced && inView && !raf) raf = requestAnimationFrame(tick);
+    };
+
     const onScroll = () => {
       target = read();
       if (reduced) {
         current = target;
         paint(current);
+      } else {
+        schedule();
       }
     };
     const onSeeked = () => {
       seeking = false;
+      window.clearTimeout(seekWatchdog);
+      schedule();
     };
 
     const tick = () => {
+      raf = 0;
       current += (target - current) * EASING;
+      const settled = Math.abs(target - current) < 0.0005;
+      if (settled) current = target;
       paint(current);
 
       if (film && film.readyState >= 1 && film.duration) {
@@ -171,25 +184,48 @@ export default function ScrollStage() {
             seekStartedAt = performance.now();
             try {
               film.currentTime = t;
+              window.clearTimeout(seekWatchdog);
+              seekWatchdog = window.setTimeout(() => {
+                if (!seeking) return;
+                seeking = false;
+                schedule();
+              }, SEEK_TIMEOUT_MS);
             } catch {
               seeking = false;
             }
           }
         }
       }
-      raf = requestAnimationFrame(tick);
+
+      if (!settled) schedule();
     };
+
+    const visibility = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      if (inView) {
+        target = read();
+        if (!reduced) schedule();
+        else onScroll();
+      } else {
+        if (raf) cancelAnimationFrame(raf);
+        raf = 0;
+        window.clearTimeout(seekWatchdog);
+        seeking = false;
+      }
+    }, { rootMargin: '80px 0px' });
+    visibility.observe(el);
 
     film?.addEventListener('seeked', onSeeked);
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     onScroll();
 
-    if (reduced) paint(target);
-    else raf = requestAnimationFrame(tick);
+    paint(target);
 
     return () => {
       cancelAnimationFrame(raf);
+      window.clearTimeout(seekWatchdog);
+      visibility.disconnect();
       film?.removeEventListener('seeked', onSeeked);
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
@@ -224,7 +260,7 @@ export default function ScrollStage() {
     <>
       <div
         ref={bar}
-        className="fixed left-0 top-0 z-50 h-0.5 w-0 bg-emerald-400"
+        className="fixed left-0 top-0 z-[60] h-0.5 w-0 bg-[#748568]"
         role="progressbar"
         aria-label="Progresso da apresentação"
       />
@@ -233,19 +269,19 @@ export default function ScrollStage() {
         id="inicio"
         ref={stage}
         style={{ height: `${SCREENS * 100}vh` }}
-        className="relative bg-[#0a0a0a]"
+        className="scroll-stage relative bg-[#eeeae0]"
       >
         {/* O poster também vai como fundo do palco: se o vídeo falhar em
             decodificar, sobra o primeiro quadro em vez de um retângulo preto. */}
         <div
-          className="sticky top-0 h-screen overflow-hidden bg-[#0a0a0a] bg-cover bg-center"
+          className="hero-stage sticky top-0 h-screen overflow-hidden bg-[#eeeae0]"
           style={{ backgroundImage: 'url(/stage-poster.jpg)' }}
         >
           <video
             ref={video}
-            className="absolute inset-0 h-full w-full object-cover"
+            className="hero-stage__film absolute right-[5vw] top-[14vh] h-[72vh] w-[48vw] rounded-[48%_48%_1.5rem_1.5rem] object-cover object-center opacity-90 shadow-[0_30px_90px_rgba(41,48,35,0.18)]"
             poster="/stage-poster.jpg"
-            preload="auto"
+            preload="metadata"
             muted
             playsInline
             aria-hidden
@@ -254,33 +290,25 @@ export default function ScrollStage() {
             <source src="/stage.mp4" type="video/mp4" />
           </video>
 
-          {/* Escurecimento nas bordas: o texto precisa de contraste sobre qualquer frame. */}
-          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-32 bg-gradient-to-b from-[#0a0a0a]/80 to-transparent" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-56 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent" />
-          <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(120%_120%_at_50%_45%,transparent_45%,rgba(10,10,10,0.75)_100%)]" />
+          <div className="hero-stage__wash pointer-events-none absolute inset-0 z-10" />
+          <div className="hero-stage__ghost pointer-events-none absolute inset-x-0 top-[16%] z-10 select-none text-center" aria-hidden="true">GENESIS</div>
 
           {/* Painel de abertura — o hero de sempre, que sai deslizando */}
-          <div ref={heroPanel} className="absolute inset-0 z-30 flex items-center px-6">
-            {/* Véu à esquerda: a foto tem um monitor claro justamente onde o
-                texto cai. Sem isso o parágrafo some no branco. Fica dentro do
-                painel para desaparecer junto com ele. */}
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/90 via-[#0a0a0a]/55 to-transparent" />
-
-            <div ref={heroText} className="relative mx-auto w-full max-w-6xl will-change-transform">
+          <div ref={heroPanel} className="absolute inset-0 z-30 flex items-center px-6 md:px-[9vw]">
+            <div ref={heroText} className="relative mx-auto w-full max-w-7xl will-change-transform">
               <div
                 data-hero="eyebrow"
-                className="mb-10 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 backdrop-blur-sm"
+                className="hero-stage__availability mb-8 inline-flex items-center gap-2 rounded-full border px-4 py-2 backdrop-blur-md"
               >
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#748568]" />
                 </span>
-                <span className="text-xs font-semibold tracking-wide text-white/80">
+                <span className="text-xs font-semibold tracking-wide">
                   Aberto a oportunidades júnior
                 </span>
               </div>
 
-              <h1 className="headline text-[19vw] font-black text-white drop-shadow-[0_4px_40px_rgba(0,0,0,0.6)] sm:text-[15vw] lg:text-[11rem]">
+              <h1 className="hero-stage__title headline max-w-[8ch] text-[18vw] font-black sm:text-[13vw] lg:text-[9rem]">
                 <span className="block overflow-hidden">
                   <span data-hero="line" className="block">
                     Genesis
@@ -288,24 +316,24 @@ export default function ScrollStage() {
                 </span>
                 <span className="block overflow-hidden">
                   <span data-hero="line" className="block">
-                    Melo<span className="text-emerald-400">.</span>
+                    Melo<span className="text-[#748568]">.</span>
                   </span>
                 </span>
               </h1>
 
               <p
                 data-hero="sub"
-                className="font-display mt-8 max-w-3xl text-3xl italic leading-tight text-white/85 drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)] md:text-5xl"
+                className="font-display mt-6 max-w-[34rem] text-2xl italic leading-tight text-[#34372f]/85 md:text-4xl"
               >
                 Desenvolvedor Full Stack Júnior com foco em backend, APIs e soluções com{' '}
-                <span className="text-emerald-400">IA</span>.
+                  <span className="text-[#748568]">IA</span>.
               </p>
 
               <div className="mt-12 flex flex-wrap items-center gap-4">
                 <a
                   data-hero="cta"
                   href="#projetos"
-                  className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-bold text-[#0a0a0a] transition-all hover:bg-white/85"
+                  className="group inline-flex items-center gap-2 rounded-full bg-[#263025] px-7 py-3.5 text-base font-bold text-[#f5f2e9] transition-all hover:bg-[#3a4637]"
                 >
                   Ver projetos
                   <ArrowUpRight />
@@ -315,7 +343,7 @@ export default function ScrollStage() {
                   href="https://www.linkedin.com/in/genesis-melo/"
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10"
+                  className="hero-stage__secondary group inline-flex items-center gap-2 rounded-full border px-7 py-3.5 text-base font-semibold backdrop-blur-sm transition-all"
                 >
                   LinkedIn
                   <span className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
@@ -338,18 +366,14 @@ export default function ScrollStage() {
                    translate do Tailwind v4 usam a propriedade `translate`, que
                    se somaria a este transform e jogaria a frase para fora. */
                 style={{ transform: 'translate(-50%, -42%)' }}
-                className="absolute left-1/2 top-1/2 w-[90vw] max-w-5xl text-center opacity-0 transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none"
+                className="hero-stage__phrase absolute left-1/2 top-1/2 w-[90vw] max-w-5xl text-center opacity-0 transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none"
               >
-                {/* Véu atrás do texto: os frames de código são claros e
-                    quebrados, e a frase sumia dentro deles. */}
-                <div className="pointer-events-none absolute -inset-x-[15%] -inset-y-[60%] bg-[radial-gradient(ellipse_at_center,rgba(10,10,10,0.82)_0%,rgba(10,10,10,0.55)_45%,transparent_72%)]" />
-
-                <p className="relative mb-4 text-xs font-black uppercase tracking-[0.35em] text-emerald-400">
+                <p className="relative mb-4 text-xs font-black uppercase tracking-[0.35em] text-[#748568]">
                   {phrase.index}
                 </p>
-                <h2 className="headline relative text-5xl font-black leading-[0.95] text-white drop-shadow-[0_4px_40px_rgba(0,0,0,0.65)] md:text-8xl">
+                <h2 className="headline relative text-5xl font-black leading-[0.95] text-[#263025] md:text-8xl">
                   {phrase.lead}{' '}
-                  <span className="font-display font-normal italic text-emerald-400">
+                  <span className="font-display font-normal italic text-[#748568]">
                     {phrase.accent}
                   </span>
                   .
@@ -360,7 +384,7 @@ export default function ScrollStage() {
 
           <div
             ref={cue}
-            className="pointer-events-none absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center text-[11px] font-semibold uppercase tracking-[0.3em] text-white/70 transition-opacity duration-500"
+            className="pointer-events-none absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center text-[11px] font-semibold uppercase tracking-[0.3em] text-[#53584d]/70 transition-opacity duration-500"
           >
             Role para entrar
             <span className="mt-2 block animate-bounce motion-reduce:animate-none">↓</span>
