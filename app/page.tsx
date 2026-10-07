@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from './components/nav';
 import ScrollStage from './components/scroll-stage';
+import AppProof from './components/app-proof';
 import { Reveal } from './components/animations';
 import { ArrowUpRight } from './components/ui';
 import RevealFailsafe from './components/reveal-failsafe';
@@ -123,6 +124,8 @@ export default function Portfolio() {
             </article>
           ))}
         </div>
+
+        <AppProof />
 
         <div className="folio-indexes">
           <div>
