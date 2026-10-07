@@ -32,7 +32,7 @@
 .portfolio-ide__window-controls i:nth-child(3) { background: #61c554; }
 .portfolio-ide__menubar { display: flex; gap: 0.75rem; color: #c6c6c6; }
 .portfolio-ide__command { display: flex; height: 1.65rem; align-items: center; justify-content: center; gap: 0.6rem; border: 1px solid #555; border-radius: 0.35rem; background: #3c3c3c; color: #bcbcbc; font-size: 0.62rem; }
-.portfolio-ide__command small { margin-left: auto; padding-right: 0.45rem; color: #858585; }
+.portfolio-ide__command small { margin-left: auto; padding-right: 0.45rem; color: #bcbcbc; }
 .portfolio-ide__window-actions { display: flex; justify-content: flex-end; gap: 0.75rem; color: #a8a8a8; font-size: 0.8rem; }
 .portfolio-ide__workspace { display: grid; grid-template-columns: 3rem 14.5rem minmax(0, 1fr); align-items: start; }
 .portfolio-ide__activity { position: sticky; top: 2.35rem; z-index: 50; display: flex; height: calc(100svh - 2.35rem); flex-direction: column; align-items: center; gap: 1.15rem; padding: 0.85rem 0; border-right: 1px solid #333; background: #333333; color: #858585; font: 1.15rem ui-sans-serif, sans-serif; }
@@ -127,7 +127,7 @@
 .folio-welcome__code-tab > span i:nth-child(2) { background: #f4bf50; }
 .folio-welcome__code-tab > span i:nth-child(3) { background: #61c554; }
 .folio-welcome__code-tab strong { font-weight: 500; }
-.folio-welcome__code-tab small { margin-left: auto; color: #888; font-size: 0.52rem; }
+.folio-welcome__code-tab small { margin-left: auto; color: #a3a3a3; font-size: 0.52rem; }
 .folio-welcome__code-lines { overflow-x: auto; padding: 0.38rem 0 0.48rem; scrollbar-width: thin; }
 .folio-welcome__code-line { display: grid; width: max-content; min-width: 100%; grid-template-columns: 2rem max-content; padding-right: 0.75rem; }
 .folio-welcome__code-line > span { padding-right: 0.55rem; color: #707070; text-align: right; user-select: none; }
@@ -148,7 +148,7 @@
 .folio-welcome__snapshot { display: grid; gap: 1.2rem; padding: 1.2rem 1.3rem; border: 1px solid #444; border-left: 2px solid #8ca67c; background: #252526; }
 .folio-welcome__snapshot div { display: grid; gap: 0.35rem; }
 .folio-welcome__snapshot div + div { padding-top: 0.8rem; border-top: 1px solid #3b3b3b; }
-.folio-welcome__snapshot span { color: #888; font-family: ui-monospace, monospace; font-size: 0.55rem; letter-spacing: 0.08em; }
+.folio-welcome__snapshot span { color: #a3a3a3; font-family: ui-monospace, monospace; font-size: 0.55rem; letter-spacing: 0.08em; }
 .folio-welcome__snapshot strong { color: #d4d4d4; font-size: 0.82rem; font-weight: 500; line-height: 1.55; }
 .folio-welcome__snapshot a { display: flex; justify-content: space-between; padding-top: 0.8rem; border-top: 1px solid #3b3b3b; color: #a6bd94; font-size: 0.68rem; text-decoration: none; }
 .folio-welcome__footer { padding-top: 0.9rem; border-top: 1px solid var(--rule); font-size: 0.56rem; letter-spacing: 0.02em; }
