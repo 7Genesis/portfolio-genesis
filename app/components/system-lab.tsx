@@ -3,120 +3,125 @@
 import { useState, type KeyboardEvent } from 'react';
 import { ArrowUpRight } from './ui';
 
-const systems = [
+const projects = [
   {
     id: 'leadflow',
     number: '01',
     name: 'LeadFlow Engine',
-    category: 'Distribuição de leads',
-    description:
-      'Uma API recebe leads por webhook, coloca o trabalho na fila e distribui cada oportunidade em rodízio entre vendedores.',
+    kind: 'Backend · NestJS',
+    story:
+      'Leads chegam por webhook. A API valida os dados, organiza o trabalho numa fila e distribui cada oportunidade em rodízio entre vendedores.',
     stack: ['NestJS', 'Redis', 'Prisma', 'PostgreSQL'],
     steps: [
-      { title: 'Entrada', detail: 'Webhook' },
-      { title: 'Validação', detail: 'NestJS · DTO' },
-      { title: 'Fila', detail: 'Redis · BullMQ' },
-      { title: 'Distribuição', detail: 'Round-robin' },
+      { title: 'Lead recebido', detail: 'Webhook' },
+      { title: 'Dados validados', detail: 'NestJS · DTO' },
+      { title: 'Trabalho enfileirado', detail: 'Redis · BullMQ' },
+      { title: 'Lead distribuído', detail: 'Rodízio entre vendedores' },
     ],
     href: 'https://github.com/7Genesis/leadflow-engine',
-    cta: 'Explorar código',
+    cta: 'Ver código no GitHub',
   },
   {
     id: 'atendimento',
     number: '02',
     name: 'Atendimento SAAE',
-    category: 'WhatsApp + integração',
-    description:
-      'Uma conversa no WhatsApp atravessa o chatbot, consulta o GSAN e pode seguir para a equipe de atendimento com histórico e contexto.',
+    kind: 'Backend · Python',
+    story:
+      'Uma conversa começa no WhatsApp. O chatbot entende a solicitação, consulta o GSAN e, quando necessário, encaminha o atendimento para a equipe com o contexto.',
     stack: ['Python', 'Django', 'Celery', 'Redis'],
     steps: [
-      { title: 'Conversa', detail: 'WhatsApp' },
-      { title: 'Assistente', detail: 'Django · IA' },
-      { title: 'Integração', detail: 'GSAN · Celery' },
-      { title: 'Atendimento', detail: 'Equipe humana' },
+      { title: 'Morador chama', detail: 'WhatsApp' },
+      { title: 'Pedido entendido', detail: 'Chatbot com IA' },
+      { title: 'Informação consultada', detail: 'GSAN · Celery' },
+      { title: 'Equipe dá sequência', detail: 'Atendimento humano' },
     ],
     href: null,
-    cta: 'Sistema interno · código privado',
+    cta: 'Sistema interno · código da equipe',
   },
   {
     id: 'app-cidadao',
     number: '03',
     name: 'App do cidadão SAAE',
-    category: 'Aplicativo em produção',
-    description:
-      'O cidadão consulta faturas e serviços pelo aplicativo. A experiência mobile consome APIs REST e já está publicada na Google Play.',
+    kind: 'Mobile · React Native',
+    story:
+      'O aplicativo conecta moradores aos serviços do SAAE. Reescrevi a experiência em React Native e TypeScript; o app está publicado na Google Play e tem 185 testes automatizados.',
     stack: ['React Native', 'TypeScript', 'API REST', '185 testes'],
     steps: [
-      { title: 'Cidadão', detail: 'Faturas · serviços' },
-      { title: 'Aplicativo', detail: 'React Native' },
-      { title: 'Integração', detail: 'API · TypeScript' },
-      { title: 'Publicação', detail: 'Google Play' },
+      { title: 'Morador acessa', detail: 'Faturas · serviços' },
+      { title: 'App organiza', detail: 'React Native' },
+      { title: 'API responde', detail: 'TypeScript · REST' },
+      { title: 'Disponível na loja', detail: 'Google Play' },
     ],
     href: 'https://play.google.com/store/apps/details?id=com.saaejuazeiro.app',
-    cta: 'Ver na Google Play',
+    cta: 'Ver o aplicativo',
   },
 ] as const;
 
 export default function SystemLab() {
-  const [activeId, setActiveId] = useState<(typeof systems)[number]['id']>('leadflow');
-  const active = systems.find((system) => system.id === activeId) ?? systems[0];
+  const [activeId, setActiveId] = useState<(typeof projects)[number]['id']>('leadflow');
+  const active = projects.find((project) => project.id === activeId) ?? projects[0];
 
   function moveTabFocus(event: KeyboardEvent<HTMLDivElement>) {
     if (!['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp', 'Home', 'End'].includes(event.key)) return;
     event.preventDefault();
     const tabs = Array.from(event.currentTarget.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
     const currentIndex = tabs.indexOf(document.activeElement as HTMLButtonElement);
+    const delta = event.key === 'ArrowLeft' || event.key === 'ArrowUp' ? -1 : 1;
     const nextIndex = event.key === 'Home'
       ? 0
       : event.key === 'End'
         ? tabs.length - 1
-        : (currentIndex + (event.key === 'ArrowLeft' || event.key === 'ArrowUp' ? -1 : 1) + tabs.length) % tabs.length;
+        : (currentIndex + delta + tabs.length) % tabs.length;
     tabs[nextIndex]?.focus();
     tabs[nextIndex]?.click();
   }
 
   return (
-    <section aria-label="Arquitetura dos projetos em destaque" className="system-lab mt-16">
-      <div className="system-lab__topline">
-        <span className="system-lab__live-dot" aria-hidden="true" />
-        <span>System lab</span>
-        <span className="system-lab__topline-right">Fluxo de uma requisição</span>
+    <section aria-label="Veja como funcionam alguns projetos" className="system-lab mt-20">
+      <div className="system-lab__heading">
+        <div>
+          <span className="system-lab__eyebrow">Um pouco dos bastidores</span>
+          <h3>Do problema até a solução.</h3>
+        </div>
+        <p>Escolha um projeto e acompanhe o caminho que os dados percorrem.</p>
       </div>
 
-      <div className="system-lab__body">
+      <div className="system-lab__layout">
         <div className="system-lab__selector">
-          <p className="system-lab__kicker">Escolha um sistema</p>
           <div className="system-lab__tabs" role="tablist" aria-label="Projetos em destaque" onKeyDown={moveTabFocus}>
-            {systems.map((system) => (
+            {projects.map((project) => (
               <button
-                key={system.id}
+                key={project.id}
                 type="button"
                 role="tab"
-                aria-selected={system.id === active.id}
+                aria-selected={project.id === active.id}
                 aria-controls="system-lab-panel"
-                id={`system-tab-${system.id}`}
-                className={`system-lab__tab${system.id === active.id ? ' is-active' : ''}`}
-                onClick={() => setActiveId(system.id)}
+                id={`system-tab-${project.id}`}
+                className={`system-lab__tab${project.id === active.id ? ' is-active' : ''}`}
+                onClick={() => setActiveId(project.id)}
               >
-                <span className="system-lab__tab-index">{system.number}</span>
-                <span>{system.name}</span>
+                <span className="system-lab__tab-number">{project.number}</span>
+                <span className="system-lab__tab-copy">
+                  <span>{project.name}</span>
+                  <small>{project.kind}</small>
+                </span>
                 <span className="system-lab__tab-arrow" aria-hidden="true">↗</span>
               </button>
             ))}
           </div>
 
           <div
-            className="system-lab__details"
+            className="system-lab__story"
             role="tabpanel"
             id="system-lab-panel"
             aria-labelledby={`system-tab-${active.id}`}
             tabIndex={0}
             key={active.id}
           >
-            <p className="system-lab__category">{active.category}</p>
-            <h3>{active.name}</h3>
-            <p className="system-lab__description">{active.description}</p>
-            <div className="system-lab__stack" aria-label="Tecnologias usadas">
+            <span className="system-lab__eyebrow">{active.kind}</span>
+            <h4>{active.name}</h4>
+            <p>{active.story}</p>
+            <div className="system-lab__stack" aria-label="Tecnologias e resultados">
               {active.stack.map((tech) => <span key={tech}>{tech}</span>)}
             </div>
             {active.href ? (
@@ -129,36 +134,28 @@ export default function SystemLab() {
           </div>
         </div>
 
-        <div className="system-lab__visual" aria-label={`Fluxo do sistema ${active.name}`}>
-          <div className="system-lab__visual-head">
-            <span>REQUEST LIFECYCLE</span>
-            <span className="system-lab__request-id">REQ_{active.number}_7F2A</span>
-          </div>
-          <div className="system-lab__pipeline" key={active.id}>
+        <div className="system-lab__glass" aria-label={`Etapas do projeto ${active.name}`}>
+          <div className="system-lab__glass-reflection" aria-hidden="true" />
+          <p className="system-lab__map-caption">O caminho da informação</p>
+          <div className="system-lab__route" key={active.id}>
             {active.steps.map((step, index) => (
-              <div className="system-lab__step-wrap" key={step.title}>
-                <div className={`system-lab__node${index === active.steps.length - 1 ? ' is-destination' : ''}`}>
-                  <span className="system-lab__node-index">0{index + 1}</span>
+              <div className="system-lab__route-item" key={step.title}>
+                <div className={`system-lab__node${index === active.steps.length - 1 ? ' is-final' : ''}${index % 2 ? ' is-offset' : ''}`}>
+                  <span className="system-lab__node-dot" aria-hidden="true" />
                   <strong>{step.title}</strong>
-                  <span className="system-lab__node-detail">{step.detail}</span>
+                  <small>{step.detail}</small>
                 </div>
                 {index < active.steps.length - 1 && (
                   <div className="system-lab__connector" aria-hidden="true">
                     <span className="system-lab__connector-line" />
-                    <span className="system-lab__packet" />
-                    <span className="system-lab__connector-arrow">›</span>
+                    <span className="system-lab__traveler" />
+                    <span className="system-lab__connector-arrow">→</span>
                   </div>
                 )}
               </div>
             ))}
           </div>
-          <div className="system-lab__log" aria-live="polite">
-            <span className="system-lab__log-mark">&gt;_</span>
-            <span>{active.steps[0].detail} <b>→</b> {active.steps.at(-1)?.detail}</span>
-            <span className="system-lab__log-status">FLOW COMPLETE</span>
-          </div>
-          <div className="system-lab__corner system-lab__corner--tl" />
-          <div className="system-lab__corner system-lab__corner--br" />
+          <span className="system-lab__glass-note" aria-hidden="true">feito para resolver problemas reais</span>
         </div>
       </div>
     </section>
