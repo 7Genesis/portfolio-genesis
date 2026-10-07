@@ -25,6 +25,7 @@ interface Project {
   href?: string;
   cta?: string;
   note?: string;
+  secondaryNote?: string;
 }
 
 // Projetos priorizados para vagas júnior de backend.
@@ -41,6 +42,14 @@ const systems: Project[] = [
     tag: 'Backend · Python',
     desc: 'Plataforma de atendimento por WhatsApp com chatbot integrado ao GSAN, encaminhamento para atendente, painel e pesquisa de satisfação. Python, Django, Celery e Redis.',
     note: 'Código privado da equipe',
+  },
+  {
+    title: 'App do cidadão do SAAE',
+    tag: 'Mobile',
+    desc: 'Publicado na Google Play. Reescrito de Flutter para React Native (Expo) e TypeScript, com 185 testes automatizados. Faturas, serviços e chamados.',
+    href: 'https://play.google.com/store/apps/details?id=com.saaejuazeiro.app',
+    cta: 'Ver na Google Play',
+    secondaryNote: 'Código privado da equipe',
   },
   {
     title: 'CoreAcademy MeetPoint',
@@ -62,12 +71,6 @@ const systems: Project[] = [
     desc: 'Sistema multiempresa de estoque com solicitações, aprovações, fornecedores e importação de NF-e (XML). Next.js e Prisma.',
     href: 'https://stockflow-cyan.vercel.app',
     cta: 'Ver demonstração',
-  },
-  {
-    title: 'App do cidadão do SAAE',
-    tag: 'Mobile',
-    desc: 'Reescrito de Flutter para React Native (Expo) e TypeScript. Reúne faturas, serviços e chamados e está em análise para publicação.',
-    note: 'Código privado da equipe',
   },
 ];
 
@@ -218,6 +221,9 @@ function ProjectCard({ p }: { p: Project }) {
       >
         {p.href ? p.cta : p.note}
       </span>
+      {p.secondaryNote && (
+        <span className="mt-2 text-xs font-medium text-[#0a0a0a]/45">{p.secondaryNote}</span>
+      )}
     </>
   );
 
@@ -421,8 +427,8 @@ export default function Portfolio() {
               <span className="font-display italic font-normal text-emerald-400">juntos</span>?
             </h2>
             <p className="mx-auto mt-8 max-w-xl text-lg text-white/60">
-              Em busca de oportunidade júnior em desenvolvimento backend. Também aberto a projetos freelance. Remoto ou presencial,
-              e com disponibilidade para mudar de cidade.
+              Em busca de oportunidades júnior em desenvolvimento backend e aberto a projetos
+              freelance. Disponível para trabalho remoto, híbrido ou presencial e para mudança de cidade.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <a

@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Genesis Melo", url: siteUrl }],
   keywords: [
     "Desenvolvedor Backend Júnior",
+    "Desenvolvedor Full Stack Júnior",
     "Python",
     "Node.js",
     "TypeScript",
