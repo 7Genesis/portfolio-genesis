@@ -136,8 +136,8 @@ export default function PortfolioIdeShell({ children }: { children: ReactNode })
       <header className="portfolio-ide__titlebar">
         <div className="portfolio-ide__window-controls" aria-hidden="true"><i /><i /><i /></div>
         <div className="portfolio-ide__menubar" aria-hidden="true"><span>File</span><span>Edit</span><span>Selection</span><span>View</span><span>Go</span><span>Run</span><span>Terminal</span><span>Help</span></div>
-        <button ref={commandCenterRef} className="portfolio-ide__command" type="button" onClick={() => { setPaletteOpen(true); setQuery(''); setSelectedCommand(0); }} aria-label="Abrir busca e comandos em portfolio-genesis" aria-haspopup="dialog" aria-expanded={paletteOpen}>
-          ⌕ <span>portfolio-genesis</span><small>⌘ / Ctrl K</small>
+        <button ref={commandCenterRef} className="portfolio-ide__command" type="button" onClick={() => { setPaletteOpen(true); setQuery(''); setSelectedCommand(0); }} aria-haspopup="dialog" aria-expanded={paletteOpen}>
+          <span aria-hidden="true">⌕</span><span>portfolio-genesis</span><small aria-hidden="true">⌘ / Ctrl K</small><span className="sr-only">Abrir busca e comandos</span>
         </button>
         <div className="portfolio-ide__window-actions" aria-hidden="true"><span>▱</span><span>□</span><span>×</span></div>
       </header>

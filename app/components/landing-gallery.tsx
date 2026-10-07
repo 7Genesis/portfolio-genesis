@@ -61,7 +61,7 @@ export default function LandingGallery() {
 
       <div className="folio-lp-grid">
         {landingPages.map((page) => (
-          <a className="folio-lp-card" key={page.number} href={page.href} target="_blank" rel="noreferrer" aria-label={`Abrir página ${page.client} — ${page.title} em nova aba`}>
+          <a className="folio-lp-card" key={page.number} href={page.href} target="_blank" rel="noreferrer">
             <div className="folio-lp-card__screen">
               <Image src={page.image} alt={page.alt} width={960} height={576} sizes="(max-width: 650px) 100vw, (max-width: 900px) 50vw, 42vw" />
               <span className="folio-lp-card__index">LP · {page.number}</span>
