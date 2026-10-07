@@ -1,16 +1,17 @@
 'use client';
 
-import { type ReactNode, useEffect, useState } from 'react';
+import { type CSSProperties, type ReactNode, useEffect, useState } from 'react';
+import AssistantOrbits from './assistant-orbits';
 
 const FILES = [
-  { id: 'inicio', name: 'README.md', ext: 'MD', tone: 'markdown' },
-  { id: 'sobre', name: 'sobre.md', ext: 'MD', tone: 'markdown' },
-  { id: 'projetos', name: 'projetos.tsx', ext: 'TSX', tone: 'typescript' },
-  { id: 'landing-pages', name: 'landing-pages.html', ext: '<>', tone: 'html' },
-  { id: 'stack', name: 'stack.json', ext: '{}', tone: 'json' },
-  { id: 'percurso', name: 'percurso.md', ext: 'MD', tone: 'markdown' },
-  { id: 'github', name: 'github.md', ext: 'MD', tone: 'markdown' },
-  { id: 'contato', name: 'contato.tsx', ext: 'TSX', tone: 'typescript' },
+  { id: 'inicio', name: 'README.md', ext: 'MD', tone: 'markdown', preview: ['import', 'Genesis from', '"saae";'] },
+  { id: 'sobre', name: 'sobre.md', ext: 'MD', tone: 'markdown', preview: ['const', 'trajeto =', '["vendas", "compras", "tecnologia"];'] },
+  { id: 'projetos', name: 'projetos.tsx', ext: 'TSX', tone: 'typescript', preview: ['await', 'entregar(', '"software em uso");'] },
+  { id: 'landing-pages', name: 'landing-pages.html', ext: '<>', tone: 'html', preview: ['const', 'foco =', '["mensagem", "conversão"];'] },
+  { id: 'stack', name: 'stack.json', ext: '{}', tone: 'json', preview: ['const', 'stack =', '["NestJS", "PostgreSQL", "Redis"];'] },
+  { id: 'percurso', name: 'percurso.md', ext: 'MD', tone: 'markdown', preview: ['const', 'aprendizado =', 'experiência.map(entender);'] },
+  { id: 'github', name: 'github.md', ext: 'MD', tone: 'markdown', preview: ['git', 'log', '--oneline'] },
+  { id: 'contato', name: 'contato.tsx', ext: 'TSX', tone: 'typescript', preview: ['await', 'conversar(', '"próximo desafio");'] },
 ];
 
 function sectionForScroll() {
@@ -54,6 +55,7 @@ export default function PortfolioIdeShell({ children }: { children: ReactNode })
   };
 
   const activeFile = FILES.find((file) => file.id === active) ?? FILES[0];
+  const previewText = activeFile.preview.join(' ');
 
   return (
     <div className="portfolio-ide-shell">
@@ -96,6 +98,11 @@ export default function PortfolioIdeShell({ children }: { children: ReactNode })
             ))}
           </nav>
           <div className="portfolio-ide__breadcrumb"><span>PORTFOLIO-GENESIS</span><span>›</span><span>perfil</span><span>›</span><strong>{activeFile.name}</strong></div>
+          <div className="portfolio-ide__code-preview" role="status" aria-atomic="true" aria-label={`Prévia de código para ${activeFile.name}`}>
+            <span className="portfolio-ide__code-line-number">1</span>
+            <code key={activeFile.id}><span style={{ '--typed-width': `${previewText.length}ch` } as CSSProperties}><i>{activeFile.preview[0]}</i> {activeFile.preview[1]} <b>{activeFile.preview[2]}</b></span><mark aria-hidden="true" /></code>
+            <small>{activeFile.ext === 'MD' ? 'Markdown' : activeFile.ext === '{}' ? 'JSON' : activeFile.ext === '<>' ? 'HTML' : 'TypeScript'}</small>
+          </div>
           <div className="portfolio-ide__canvas">{children}</div>
         </main>
       </div>
@@ -111,6 +118,8 @@ export default function PortfolioIdeShell({ children }: { children: ReactNode })
         <div><span>⎇ main</span><span>Genesis Melo · Desenvolvedor Full Stack Júnior</span></div>
         <div><span>TypeScript</span><span>UTF-8</span><a href="https://github.com/7Genesis" target="_blank" rel="noreferrer">GitHub ↗</a><button type="button" onClick={() => setTerminalOpen((open) => !open)} aria-expanded={terminalOpen}>›_ Terminal</button></div>
       </footer>
+
+      <AssistantOrbits />
 
       {explorerOpen && <button className="portfolio-ide__scrim" type="button" aria-label="Fechar explorador" onClick={() => setExplorerOpen(false)} />}
     </div>

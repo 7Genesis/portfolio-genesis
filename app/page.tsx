@@ -58,19 +58,6 @@ function FolioLabel({ n, children }: { n: string; children: React.ReactNode }) {
   return <div className="folio-label"><span>{n}</span><span>{children}</span></div>;
 }
 
-function AssistantOrbits() {
-  return (
-    <div className="folio-welcome__companions" role="group" aria-label="Marcas de Claude e Codex">
-      <span className="folio-welcome__companion folio-welcome__companion--claude" role="img" aria-label="Claude">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5v7M16 21.5v7M3.5 16h7M21.5 16h7M7.15 7.15l4.95 4.95m7.8 7.8 4.95 4.95m0-17.7-4.95 4.95m-7.8 7.8-4.95 4.95" /></svg>
-      </span>
-      <span className="folio-welcome__companion folio-welcome__companion--codex" role="img" aria-label="Codex">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="m11 8-8 8 8 8M21 8l8 8-8 8M18 5l-4 22" /></svg>
-      </span>
-    </div>
-  );
-}
-
 function ProfileCodeEditor() {
   return (
     <div className="folio-welcome__code-editor" role="group" aria-label="Trecho de código ilustrativo">
@@ -91,7 +78,6 @@ export default function Portfolio() {
       <PortfolioIdeShell>
       <section id="inicio" className="folio-welcome">
         <div className="folio-welcome__eyebrow"><span>README.md</span><span>01 · PERFIL</span></div>
-        <AssistantOrbits />
         <div className="folio-welcome__body">
           <div>
             <p className="folio-welcome__comment"># Olá, eu sou</p>
