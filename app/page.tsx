@@ -58,6 +58,21 @@ function FolioLabel({ n, children }: { n: string; children: React.ReactNode }) {
   return <div className="folio-label"><span>{n}</span><span>{children}</span></div>;
 }
 
+function AssistantOrbits() {
+  return (
+    <div className="folio-welcome__companions" role="img" aria-label="Claude e Codex flutuando como assistentes de programação">
+      <span className="folio-welcome__companion folio-welcome__companion--claude">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5v7M16 21.5v7M3.5 16h7M21.5 16h7M7.15 7.15l4.95 4.95m7.8 7.8 4.95 4.95m0-17.7-4.95 4.95m-7.8 7.8-4.95 4.95" /></svg>
+        <span>Claude</span>
+      </span>
+      <span className="folio-welcome__companion folio-welcome__companion--codex">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="m11 8-8 8 8 8M21 8l8 8-8 8M18 5l-4 22" /></svg>
+        <span>Codex</span>
+      </span>
+    </div>
+  );
+}
+
 export default function Portfolio() {
   return (
     <div className="portfolio-folio">
@@ -83,6 +98,7 @@ export default function Portfolio() {
             <a href="#percurso">Abrir percurso <span>↗</span></a>
           </aside>
         </div>
+        <AssistantOrbits />
         <div className="folio-welcome__footer"><span>Full Stack · Backend em destaque</span><span>Juazeiro, Bahia · Brasil</span><a href="#sobre">Leia o README ↓</a></div>
       </section>
 
