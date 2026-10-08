@@ -881,3 +881,106 @@
   .folio-project:hover .gesture-app, .folio-project:focus-within .gesture-app { transform: rotate(-8deg); }
   .folio-project__detail-body { animation: none; }
 }
+
+/* Projetos tratados como pranchas de produto, com evidência no centro da composição. */
+.folio-project-list { display: grid; gap: 1rem; }
+.folio-project {
+  min-height: 22rem;
+  grid-template-columns: 2.5rem minmax(0, 1fr) minmax(19rem, 0.92fr);
+  gap: clamp(1rem, 2.6vw, 2.6rem);
+  padding: clamp(1.25rem, 3vw, 2.75rem);
+  border: 1px solid rgb(41 42 36 / 12%);
+  background: #f7f5ed;
+  box-shadow: 0 0.8rem 2rem rgb(41 42 36 / 4%);
+  transition: box-shadow 260ms ease, transform 260ms ease, background-color 260ms ease;
+}
+.folio-project:nth-child(2) { background: #e9e6dc; }
+.folio-project:nth-child(2) .folio-project__main { grid-column: 3; grid-row: 1; }
+.folio-project:nth-child(2) .folio-project__gesture { grid-column: 2; grid-row: 1; }
+.folio-project:hover, .folio-project:focus-within { transform: translateY(-3px); border-color: rgb(41 42 36 / 24%); box-shadow: 0 1.4rem 3rem rgb(41 42 36 / 9%); }
+.folio-project:last-child { border-bottom: 1px solid rgb(41 42 36 / 12%); }
+.folio-project__number { align-self: start; padding-top: 0.12rem; color: #777b67; font-size: 1.7rem; }
+.folio-project__main { grid-column: 2; align-self: center; max-width: 39rem; }
+.folio-project__note { color: #6e7564; }
+.folio-project__main h3 { max-width: 11ch; margin: 1rem 0 0.85rem; font-size: clamp(2.2rem, 4.1vw, 4.1rem); letter-spacing: -0.065em; line-height: 0.92; }
+.folio-project__main > p { max-width: 34rem; color: #63645e; font-size: clamp(0.8rem, 1vw, 0.95rem); line-height: 1.7; }
+.folio-project__bottom { align-items: flex-start; margin-top: 1.5rem; }
+.folio-project__bottom > span { max-width: 24rem; color: #77776f; line-height: 1.6; }
+.folio-project__bottom a, .folio-private { color: #30312b; }
+.folio-project__gesture {
+  position: relative;
+  min-height: 17rem;
+  grid-column: 3;
+  overflow: hidden;
+  align-self: stretch;
+  border: 1px solid #363934;
+  background-color: #242724;
+  background-image: linear-gradient(rgb(255 255 255 / 3%) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / 3%) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+  color: #d9d8cf;
+}
+.folio-project__gesture::before, .folio-project__gesture::after { position: absolute; width: 16rem; height: 16rem; border: 1px solid rgb(208 213 195 / 9%); border-radius: 50%; content: ''; pointer-events: none; }
+.folio-project__gesture::before { top: -11rem; right: -7rem; box-shadow: 0 0 0 1.2rem rgb(208 213 195 / 3%), 0 0 0 2.4rem rgb(208 213 195 / 2%); }
+.folio-project__gesture::after { right: -12rem; bottom: -12rem; width: 19rem; height: 19rem; }
+.projeto-visual { position: relative; z-index: 1; display: flex; width: 100%; min-height: 17rem; flex-direction: column; justify-content: space-between; padding: clamp(1rem, 2vw, 1.6rem); border: 0; background: transparent; }
+.projeto-visual__legenda, .projeto-visual__rodape { color: #9d9e93; font: 0.53rem ui-monospace, monospace; letter-spacing: 0.08em; }
+.projeto-visual__rodape { display: flex; align-items: center; gap: 0.45rem; font-size: 0.47rem; letter-spacing: 0.04em; }
+.projeto-visual__rodape i, .projeto-visual__transferencia i { width: 0.4rem; height: 0.4rem; flex: 0 0 auto; border-radius: 50%; background: #a9b493; box-shadow: 0 0 0 0.25rem rgb(169 180 147 / 12%); }
+.gesture-flow { position: relative; display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: clamp(0.3rem, 1vw, 0.8rem); width: 100%; padding: 0 0.2rem; }
+.gesture-flow::before { position: absolute; top: 50%; right: 12%; left: 12%; height: 1px; background: #747a6c; content: ''; }
+.gesture-flow i { position: relative; z-index: 1; display: grid; min-height: 5rem; place-items: center; padding: 0.5rem; border: 1px solid #555c51; border-radius: 0.15rem; background: #2b2f2a; color: #ecebe3; font: 0.9rem var(--font-serif); text-align: center; transition: transform 250ms ease, border-color 250ms ease; }
+.gesture-flow b { position: relative; z-index: 2; display: grid; width: 1.25rem; height: 1.25rem; place-items: center; border-radius: 50%; background: #242724; color: #c0c7af; font-size: 0.8rem; font-weight: 400; }
+.folio-project:hover .gesture-flow i:first-child, .folio-project:focus-within .gesture-flow i:first-child { transform: translateY(-0.3rem); }
+.folio-project:hover .gesture-flow i:last-child, .folio-project:focus-within .gesture-flow i:last-child { transform: translateY(0.3rem); }
+.gesture-chat { width: 100%; justify-content: space-between; gap: 1rem; padding: 0 0.3rem; }
+.gesture-chat i { max-width: 44%; padding: 0.8rem 0.95rem; border: 1px solid #555c51; border-radius: 1rem 1rem 1rem 0.2rem; background: #2b2f2a; color: #e7e6dd; font-size: clamp(0.9rem, 1.5vw, 1.25rem); }
+.gesture-chat i:last-child { align-self: flex-end; border-radius: 1rem 1rem 0.2rem 1rem; background: #343a32; }
+.gesture-chat b { display: grid; width: 2rem; height: 2rem; flex: 0 0 auto; place-items: center; border: 1px solid #69725e; border-radius: 50%; color: #c0c7af; }
+.projeto-visual__transferencia { display: flex; align-items: center; gap: 0.65rem; color: #cbcbbf; font-size: 0.67rem; }
+.projeto-visual__transferencia b { margin-left: auto; color: #a9b493; font-weight: 400; }
+.projeto-visual--saae .projeto-visual__rodape { font-size: 0.46rem; }
+.projeto-visual__app-cena { display: flex; align-items: center; justify-content: center; gap: clamp(1.2rem, 3vw, 3rem); }
+.projeto-visual__aparelho { width: clamp(4.3rem, 8vw, 6.7rem); height: 10rem; flex: 0 0 auto; overflow: hidden; margin: 0; padding: 0.22rem; border: 1px solid #65675e; border-radius: 0.8rem; background: #111; box-shadow: 0 0.8rem 1.8rem rgb(0 0 0 / 32%); transform: rotate(-5deg); transition: transform 300ms ease; }
+.folio-project:hover .projeto-visual__aparelho, .folio-project:focus-within .projeto-visual__aparelho { transform: rotate(0) translateY(-0.35rem); }
+.projeto-visual__aparelho img { width: 100%; height: 100%; border-radius: 0.6rem; object-fit: cover; object-position: top; }
+.projeto-visual__app-cena > div { display: grid; gap: 0.25rem; }
+.projeto-visual__app-cena strong { color: #e4e3da; font: 400 clamp(3.4rem, 6vw, 5.8rem)/0.85 var(--font-serif); letter-spacing: -0.08em; }
+.projeto-visual__app-cena span { color: #b1b2a8; font-size: 0.65rem; }
+.projeto-visual__app-cena i { margin-top: 0.55rem; color: #c2c5b8; font: normal 0.58rem ui-monospace, monospace; }
+.projeto-visual__app-cena i b { padding: 0 0.35rem; color: #a9b493; font-weight: 400; }
+.folio-project__details { border-color: rgb(41 42 36 / 16%); }
+.folio-project__detail-body ol { gap: 0.4rem; }
+.folio-project__detail-body li { background: rgb(255 255 255 / 38%); }
+
+/* As páginas reais formam uma sequência assimétrica, como uma folha de contato. */
+.folio-lp-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1rem; }
+.folio-lp-card:nth-child(1), .folio-lp-card:nth-child(4) { grid-column: span 7; }
+.folio-lp-card:nth-child(2), .folio-lp-card:nth-child(3) { grid-column: span 5; }
+.folio-lp-card__screen { aspect-ratio: 1.55; }
+.folio-lp-card:nth-child(2) .folio-lp-card__screen, .folio-lp-card:nth-child(3) .folio-lp-card__screen { aspect-ratio: 1.35; }
+.folio-lp-card__body { padding: 1.1rem 1.25rem 1rem; }
+.folio-lp-card h4 { font-size: clamp(1.45rem, 2.5vw, 2.2rem); }
+
+@media (max-width: 950px) {
+  .folio-project { grid-template-columns: 2rem minmax(0, 1fr); }
+  .folio-project__gesture { grid-column: 2; grid-row: 2; min-height: 14rem; }
+  .folio-project:nth-child(2) .folio-project__main { grid-column: 2; grid-row: 1; }
+  .folio-project:nth-child(2) .folio-project__gesture { grid-column: 2; grid-row: 2; }
+  .projeto-visual { min-height: 14rem; }
+}
+@media (max-width: 650px) {
+  .folio-project { min-height: auto; grid-template-columns: 1.5rem minmax(0, 1fr); gap: 0.6rem; padding: 1.1rem; }
+  .folio-project__main h3 { font-size: clamp(2.15rem, 9.5vw, 3.3rem); }
+  .folio-project__gesture { grid-column: 1 / -1; grid-row: 2; min-height: 12rem; }
+  .folio-project:nth-child(2) .folio-project__main { grid-column: 2; grid-row: 1; }
+  .folio-project:nth-child(2) .folio-project__gesture { grid-column: 1 / -1; grid-row: 2; }
+  .projeto-visual { min-height: 12rem; padding: 0.9rem; }
+  .projeto-visual__rodape { flex-wrap: wrap; }
+  .gesture-flow i { min-height: 4.2rem; font-size: 0.78rem; }
+  .folio-lp-grid { grid-template-columns: minmax(0, 1fr); }
+  .folio-lp-card:nth-child(n) { grid-column: 1; }
+  .folio-lp-card__screen, .folio-lp-card:nth-child(n) .folio-lp-card__screen { aspect-ratio: 1.4; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio-project, .gesture-flow i, .projeto-visual__aparelho { transition: none; }
+}

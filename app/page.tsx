@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import PortfolioIdeShell from './components/portfolio-ide-shell';
 import AppProof from './components/app-proof';
 import LandingGallery from './components/landing-gallery';
@@ -147,7 +148,31 @@ export default function Portfolio() {
                 </details>
               </div>
               <div className="folio-project__gesture" aria-hidden="true">
-                {project.n === '01' ? <span className="gesture-flow"><i>entrada</i><b>→</b><i>fila</i><b>→</b><i>entrega</i></span> : project.n === '02' ? <span className="gesture-chat"><i>morador</i><b>↗</b><i>equipe</i></span> : <span className="gesture-app"><i>185</i><small>checks</small></span>}
+                {project.n === '01' ? (
+                  <div className="projeto-visual projeto-visual--fila">
+                    <span className="projeto-visual__legenda">PIPELINE · DISTRIBUIÇÃO</span>
+                    <span className="gesture-flow"><i>webhook</i><b>→</b><i>fila</i><b>→</b><i>vendedor</i></span>
+                    <span className="projeto-visual__rodape"><i /> evento recebido <i /> tarefa processada <i /> lead atribuído</span>
+                  </div>
+                ) : project.n === '02' ? (
+                  <div className="projeto-visual projeto-visual--saae">
+                    <span className="projeto-visual__legenda">ATENDIMENTO · SAAE</span>
+                    <span className="gesture-chat"><i>“segunda via”</i><b>↗</b><i>GSAN</i></span>
+                    <span className="projeto-visual__transferencia"><i /> contexto preservado <b>→</b> equipe assume</span>
+                    <span className="projeto-visual__rodape">WHATSAPP <span>·</span> DJANGO <span>·</span> ATENDIMENTO HUMANO</span>
+                  </div>
+                ) : (
+                  <div className="projeto-visual projeto-visual--app">
+                    <span className="projeto-visual__legenda">APP DO CIDADÃO · GOOGLE PLAY</span>
+                    <div className="projeto-visual__app-cena">
+                      <figure className="projeto-visual__aparelho">
+                        <Image src="/evidence/saae-inicio.jpg" alt="" width={230} height={500} sizes="120px" />
+                      </figure>
+                      <div><strong>185</strong><span>testes automatizados</span><i>Flutter <b>→</b> React Native</i></div>
+                    </div>
+                    <span className="projeto-visual__rodape">FATURAS <span>·</span> SERVIÇOS <span>·</span> CHAMADOS</span>
+                  </div>
+                )}
               </div>
             </article>
           ))}
