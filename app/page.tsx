@@ -5,6 +5,7 @@ import LandingGallery from './components/landing-gallery';
 import { Reveal } from './components/animations';
 import { ArrowUpRight } from './components/ui';
 import RevealFailsafe from './components/reveal-failsafe';
+import FluxoAtendimento from './components/fluxo-atendimento';
 
 const featured = [
   {
@@ -64,19 +65,6 @@ function FolioLabel({ n, children }: { n: string; children: React.ReactNode }) {
   return <div className="folio-label"><span>{n}</span><span>{children}</span></div>;
 }
 
-function ProfileCodeEditor() {
-  return (
-    <div className="folio-welcome__code-editor" role="group" aria-label="Trecho de código ilustrativo">
-      <div className="folio-welcome__code-tab"><span aria-hidden="true"><i /><i /><i /></span><strong>genesis.ts</strong><small>TypeScript</small></div>
-      <div className="folio-welcome__code-lines">
-        <div className="folio-welcome__code-line"><span>1</span><code><i>import</i> Genesis <i>from</i> <b>&quot;saae&quot;</b>;</code></div>
-        <div className="folio-welcome__code-line"><span>2</span><code><i>const</i> foco = [<b>&quot;backend&quot;</b>, <b>&quot;produto&quot;</b>];</code></div>
-        <div className="folio-welcome__code-line"><span>3</span><code><i>await</i> <em>entregar</em>(<b>&quot;algo útil&quot;</b>);<mark aria-hidden="true" /></code></div>
-      </div>
-    </div>
-  );
-}
-
 export default function Portfolio() {
   return (
     <div className="portfolio-folio">
@@ -90,18 +78,12 @@ export default function Portfolio() {
             <h1>Genesis<br /><i>Melo.</i></h1>
             <p className="folio-welcome__role">Desenvolvedor Full Stack Júnior</p>
             <p className="folio-welcome__intro">Construo APIs, integrações e produtos web e mobile. Gosto de entender o problema, organizar o fluxo e entregar software que funciona no dia a dia.</p>
-            <ProfileCodeEditor />
             <div className="folio-welcome__actions">
               <a href="#projetos">Ver projetos <ArrowUpRight /></a>
               <a href="https://www.linkedin.com/in/genesis-melo/" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight /></a>
             </div>
           </div>
-          <aside className="folio-welcome__snapshot" aria-label="Resumo profissional">
-            <div><span>FOCO</span><strong>Backend, APIs<br />e integrações</strong></div>
-            <div><span>STACK PRINCIPAL</span><strong>Node.js · TypeScript<br />NestJS · PostgreSQL</strong></div>
-            <div><span>AGORA</span><strong>Desenvolvimento no<br />SAAE Juazeiro</strong></div>
-            <a href="#percurso">Abrir percurso <span>↗</span></a>
-          </aside>
+          <FluxoAtendimento />
         </div>
         <div className="folio-welcome__footer"><span>Full Stack · Backend em destaque</span><span>Juazeiro, Bahia · Brasil</span><a href="#sobre">Leia o README ↓</a></div>
       </section>

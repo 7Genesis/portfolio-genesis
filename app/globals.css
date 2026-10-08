@@ -120,37 +120,11 @@
 .folio-welcome h1 i { color: #a5bd91; font-family: var(--font-serif); font-weight: 400; }
 .folio-welcome__role { margin-top: 1.5rem; color: #83aeca; font-family: ui-monospace, monospace; font-size: clamp(0.85rem, 1.4vw, 1.15rem); }
 .folio-welcome__intro { max-width: 40rem; margin-top: 1rem; color: #b8b8b8; font-size: clamp(1rem, 1.4vw, 1.2rem); line-height: 1.75; }
-.folio-welcome__code-editor { max-width: 39rem; margin-top: 1.15rem; overflow: hidden; border: 1px solid #3b3b3b; background: #191919; color: #d4d4d4; font: 0.59rem/1.65 ui-monospace, SFMono-Regular, Menlo, monospace; }
-.folio-welcome__code-tab { display: flex; height: 1.65rem; align-items: center; gap: 0.6rem; padding: 0 0.65rem; border-bottom: 1px solid #333; background: #252526; color: #bdbdbd; }
-.folio-welcome__code-tab > span { display: flex; gap: 0.22rem; }
-.folio-welcome__code-tab > span i { width: 0.38rem; height: 0.38rem; border-radius: 50%; background: #ed6a5e; }
-.folio-welcome__code-tab > span i:nth-child(2) { background: #f4bf50; }
-.folio-welcome__code-tab > span i:nth-child(3) { background: #61c554; }
-.folio-welcome__code-tab strong { font-weight: 500; }
-.folio-welcome__code-tab small { margin-left: auto; color: #a3a3a3; font-size: 0.52rem; }
-.folio-welcome__code-lines { overflow-x: auto; padding: 0.38rem 0 0.48rem; scrollbar-width: thin; }
-.folio-welcome__code-line { display: grid; width: max-content; min-width: 100%; grid-template-columns: 2rem max-content; padding-right: 0.75rem; }
-.folio-welcome__code-line > span { padding-right: 0.55rem; color: #707070; text-align: right; user-select: none; }
-.folio-welcome__code-line code { display: block; width: 0; overflow: hidden; color: #d4d4d4; white-space: nowrap; animation: code-type 2.25s steps(38, end) forwards; }
-.folio-welcome__code-line:nth-child(2) code { animation-delay: 1.6s; }
-.folio-welcome__code-line:nth-child(3) code { animation-delay: 3.2s; }
-.folio-welcome__code-line i { color: #c586c0; font-style: normal; }
-.folio-welcome__code-line b { color: #ce9178; font-weight: 400; }
-.folio-welcome__code-line em { color: #dcdcaa; font-style: normal; }
-.folio-welcome__code-line mark { display: inline-block; width: 1px; height: 0.82em; margin-left: 0.15rem; background: #a6c390; vertical-align: -0.1em; animation: code-caret 1s steps(2, start) infinite; }
-@keyframes code-type { to { width: 38ch; } }
-@keyframes code-caret { to { visibility: hidden; } }
 .folio-welcome__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.8rem; }
 .folio-welcome__actions a { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 0.9rem; border: 1px solid #555; border-radius: 0.25rem; color: #ddd; font-size: 0.72rem; text-decoration: none; }
 .folio-welcome__actions a:first-child { border-color: #607f56; background: #31422c; }
 .folio-welcome__actions a:hover { border-color: var(--ide-accent); background: #343a32; }
 .folio-welcome__actions svg { width: 0.8rem; height: 0.8rem; }
-.folio-welcome__snapshot { display: grid; gap: 1.2rem; padding: 1.2rem 1.3rem; border: 1px solid #444; border-left: 2px solid #8ca67c; background: #252526; }
-.folio-welcome__snapshot div { display: grid; gap: 0.35rem; }
-.folio-welcome__snapshot div + div { padding-top: 0.8rem; border-top: 1px solid #3b3b3b; }
-.folio-welcome__snapshot span { color: #a3a3a3; font-family: ui-monospace, monospace; font-size: 0.55rem; letter-spacing: 0.08em; }
-.folio-welcome__snapshot strong { color: #d4d4d4; font-size: 0.82rem; font-weight: 500; line-height: 1.55; }
-.folio-welcome__snapshot a { display: flex; justify-content: space-between; padding-top: 0.8rem; border-top: 1px solid #3b3b3b; color: #a6bd94; font-size: 0.68rem; text-decoration: none; }
 .folio-welcome__footer { padding-top: 0.9rem; border-top: 1px solid var(--rule); font-size: 0.56rem; letter-spacing: 0.02em; }
 .folio-welcome__footer a { color: #a6bd94; text-decoration: none; }
 /* Keep the entire portfolio inside the IDE workspace, including legacy sections. */
@@ -235,13 +209,9 @@
   .folio-welcome { min-height: calc(100svh - 6rem); padding: 2.4rem 1.2rem 1rem; }
   .folio-welcome__eyebrow, .folio-welcome__footer { font-size: 0.52rem; }
   .folio-welcome__body { grid-template-columns: 1fr; gap: 2rem; padding: 2.3rem 0; }
-  .folio-welcome__code-editor { max-width: 100%; }
   .folio-welcome h1 { font-size: clamp(4rem, 17vw, 6.8rem); }
   .folio-welcome__role { margin-top: 1.1rem; }
   .folio-welcome__intro { font-size: 0.95rem; }
-  .folio-welcome__snapshot { grid-template-columns: 1fr 1fr; gap: 0.8rem; padding: 0.85rem; }
-  .folio-welcome__snapshot div:last-of-type { grid-column: 1; padding-top: 0.65rem; border-top: 1px solid #3b3b3b; }
-  .folio-welcome__snapshot a { grid-column: 2; align-self: end; }
   .folio-welcome__footer { flex-wrap: wrap; }
   .folio-welcome__footer span:nth-child(2) { display: none; }
   .folio-intro, .folio-projects, .folio-stack, .folio-career, .folio-github, .folio-footer { padding: 4.2rem 1.2rem; }
@@ -667,15 +637,6 @@
     radial-gradient(ellipse at 88% 48%, rgb(143 181 122 / 7%), transparent 34%),
     linear-gradient(135deg, #20201f 0%, #1e1e1e 46%, #20211f 100%);
 }
-.folio-welcome__snapshot {
-  border-color: rgb(255 255 255 / 11%);
-  border-left-width: 2px;
-  border-radius: 0.4rem;
-  background: linear-gradient(145deg, rgb(48 50 46 / 80%), rgb(37 37 38 / 88%));
-  box-shadow: 0 1.5rem 3.5rem rgb(0 0 0 / 18%), inset 0 1px rgb(255 255 255 / 3%);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-}
 .portfolio-ide__tab.is-active {
   border-bottom-color: var(--ide-accent);
   box-shadow: inset 0 1px rgb(255 255 255 / 3%);
@@ -732,6 +693,60 @@
 @media (prefers-reduced-motion: reduce) {
   .folio-project { transition: none; }
   .folio-project:hover, .folio-project:focus-within { transform: none; }
+}
+
+.folio-welcome__body { grid-template-columns: minmax(0, 0.9fr) minmax(22rem, 1.1fr); gap: clamp(1.5rem, 4vw, 4.5rem); }
+.fluxo-atendimento { position: relative; overflow: hidden; padding: clamp(1rem, 2vw, 1.6rem); border: 1px solid #454741; border-radius: 0.45rem; background: linear-gradient(145deg, #292b27 0%, #20211f 68%, #252720 100%); box-shadow: 0 1.4rem 4rem rgb(0 0 0 / 22%), inset 0 1px rgb(255 255 255 / 4%); }
+.fluxo-atendimento::before { position: absolute; top: -5rem; right: -4rem; width: 13rem; height: 13rem; border: 1px solid rgb(165 189 145 / 10%); border-radius: 50%; box-shadow: 0 0 0 1.4rem rgb(165 189 145 / 3%), 0 0 0 2.8rem rgb(165 189 145 / 2%); content: ''; pointer-events: none; }
+.fluxo-atendimento__cabecalho { position: relative; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.fluxo-atendimento__sobretitulo { color: #a5bd91; font: 0.55rem ui-monospace, monospace; letter-spacing: 0.11em; }
+.fluxo-atendimento__cabecalho h2 { margin: 0.85rem 0 1.35rem; color: #e2e0d9; font: 400 clamp(1.5rem, 2.6vw, 2.1rem)/1.02 var(--font-serif); letter-spacing: -0.045em; }
+.fluxo-atendimento__cabecalho h2 i { color: #a5bd91; }
+.fluxo-atendimento__estado { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.34rem 0.5rem; border: 1px solid rgb(165 189 145 / 24%); border-radius: 999px; color: #c7d6ba; font: 0.48rem ui-monospace, monospace; letter-spacing: 0.06em; white-space: nowrap; }
+.fluxo-atendimento__estado i { width: 0.35rem; height: 0.35rem; border-radius: 50%; background: #a5bd91; box-shadow: 0 0 0 0 rgb(165 189 145 / 45%); animation: pulsar-status 2s ease-out infinite; }
+@keyframes pulsar-status { 70%, 100% { box-shadow: 0 0 0 0.38rem rgb(165 189 145 / 0%); } }
+.fluxo-atendimento__etapas { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.4rem; margin: 0 0 1rem; padding: 0; list-style: none; }
+.fluxo-atendimento__etapas::before { position: absolute; top: 0.96rem; right: 11%; left: 11%; height: 1px; background: linear-gradient(90deg, #718765, #56634c 65%, #464a40); content: ''; }
+.fluxo-atendimento__etapas li { position: relative; min-width: 0; }
+.fluxo-atendimento__etapa { position: relative; display: grid; width: 100%; min-height: 4.5rem; justify-items: start; align-content: start; gap: 0.55rem; padding: 0 0.1rem 0.45rem; border: 0; background: transparent; color: #92958d; text-align: left; cursor: pointer; }
+.fluxo-atendimento__numero { display: grid; width: 1.95rem; height: 1.95rem; place-items: center; border: 1px solid #555a4f; border-radius: 50%; background: #22231f; color: #a2a496; font: 0.56rem ui-monospace, monospace; transition: border-color 180ms ease, color 180ms ease, background 180ms ease, box-shadow 180ms ease; }
+.fluxo-atendimento__nome { max-width: 100%; overflow: hidden; color: #9da098; font-size: 0.61rem; text-overflow: ellipsis; white-space: nowrap; transition: color 180ms ease; }
+.fluxo-atendimento__marcador { position: absolute; top: 0.42rem; left: 1.42rem; color: #a5bd91; font-size: 0.56rem; opacity: 0; transform: translate(-0.15rem, 0.15rem); transition: opacity 180ms ease, transform 180ms ease; }
+.fluxo-atendimento__etapa:hover .fluxo-atendimento__numero, .fluxo-atendimento__etapa:focus-visible .fluxo-atendimento__numero, .fluxo-atendimento__etapa.esta-ativa .fluxo-atendimento__numero { border-color: #a5bd91; background: #35402f; color: #e5efdc; box-shadow: 0 0 0 0.25rem rgb(165 189 145 / 9%); }
+.fluxo-atendimento__etapa.esta-ativa .fluxo-atendimento__nome { color: #d9dfd1; }
+.fluxo-atendimento__etapa.esta-ativa .fluxo-atendimento__marcador { opacity: 1; transform: translate(0, 0); }
+.fluxo-atendimento__etapa:focus-visible { outline: 2px solid #a5bd91; outline-offset: 3px; border-radius: 0.2rem; }
+.fluxo-atendimento__detalhe { min-height: 6.7rem; padding: 0.9rem 1rem; border: 1px solid rgb(255 255 255 / 8%); border-left: 2px solid #a5bd91; background: rgb(13 14 12 / 35%); animation: detalhe-entrada 220ms ease-out; }
+.fluxo-atendimento__detalhe-cabecalho { display: flex; justify-content: space-between; gap: 0.6rem; color: #92968b; font: 0.49rem ui-monospace, monospace; letter-spacing: 0.07em; }
+.fluxo-atendimento__detalhe-cabecalho > span:first-child { color: #bacab0; }
+.fluxo-atendimento__detalhe-cabecalho i { color: #a5bd91; font-size: 0.45rem; font-style: normal; }
+.fluxo-atendimento__detalhe p { max-width: 34rem; margin: 0.7rem 0 0.3rem; color: #e0e0d9; font-size: 0.77rem; line-height: 1.45; }
+.fluxo-atendimento__detalhe > small { color: #a5a79e; font-size: 0.57rem; }
+@keyframes detalhe-entrada { from { opacity: 0.45; transform: translateY(0.25rem); } to { opacity: 1; transform: translateY(0); } }
+.fluxo-atendimento__rodape { display: flex; justify-content: space-between; gap: 0.7rem; margin-top: 0.9rem; color: #82857c; font-size: 0.55rem; }
+.fluxo-atendimento__rodape a { color: #b9c9ac; text-decoration: none; }
+.fluxo-atendimento__rodape a:hover { color: #edf2e8; }
+@media (max-width: 1100px) {
+  .folio-welcome__body { grid-template-columns: minmax(0, 0.9fr) minmax(20rem, 1.1fr); }
+}
+@media (max-width: 900px) {
+  .folio-welcome__body { grid-template-columns: 1fr; }
+  .fluxo-atendimento { max-width: none; }
+}
+@media (max-width: 650px) {
+  .folio-welcome__body { gap: 1.35rem; }
+  .fluxo-atendimento { padding: 1rem; }
+  .fluxo-atendimento__cabecalho h2 { font-size: 1.6rem; }
+  .fluxo-atendimento__etapas { gap: 0.2rem; }
+  .fluxo-atendimento__etapas::before { right: 12%; left: 12%; }
+  .fluxo-atendimento__etapa { min-height: 4rem; }
+  .fluxo-atendimento__nome { font-size: 0.52rem; }
+  .fluxo-atendimento__detalhe { min-height: 7rem; padding: 0.75rem; }
+  .fluxo-atendimento__detalhe-cabecalho { font-size: 0.43rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fluxo-atendimento__estado i, .fluxo-atendimento__detalhe { animation: none; }
+  .fluxo-atendimento__numero, .fluxo-atendimento__nome, .fluxo-atendimento__marcador { transition: none; }
 }
 
 /* A little discovery inside each project, using native disclosure instead of client state. */
