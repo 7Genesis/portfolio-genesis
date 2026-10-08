@@ -8,7 +8,7 @@ import RevealFailsafe from './components/reveal-failsafe';
 
 const featured = [
   {
-    n: '01', title: 'LeadFlow Engine', note: 'Backend · NestJS',
+    id: 'project-leadflow', n: '01', title: 'LeadFlow Engine', note: 'Backend · NestJS',
     description: 'Uma API recebe leads por webhook, valida os dados, organiza o trabalho no Redis e distribui cada oportunidade entre vendedores em rodízio.',
     stack: 'NestJS · Redis · BullMQ · Prisma · PostgreSQL',
     href: 'https://github.com/7Genesis/leadflow-engine', link: 'Explorar repositório',
@@ -16,7 +16,7 @@ const featured = [
     flow: [{ label: 'Entrada', value: 'Webhook' }, { label: 'Fila', value: 'Redis · BullMQ' }, { label: 'Entrega', value: 'Rodízio' }],
   },
   {
-    n: '02', title: 'Atendimento SAAE', note: 'Produto em produção · Python',
+    id: 'project-atendimento-saae', n: '02', title: 'Atendimento SAAE', note: 'Produto em produção · Python',
     description: 'Atendimento por WhatsApp integrado ao GSAN. O chatbot consulta informações, evita solicitações duplicadas e transfere conversas à equipe com contexto.',
     stack: 'Python · Django · Celery · Redis · pytest',
     href: null, link: 'Projeto interno · código da equipe',
@@ -24,7 +24,7 @@ const featured = [
     flow: [{ label: 'Canal', value: 'WhatsApp' }, { label: 'Consulta', value: 'GSAN' }, { label: 'Continuidade', value: 'Equipe' }],
   },
   {
-    n: '03', title: 'App do cidadão', note: 'Google Play · React Native',
+    id: 'project-app-cidadao', n: '03', title: 'App do cidadão', note: 'Google Play · React Native',
     description: 'Reescrita do aplicativo de Flutter para React Native e TypeScript. Faturas, serviços e chamados em um app com 185 testes automatizados.',
     stack: 'React Native · Expo · TypeScript · 185 testes',
     href: 'https://play.google.com/store/apps/details?id=com.saaejuazeiro.app', link: 'Ver na Google Play',
@@ -34,9 +34,9 @@ const featured = [
 ];
 
 const otherWork = [
-  { title: 'CoreAcademy MeetPoint', kind: 'SaaS multi-tenant', href: 'https://novalab.me/meetpoint' },
-  { title: 'CreditFlow', kind: 'API · .NET · Clean Architecture', href: 'https://github.com/7Genesis/CreditFlow' },
-  { title: 'StockFlow', kind: 'Produto web · Next.js', href: 'https://stockflow-cyan.vercel.app' },
+  { id: 'project-coreacademy', title: 'CoreAcademy MeetPoint', kind: 'SaaS multi-tenant', href: 'https://novalab.me/meetpoint' },
+  { id: 'project-creditflow', title: 'CreditFlow', kind: 'API · .NET · Clean Architecture', href: 'https://github.com/7Genesis/CreditFlow' },
+  { id: 'project-stockflow', title: 'StockFlow', kind: 'Produto web · Next.js', href: 'https://stockflow-cyan.vercel.app' },
 ];
 
 const webWork = [
@@ -144,7 +144,7 @@ export default function Portfolio() {
 
         <div className="folio-project-list">
           {featured.map((project) => (
-            <article className="folio-project" key={project.n}>
+            <article className="folio-project" id={project.id} key={project.n}>
               <span className="folio-project__number">{project.n}</span>
               <div className="folio-project__main">
                 <span className="folio-project__note">{project.note}</span>
@@ -177,7 +177,7 @@ export default function Portfolio() {
         <div className="folio-indexes">
           <div>
             <span className="folio-indexes__heading">Outros sistemas</span>
-            {otherWork.map((item) => <a key={item.title} href={item.href} target="_blank" rel="noreferrer"><span>{item.title}</span><small>{item.kind}</small><ArrowUpRight /></a>)}
+            {otherWork.map((item) => <a id={item.id} key={item.title} href={item.href} target="_blank" rel="noreferrer"><span>{item.title}</span><small>{item.kind}</small><ArrowUpRight /></a>)}
           </div>
           <div>
             <span className="folio-indexes__heading">Web para clientes</span>

@@ -419,6 +419,7 @@
 .folio-section-head { display: grid; grid-template-columns: 0.7fr 1.3fr; align-items: start; gap: 2rem; margin-bottom: 4rem; }
 .folio-section-head h2 { max-width: 13ch; margin-top: 0; }
 .folio-project { display: grid; grid-template-columns: 3rem minmax(13rem, 0.85fr) minmax(18rem, 1.2fr) minmax(12rem, 0.8fr); align-items: center; gap: clamp(1rem, 3vw, 3rem); padding: 2.5rem 0; border-top: 1px solid var(--rule); }
+.folio-project, .folio-indexes > div > a { scroll-margin-block-start: 8.5rem; }
 .folio-project:last-child { border-bottom: 1px solid var(--rule); }
 .folio-project__number { align-self: start; color: var(--olive); font-family: var(--font-serif); font-size: 1.4rem; font-style: italic; }
 .folio-project__note { color: var(--muted); font-family: ui-monospace, monospace; font-size: 0.56rem; letter-spacing: 0.07em; text-transform: uppercase; }
@@ -778,6 +779,7 @@
   .portfolio-ide__breadcrumb { display: none; }
   .portfolio-ide__code-preview { top: 4.45rem; height: 1.35rem; }
   .folio-welcome, .folio-intro, .folio-projects, .folio-stack, .folio-career, .folio-github, .folio-footer, .folio-lp-gallery { scroll-margin-top: 5.8rem; }
+  .folio-project, .folio-indexes > div > a { scroll-margin-block-start: 6rem; }
   .folio-welcome h1 { font-size: clamp(3.4rem, 14vw, 5.25rem); line-height: 0.88; }
   .folio-intro__copy h2, .folio-section-head h2, .folio-stack__intro h2, .folio-career__head h2, .folio-github__head h2 { font-size: clamp(2.55rem, 10.5vw, 3.75rem); line-height: 0.94; }
   .folio-lp-gallery__head h3 { font-size: clamp(2.45rem, 10.5vw, 3.9rem); }

@@ -91,7 +91,7 @@ export default function PortfolioIdeShell({ children }: { children: ReactNode })
     return () => { document.body.style.overflow = previousOverflow; };
   }, [paletteOpen]);
 
-  const navigate = (id: string) => {
+  const navigate = (id: string, targetId = id) => {
     setActive(id);
     setExplorerOpen(false);
     if (paletteOpen) {
@@ -99,20 +99,20 @@ export default function PortfolioIdeShell({ children }: { children: ReactNode })
       commandCenterRef.current?.focus();
     }
     else if (window.matchMedia('(max-width: 900px)').matches) explorerButtonRef.current?.focus();
-    document.getElementById(id)?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    document.getElementById(targetId)?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
   };
 
   const activeFile = FILES.find((file) => file.id === active) ?? FILES[0];
   const previewText = activeFile.preview.join(' ');
   const commands = [
     ...FILES.map((file) => ({ label: `Abrir ${file.name}`, detail: `Ir para ${file.id === 'inicio' ? 'o início' : file.id}`, run: () => navigate(file.id) })),
-    { label: 'Abrir LeadFlow Engine', detail: 'Projeto de backend com NestJS, Redis e PostgreSQL', run: () => navigate('projetos') },
-    { label: 'Abrir Atendimento SAAE', detail: 'Integração com WhatsApp, GSAN e Django', run: () => navigate('projetos') },
-    { label: 'Abrir app do cidadão', detail: 'Aplicativo React Native publicado na Google Play', run: () => navigate('projetos') },
+    { label: 'Abrir LeadFlow Engine', detail: 'Projeto de backend com NestJS, Redis e PostgreSQL', run: () => navigate('projetos', 'project-leadflow') },
+    { label: 'Abrir Atendimento SAAE', detail: 'Integração com WhatsApp, GSAN e Django', run: () => navigate('projetos', 'project-atendimento-saae') },
+    { label: 'Abrir app do cidadão', detail: 'Aplicativo React Native publicado na Google Play', run: () => navigate('projetos', 'project-app-cidadao') },
     { label: 'Ver landing pages', detail: 'Páginas publicadas e projetos web', run: () => navigate('landing-pages') },
-    { label: 'Abrir CoreAcademy MeetPoint', detail: 'SaaS multi-tenant', run: () => navigate('projetos') },
-    { label: 'Abrir CreditFlow', detail: 'API .NET com Clean Architecture', run: () => navigate('projetos') },
-    { label: 'Abrir StockFlow', detail: 'Produto web feito com Next.js', run: () => navigate('projetos') },
+    { label: 'Abrir CoreAcademy MeetPoint', detail: 'SaaS multi-tenant', run: () => navigate('projetos', 'project-coreacademy') },
+    { label: 'Abrir CreditFlow', detail: 'API .NET com Clean Architecture', run: () => navigate('projetos', 'project-creditflow') },
+    { label: 'Abrir StockFlow', detail: 'Produto web feito com Next.js', run: () => navigate('projetos', 'project-stockflow') },
     { label: 'Abrir terminal de exemplo', detail: 'Mostrar uma requisição de integração', run: () => { setTerminalOpen(true); setPaletteOpen(false); commandCenterRef.current?.focus(); } },
     { label: 'Abrir GitHub', detail: 'Ver repositórios e código', run: () => navigate('github') },
     { label: 'Ir para contato', detail: 'Encontrar e-mail e redes', run: () => navigate('contato') },
