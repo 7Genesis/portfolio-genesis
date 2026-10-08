@@ -951,6 +951,7 @@
 .folio-project__details { border-color: rgb(41 42 36 / 16%); }
 .folio-project__detail-body ol { gap: 0.4rem; }
 .folio-project__detail-body li { background: rgb(255 255 255 / 38%); }
+.folio-intro__copy h2 i, .folio-section-head h2 i, .folio-stack__intro h2 i, .folio-career__head h2 i, .folio-github__head h2 i, .folio-lp-gallery__head h3 i { letter-spacing: -0.04em; word-spacing: 0.07em; }
 
 /* As páginas reais formam uma sequência assimétrica, como uma folha de contato. */
 .folio-lp-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1rem; }
