@@ -749,6 +749,76 @@
   .fluxo-atendimento__numero, .fluxo-atendimento__nome, .fluxo-atendimento__marcador { transition: none; }
 }
 
+/* Varia o ritmo do site: o editor continua escuro, o conteúdo ganha páginas de papel e verde-musgo. */
+.folio-intro, .folio-projects, .folio-career, .folio-github {
+  --paper: #f0eee6;
+  --paper-dark: #e4e0d5;
+  --ink: #292a24;
+  --muted: #686960;
+  --olive: #667252;
+  --rule: rgb(41 42 36 / 17%);
+  color: var(--ink);
+}
+.folio-intro, .folio-career { background: #e7e3d8; }
+.folio-projects, .folio-github { background: #f1efe7; }
+.folio-origin { border-color: rgb(41 42 36 / 18%); background: #f4f1e8; }
+.folio-origin::after { border-color: rgb(41 42 36 / 17%); }
+.folio-origin__drawing path { stroke: #79816a; }
+.folio-origin__drawing .folio-origin__thread--thin { stroke: rgb(102 114 82 / 38%); }
+.folio-origin__drawing circle { fill: #f4f1e8; stroke: #667252; }
+.folio-origin__label { background: #f4f1e8; }
+.folio-project {
+  border-color: rgb(41 42 36 / 13%);
+  background: linear-gradient(112deg, #faf8f1 0%, #f7f5ed 62%, #ebe9df 100%);
+  box-shadow: 0 0.7rem 1.7rem rgb(41 42 36 / 4%), inset 0 1px #fff9;
+}
+.folio-project:hover, .folio-project:focus-within {
+  border-color: rgb(102 114 82 / 44%);
+  box-shadow: 0 1rem 2.4rem rgb(41 42 36 / 9%), inset 0 1px #fff;
+}
+.folio-project:last-child { border-bottom-color: rgb(41 42 36 / 13%); }
+.folio-project__gesture { border-left-color: rgb(41 42 36 / 13%); background: radial-gradient(ellipse at center, rgb(102 114 82 / 7%), transparent 72%); }
+.folio-project__details { border-top-color: rgb(41 42 36 / 13%); }
+.folio-project__details summary > span { color: #404238; }
+.folio-project__details summary small { color: #72746b; }
+.folio-project__details summary:hover > span, .folio-project__details[open] summary > span { color: #526143; }
+.folio-project__details summary i { border-color: rgb(41 42 36 / 26%); color: #59664a; }
+.folio-project__details[open] summary i { border-color: rgb(82 97 67 / 55%); }
+.folio-project__detail-body > p { color: #62645b; }
+.folio-project__detail-body li { border-color: rgb(41 42 36 / 14%); background: rgb(255 255 255 / 38%); }
+.folio-project__detail-body li + li::before { background: rgb(102 114 82 / 62%); }
+.folio-project__detail-body li small { color: #697252; }
+.folio-project__detail-body li strong { color: #35362f; }
+.app-proof { border-color: rgb(41 42 36 / 13%); background: #e4e0d5; }
+.app-proof__device { border-color: #51534b; box-shadow: 0 1.7rem 3rem rgb(41 42 36 / 18%), 0 0 0 0.45rem rgb(255 255 255 / 64%); }
+.app-proof__device figcaption { border-color: rgb(41 42 36 / 17%); background: rgb(248 246 238 / 94%); color: #5e6058; box-shadow: 0 10px 22px rgb(41 42 36 / 10%); }
+.folio-lp-gallery { margin-top: clamp(3rem, 5vw, 5rem); border-top-color: rgb(41 42 36 / 18%); }
+.folio-lp-card { border-color: rgb(41 42 36 / 15%); background: #faf8f1; }
+.folio-lp-card:hover, .folio-lp-card:focus-visible { border-color: rgb(102 114 82 / 56%); box-shadow: 0 1.2rem 2.6rem rgb(41 42 36 / 10%); }
+.folio-indexes { margin-top: clamp(3rem, 5vw, 5rem); }
+.folio-stack, .folio-footer {
+  --paper: #eeece2;
+  --paper-dark: #34382f;
+  --ink: #eeece2;
+  --muted: #c0c1b5;
+  --olive: #bdc9ad;
+  --rule: rgb(238 236 226 / 21%);
+  background: #34382f;
+  color: var(--ink);
+}
+.folio-stack .folio-label, .folio-stack__columns > div > span, .folio-footer .folio-label { color: #c0c1b5; }
+.folio-stack .folio-label > span:first-child, .folio-footer .folio-label > span:first-child { color: #bdc9ad; }
+.folio-stack__columns > div, .folio-stack__columns > div:last-child { border-color: rgb(238 236 226 / 22%); }
+.folio-stack__columns p { color: rgb(238 236 226 / 72%); }
+.folio-footer__content > a { border-bottom-color: rgb(238 236 226 / 62%); color: #eeece2; }
+.folio-footer__bottom { border-top-color: rgb(238 236 226 / 22%); color: #c0c1b5; }
+.folio-intro, .folio-projects, .folio-stack, .folio-career, .folio-github, .folio-footer { padding-block: clamp(4rem, 7vw, 6.5rem); }
+
+@media (max-width: 650px) {
+  .folio-intro, .folio-projects, .folio-stack, .folio-career, .folio-github, .folio-footer { padding: 3.25rem 1.2rem; }
+  .folio-lp-gallery { margin-top: 3.25rem; }
+}
+
 /* A little discovery inside each project, using native disclosure instead of client state. */
 .folio-project__details { margin-top: 1.15rem; border-top: 1px solid rgb(255 255 255 / 9%); }
 .folio-project__details summary {
