@@ -1060,3 +1060,26 @@
 @media (prefers-reduced-motion: reduce) {
   .app-journey__phone img, .app-journey__scene { transition: none; }
 }
+
+/* O case pertence à mesma página editorial dos projetos; a cor do app fica no palco. */
+.app-journey { border-color: rgb(41 42 36 / 17%); background: #e4e0d5; color: #292a24; }
+.app-journey__eyebrow, .app-journey__scene > span { color: #667252; }
+.app-journey__header h3 i { color: #667252; }
+.app-journey__header p, .app-journey__scene p { color: #686960; }
+.app-journey__scene { opacity: 0.55; }
+.app-journey__scene.is-active { opacity: 1; }
+.app-journey__stage { background: radial-gradient(circle at 50% 50%, #334e50 0, #273430 44%, #242724 78%); }
+.app-journey__stage::before { border-color: rgb(214 225 203 / 19%); }
+.app-journey__index { color: #d2dcc9; }
+.app-journey__steps button, .app-journey__arrows button { border-color: rgb(41 42 36 / 25%); color: #41463b; }
+.app-journey__steps button span:first-child { color: #667252; }
+.app-journey__steps button[aria-current="step"] { border-color: #667252; background: #667252; color: #fff; }
+.app-journey__steps button[aria-current="step"] span:first-child { color: #fff; }
+.app-journey__steps button:hover:not(:disabled), .app-journey__arrows button:hover:not(:disabled) { border-color: #667252; background: rgb(102 114 82 / 10%); }
+.app-journey__steps button:focus-visible, .app-journey__arrows button:focus-visible { outline-color: #526143; }
+.app-journey__source { border-top-color: rgb(41 42 36 / 17%); }
+.app-journey__source a { color: #292a24; }
+.app-journey__source small { color: #686960; }
+@media (max-width: 780px) {
+  .app-journey__scene { opacity: 1; border-top-color: rgb(41 42 36 / 17%); }
+}
