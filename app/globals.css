@@ -1081,5 +1081,5 @@
 .app-journey__source a { color: #292a24; }
 .app-journey__source small { color: #686960; }
 @media (max-width: 780px) {
-  .app-journey__scene { opacity: 1; border-top-color: rgb(41 42 36 / 17%); }
+  .app-journey__scene { opacity: 1; border-top-color: rgb(41 42 36 / 17%); scroll-margin-top: 8.5rem; }
 }
