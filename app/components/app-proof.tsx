@@ -34,7 +34,8 @@ export default function AppProof() {
   function goTo(index: number) {
     const target = Math.max(0, Math.min(index, screens.length - 1));
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    sceneRefs.current[target]?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center' });
+    const mobile = window.matchMedia('(max-width: 780px)').matches;
+    sceneRefs.current[target]?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: mobile ? 'start' : 'center' });
   }
 
   return (
