@@ -227,7 +227,7 @@ export default function Portfolio() {
           <div><strong>Engenharia de Software</strong><small>Unigrande · cursando</small></div>
           <div><strong>Análise de Dados</strong><small>EBAC · em andamento</small></div>
           <div><strong>Power BI · Data Science</strong><small>Data Science Academy · concluído</small></div>
-          <div><strong>AWS Cloud Quest: Cloud Practitioner</strong><small>AWS Skill Builder · concluído · <a href="https://www.credly.com/earner/earned/badge/81c82451-8407-4a58-8b8e-9325bb57b01c" target="_blank" rel="noopener noreferrer">badge Credly</a></small></div>
+          <div><strong>AWS Cloud Quest: Cloud Practitioner</strong><small>AWS Skill Builder · concluído · <a href="https://www.credly.com/badges/81c82451-8407-4a58-8b8e-9325bb57b01c/public_url" target="_blank" rel="noopener noreferrer">badge Credly</a></small></div>
         </div>
       </section>
 
