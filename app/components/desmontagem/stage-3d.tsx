@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { CODES, CV_URL, DOTS, LABELS, SCROLL_SCREENS, STEPS, type ModalName } from "./content";
-import { ActionLink } from "./ui";
+import { ActionLink, InfoBlock } from "./ui";
 import type { Fonts } from "./screens";
 import type { SceneHandle, SlideInfo } from "./scene";
 
@@ -183,6 +183,7 @@ export default function Stage3D({ fonts, onModal, onFail, onSimple }: Props) {
                     ))}
                   </div>
                 ) : null}
+                {s.info ? <InfoBlock info={s.info} /> : null}
               </div>
             );
           })}
