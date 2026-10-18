@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
+// Fontes auto-hospedadas (mesma abordagem da referência): sem request ao Google no carregamento.
+const bigShoulders = localFont({
+  src: "./fonts/big-shoulders-display.woff2",
+  variable: "--font-big-shoulders",
+  display: "swap",
 });
 
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-serif",
+const jetbrainsMono = localFont({
+  src: "./fonts/jetbrains-mono.woff2",
+  variable: "--font-jetbrains",
+  display: "swap",
 });
 
 const siteUrl = "https://portfolio-genesis-one.vercel.app";
@@ -49,7 +50,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Dados estruturados (schema.org) para buscadores
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -70,6 +70,15 @@ const personJsonLd = {
   ],
 };
 
+// Contrato de direção (seed REF-GABRIELRICHARD-BRIEF-PINNED) registrado como nó de texto
+// dentro de <script type="text/plain"> — React remove comentários JSX do HTML emitido.
+const DIRECTION_CONTRACT = `THESIS: o portfolio vira uma cidade noturna navegavel por secoes; recusa o scroll editorial padrao.
+OWN-WORLD: synthwave geometrico — violeta profundo, janelas ambar, Big Shoulders gigante + JetBrains Mono, conteudo como codigo numerado, menu lateral 01-07.
+STORY: o visitante entende em segundos quem e Genesis, navega como num jogo e chama no WhatsApp ou baixa o curriculo.
+FIRST VIEWPORT: cidade vista do morro; a direita, "Ola, eu sou GENESIS MELO" gigante, cargo em accent, stack, CTA de curriculo.
+FORM: navegador de secoes estilo jogo, brief fixado pela referencia gabrielrichard.dev, com correcoes de scroll pedidas pelo usuario.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -77,7 +86,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.variable} ${instrumentSerif.variable} font-sans`}>
+      <body className={`${bigShoulders.variable} ${jetbrainsMono.variable}`}>
+        <script type="text/plain" data-direction-contract="REF-GABRIELRICHARD-BRIEF-PINNED">
+          {DIRECTION_CONTRACT}
+        </script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
