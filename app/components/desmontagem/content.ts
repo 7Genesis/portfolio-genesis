@@ -15,6 +15,7 @@ export const LEADFLOW_REPO = "https://github.com/7Genesis/leadflow-engine";
 export const CREDITFLOW_REPO = "https://github.com/7Genesis/CreditFlow";
 export const ANATOMIA = "/anatomia";
 export const NURSING_LAB = "https://github.com/7Genesis/nursing-lab-3d";
+export const NURSING_LAB_DEMO = "https://7genesis.github.io/nursing-lab-3d/";
 export const ANATOMIA_CODIGO = "https://github.com/7Genesis/portfolio-genesis/tree/main/app/components/anatomia";
 
 export const IMG = "/desmontagem/img";
@@ -71,7 +72,7 @@ export const STEPS: Step[] = [
       label: "Meus projetos 3D",
       items: [
         { title: "Anatomia do MacBook Pro", text: "Gire, aproxime e abra o notebook peça por peça. three.js.", href: ANATOMIA },
-        { title: "Nursing Lab 3D", text: "Anatomia humana 3D, ausculta, pressão arterial e casos clínicos. Conteúdo didático.", href: NURSING_LAB },
+        { title: "Nursing Lab 3D", text: "Anatomia humana 3D, ausculta, pressão arterial e casos clínicos. Conteúdo didático.", href: NURSING_LAB_DEMO },
       ],
     },
   },
@@ -269,7 +270,10 @@ export const PROJECTS: Project[] = [
     text: "Laboratório virtual de enfermagem: corpo humano 3D com mais de 450 músculos, ossos e órgãos para isolar peça por peça, ausculta, aferição de pressão, monitor de sinais vitais, quiz e casos clínicos. Conteúdo didático, com dados fictícios.",
     chips: ["three.js", "Vite", "WebGL", "Web Audio", "Z-Anatomy"],
     shots: [],
-    links: [{ label: "Ver código", href: NURSING_LAB }],
+    links: [
+      { label: "Abrir e mexer", href: NURSING_LAB_DEMO },
+      { label: "Ver código", href: NURSING_LAB },
+    ],
   },
 ];
 
