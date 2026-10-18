@@ -134,7 +134,7 @@
 .dm-hero { padding: 72px 0 64px; }
 .dm-hero h1 { font: 700 clamp(44px, 9vw, 92px) / 1 var(--dm-sans), sans-serif; color: var(--acc); }
 .dm-hero p { margin-top: 18px; font-size: 20px; font-weight: 500; line-height: 1.45; color: #d9d6cc; max-width: 36ch; }
-.dm-link3d { margin-top: 26px; font: 500 13px var(--dm-mono), monospace; color: var(--muted); text-align: left; text-decoration: underline; text-underline-offset: 4px; }
+.dm-link3d { display: block; margin-top: 26px; font: 500 13px var(--dm-mono), monospace; color: var(--muted); text-align: left; text-decoration: underline; text-underline-offset: 4px; }
 .dm-link3d:hover { color: var(--acc); }
 .dm-sec { padding: 64px 0; border-top: 1px solid var(--line); scroll-margin-top: 72px; }
 .dm-sec h2 { font: 700 clamp(32px, 5vw, 52px) / 1.05 var(--dm-sans), sans-serif; color: var(--ink); }

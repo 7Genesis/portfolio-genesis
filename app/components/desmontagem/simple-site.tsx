@@ -59,6 +59,9 @@ export default function SimpleSite({ onModal, on3d }: Props) {
               Ver a experiência 3D (notebook e celular desmontando) →
             </button>
           ) : null}
+          <a className="dm-link3d" href="/anatomia">
+            Anatomia do MacBook: modelo 3D interativo →
+          </a>
         </section>
 
         <section id="projetos" className="dm-sec" aria-labelledby="dm-projetos">

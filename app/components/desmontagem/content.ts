@@ -66,7 +66,10 @@ export const STEPS: Step[] = [
     kicker: "02 · Por dentro",
     title: "Desmontando a stack",
     text: "Todo sistema tem camadas. Role e veja o que construí em cada uma, do navegador ao banco de dados.",
-    actions: [{ label: "Ver todos os projetos", modal: "projetos", primary: true }],
+    actions: [
+      { label: "Ver todos os projetos", modal: "projetos", primary: true },
+      { label: "Anatomia do MacBook", href: "/anatomia" },
+    ],
   },
   {
     n: "03",
