@@ -13,6 +13,8 @@ export const PLAY_STORE = "https://play.google.com/store/apps/details?id=com.saa
 export const STOCKFLOW = "https://stockflow-cyan.vercel.app";
 export const LEADFLOW_REPO = "https://github.com/7Genesis/leadflow-engine";
 export const CREDITFLOW_REPO = "https://github.com/7Genesis/CreditFlow";
+export const ANATOMIA = "/anatomia";
+export const ANATOMIA_CODIGO = "https://github.com/7Genesis/portfolio-genesis/tree/main/app/components/anatomia";
 
 export const IMG = "/desmontagem/img";
 export const MODELS = {
@@ -66,10 +68,7 @@ export const STEPS: Step[] = [
     kicker: "02 · Por dentro",
     title: "Desmontando a stack",
     text: "Todo sistema tem camadas. Role e veja o que construí em cada uma, do navegador ao banco de dados.",
-    actions: [
-      { label: "Ver todos os projetos", modal: "projetos", primary: true },
-      { label: "Anatomia do MacBook", href: "/anatomia" },
-    ],
+    actions: [{ label: "Ver todos os projetos", modal: "projetos", primary: true }],
   },
   {
     n: "03",
@@ -237,6 +236,18 @@ export const PROJECTS: Project[] = [
     links: [
       { label: "Ver StockFlow", href: STOCKFLOW },
       { label: "CreditFlow", href: CREDITFLOW_REPO },
+    ],
+  },
+  {
+    id: "anatomia",
+    title: "Anatomia do MacBook Pro",
+    kind: "Front-end · 3D interativo",
+    text: "Um MacBook Pro com chip M1 Pro feito só com three.js. Gire, aproxime, clique nas peças, abra a carcaça e veja dados, calor e energia em movimento. É uma página deste próprio portfólio.",
+    chips: ["three.js", "WebGL", "React", "TypeScript", "GSAP"],
+    shots: [wide("anatomia_modelo", "Modelo 3D do MacBook Pro com M1 Pro em vista isométrica, com etiquetas técnicas e painel de detalhes")],
+    links: [
+      { label: "Abrir e mexer", href: ANATOMIA },
+      { label: "Ver código", href: ANATOMIA_CODIGO },
     ],
   },
 ];

@@ -348,9 +348,6 @@ export default function Anatomia() {
             Montando o MacBook…
           </div>
         ) : null}
-        <p className="an-ajuda" aria-hidden="true">
-          Arraste para girar · role para aproximar · clique nas peças
-        </p>
       </div>
 
       <div className="an-dock" ref={dockRef} role="toolbar" aria-label="Controles do modelo">
@@ -436,7 +433,7 @@ export default function Anatomia() {
               <>
                 <h2>Explore por dentro</h2>
                 <p>
-                  Clique em uma peça do modelo, em uma etiqueta ou na lista abaixo para ver função, especificações e onde ela fica. {modoAtual?.dica}
+                  Arraste para girar e role para aproximar. Clique em uma peça, em uma etiqueta ou na lista abaixo para ver função, especificações e onde ela fica. {modoAtual?.dica}
                 </p>
               </>
             )}
