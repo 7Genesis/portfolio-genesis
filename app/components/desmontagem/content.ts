@@ -269,7 +269,7 @@ export const PROJECTS: Project[] = [
     kind: "Front-end · 3D · saúde",
     text: "Laboratório virtual de enfermagem: corpo humano 3D com mais de 450 músculos, ossos e órgãos para isolar peça por peça, ausculta, aferição de pressão, monitor de sinais vitais, quiz e casos clínicos. Conteúdo didático, com dados fictícios.",
     chips: ["three.js", "Vite", "WebGL", "Web Audio", "Z-Anatomy"],
-    shots: [],
+    shots: [wide("nursinglab", "Nursing Lab 3D: corpo humano com músculos, monitor de sinais vitais ao lado e painel para isolar peças")],
     links: [
       { label: "Abrir e mexer", href: NURSING_LAB_DEMO },
       { label: "Ver código", href: NURSING_LAB },
