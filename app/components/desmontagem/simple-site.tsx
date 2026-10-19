@@ -1,7 +1,7 @@
 "use client";
 
 import { CV_URL, EXPERIENCE, PROJECTS, STACK, STEPS, LINKEDIN, type ModalName } from "./content";
-import { ActionLink } from "./ui";
+import { ActionLink, InfoBlock } from "./ui";
 import { ProjectCard } from "./project-card";
 
 type Props = {
@@ -54,6 +54,7 @@ export default function SimpleSite({ onModal, on3d }: Props) {
             <ActionLink action={{ label: "Currículo (PDF)", href: CV_URL, modal: "cv" }} onModal={onModal} />
             <ActionLink action={{ label: "LinkedIn", href: LINKEDIN, modal: "perfil" }} onModal={onModal} />
           </div>
+          {hero.info ? <InfoBlock info={hero.info} /> : null}
           {on3d ? (
             <button type="button" className="dm-link3d" onClick={on3d}>
               Ver a experiência 3D (notebook e celular desmontando) →

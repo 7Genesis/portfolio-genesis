@@ -1,6 +1,6 @@
 "use client";
 
-import type { Action, ModalName } from "./content";
+import type { Action, Info, ModalName } from "./content";
 
 type Props = {
   action: Action;
@@ -46,5 +46,27 @@ export function ActionLink({ action: a, onModal, onGoto }: Props) {
     <a className={cls} href={a.href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}>
       {a.label}
     </a>
+  );
+}
+
+/** Informativo da tela principal: lista curta de projetos com link. */
+export function InfoBlock({ info }: { info: Info }) {
+  return (
+    <aside className="dm-info" aria-label={info.label}>
+      <small>{info.label}</small>
+      <ul>
+        {info.items.map((it) => {
+          const external = it.href.startsWith("http");
+          return (
+            <li key={it.title}>
+              <a href={it.href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}>
+                {it.title} <span aria-hidden="true">↗</span>
+              </a>
+              <span>{it.text}</span>
+            </li>
+          );
+        })}
+      </ul>
+    </aside>
   );
 }

@@ -14,6 +14,8 @@ export const STOCKFLOW = "https://stockflow-cyan.vercel.app";
 export const LEADFLOW_REPO = "https://github.com/7Genesis/leadflow-engine";
 export const CREDITFLOW_REPO = "https://github.com/7Genesis/CreditFlow";
 export const ANATOMIA = "/anatomia";
+export const NURSING_LAB = "https://github.com/7Genesis/nursing-lab-3d";
+export const NURSING_LAB_DEMO = "https://7genesis.github.io/nursing-lab-3d/";
 export const ANATOMIA_CODIGO = "https://github.com/7Genesis/portfolio-genesis/tree/main/app/components/anatomia";
 
 export const IMG = "/desmontagem/img";
@@ -41,6 +43,9 @@ export type Action = {
   primary?: boolean;
 };
 
+/** Bloco informativo mostrado na tela principal. */
+export type Info = { label: string; items: { title: string; text: string; href: string }[] };
+
 export type Step = {
   n: string;
   kicker: string;
@@ -49,6 +54,7 @@ export type Step = {
   text: string;
   chips?: string[];
   actions?: Action[];
+  info?: Info;
 };
 
 export const STEPS: Step[] = [
@@ -62,6 +68,13 @@ export const STEPS: Step[] = [
       { label: "Role para desmontar ↓", goto: 1, primary: true },
       { label: "LinkedIn", href: LINKEDIN, modal: "perfil" },
     ],
+    info: {
+      label: "Meus projetos 3D",
+      items: [
+        { title: "Anatomia do MacBook Pro", text: "Gire, aproxime e abra o notebook peça por peça. three.js.", href: ANATOMIA },
+        { title: "Nursing Lab 3D", text: "Anatomia humana 3D, ausculta, pressão arterial e casos clínicos. Conteúdo didático.", href: NURSING_LAB_DEMO },
+      ],
+    },
   },
   {
     n: "02",
@@ -248,6 +261,18 @@ export const PROJECTS: Project[] = [
     links: [
       { label: "Abrir e mexer", href: ANATOMIA },
       { label: "Ver código", href: ANATOMIA_CODIGO },
+    ],
+  },
+  {
+    id: "nursing-lab",
+    title: "Nursing Lab 3D",
+    kind: "Front-end · 3D · saúde",
+    text: "Laboratório virtual de enfermagem: corpo humano 3D com mais de 450 músculos, ossos e órgãos para isolar peça por peça, ausculta, aferição de pressão, monitor de sinais vitais, quiz e casos clínicos. Conteúdo didático, com dados fictícios.",
+    chips: ["three.js", "Vite", "WebGL", "Web Audio", "Z-Anatomy"],
+    shots: [wide("nursinglab", "Nursing Lab 3D: corpo humano com músculos, monitor de sinais vitais ao lado e painel para isolar peças")],
+    links: [
+      { label: "Abrir e mexer", href: NURSING_LAB_DEMO },
+      { label: "Ver código", href: NURSING_LAB },
     ],
   },
 ];

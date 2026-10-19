@@ -173,3 +173,11 @@
   html { scroll-behavior: auto; }
   .dm-b, .dm-step, .dm-step.on, .dm-cvm, .dm-cvbox { transition: none; }
 }
+
+/* ---------- informativo da tela principal */
+.dm-info { margin-top: 22px; max-width: 46ch; padding: 14px 16px; border: 1px solid var(--line); border-radius: 16px; background: rgba(42, 42, 39, 0.6); backdrop-filter: blur(6px); }
+.dm-info small { font: 600 11.5px var(--dm-mono), monospace; letter-spacing: 0.1em; text-transform: uppercase; color: var(--acc); }
+.dm-info ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 10px; }
+.dm-info li { display: grid; gap: 2px; font-size: 14px; line-height: 1.4; color: #cfd8cf; }
+.dm-info li a { color: var(--ink); font-weight: 600; text-decoration: none; }
+.dm-info li a:hover { color: var(--acc); }
