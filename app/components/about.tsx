@@ -104,7 +104,7 @@ export default function About() {
           </div>
 
           <h2 className="font-display dropcap text-3xl italic leading-tight text-[#f2efe6]/90 md:text-4xl">
-            Desenvolvedor Full Stack Júnior, cursando Ciência da Computação e Engenharia de
+            Desenvolvedor Backend e Full Stack Júnior, cursando Ciência da Computação e Engenharia de
             Software — construo chatbots com IA, apps em React Native e APIs em
             Python, Node.js e TypeScript, do banco de dados à interface.
           </h2>

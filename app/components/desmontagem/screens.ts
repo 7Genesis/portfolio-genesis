@@ -116,7 +116,7 @@ export function createScreens(IM: Images, F: Fonts) {
         ["$ whoami", "#7ee8a8"],
         ["genesis-melo", "#f2efe8"],
         ["$ cat role.txt", "#7ee8a8"],
-        ["Desenvolvedor Full Stack Júnior", "#ffcab0"],
+        ["Desenvolvedor Backend e Full Stack Júnior", "#ffcab0"],
         ["$ ls stack/", "#7ee8a8"],
         ["node  nest  react  python  django  dotnet  postgres  docker", "#a9a69c"],
       ];

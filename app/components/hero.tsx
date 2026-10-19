@@ -80,7 +80,7 @@ export default function Hero() {
             data-hero="sub"
             className="mt-6 max-w-3xl text-2xl font-semibold leading-tight text-emerald-300 md:text-4xl"
           >
-            Desenvolvedor Full Stack Júnior
+            Desenvolvedor Backend e Full Stack Júnior
           </p>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/75">
             Construo APIs e serviços com Node.js, TypeScript, NestJS, Python e PostgreSQL, além de aplicações web e mobile com React, Next.js e React Native. Meu foco principal é backend, integrações e qualidade de entrega. Atualmente, desenvolvo soluções digitais no SAAE Juazeiro enquanto curso Ciência da Computação e Engenharia de Software.

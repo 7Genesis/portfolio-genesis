@@ -23,7 +23,7 @@ export function PerfilModal({ open, onClose }: { open: boolean; onClose: () => v
         <Image src="/genesis-melo.jpg" alt="Foto de Genesis Melo" width={96} height={96} />
         <div>
           <h3>Genesis Melo</h3>
-          <p className="dm-role">Desenvolvedor Full Stack Júnior</p>
+          <p className="dm-role">Desenvolvedor Backend e Full Stack Júnior</p>
           <p className="dm-hint">Juazeiro, BA · busco vaga remota Full Stack ou Backend</p>
         </div>
       </div>

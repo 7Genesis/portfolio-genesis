@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Genesis Melo | Desenvolvedor Backend e Full Stack Júnior",
     description:
-      "Full Stack Júnior com foco em backend: APIs, integrações e aplicações web e mobile com Node.js, TypeScript, NestJS, Python, React e PostgreSQL.",
+      "Backend e Full Stack Júnior: APIs, integrações e aplicações web e mobile com Node.js, TypeScript, NestJS, Python, React e PostgreSQL.",
     url: siteUrl,
     siteName: "Genesis Melo — Portfólio",
     locale: "pt_BR",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Genesis Melo | Desenvolvedor Backend e Full Stack Júnior",
     description:
-      "Full Stack Júnior com foco em backend: APIs, integrações e aplicações web e mobile com Node.js, TypeScript, NestJS, Python, React e PostgreSQL.",
+      "Backend e Full Stack Júnior: APIs, integrações e aplicações web e mobile com Node.js, TypeScript, NestJS, Python, React e PostgreSQL.",
   },
 };
 

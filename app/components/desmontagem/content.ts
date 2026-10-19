@@ -62,7 +62,7 @@ export const STEPS: Step[] = [
     n: "01",
     kicker: "01 · Perfil",
     title: "Genesis Melo",
-    role: "Desenvolvedor Full Stack Júnior",
+    role: "Desenvolvedor Backend e Full Stack Júnior",
     text: "Construo APIs, integrações e produtos web e mobile que funcionam no dia a dia.",
     actions: [
       { label: "Role para desmontar ↓", goto: 1, primary: true },
@@ -161,7 +161,7 @@ export const SLIDES: Record<number, string[]> = {
 
 // trechos de código mostrados ao lado da cena (HTML estático e confiável)
 export const CODES: string[] = [
-  `<span class="c">// perfil</span>\n<span class="k">const</span> genesis = {\n  role: <span class="s">'Full Stack Júnior'</span>,\n  stack: [<span class="s">'Node'</span>, <span class="s">'Python'</span>, <span class="s">'C#'</span>],\n  local: <span class="s">'Juazeiro, BA'</span>,\n};`,
+  `<span class="c">// perfil</span>\n<span class="k">const</span> genesis = {\n  role: <span class="s">'Backend e Full Stack Júnior'</span>,\n  stack: [<span class="s">'Node'</span>, <span class="s">'Python'</span>, <span class="s">'C#'</span>],\n  local: <span class="s">'Juazeiro, BA'</span>,\n};`,
   `<span class="c">// camadas de um sistema</span>\n<span class="k">const</span> sistema = [\n  <span class="s">'interface'</span>, <span class="s">'api'</span>,\n  <span class="s">'dados'</span>, <span class="s">'entrega'</span>,\n];`,
   `<span class="c">-- LeadFlow: rodízio sem travar</span>\n<span class="k">SELECT</span> id <span class="k">FROM</span> vendedor\n <span class="k">WHERE</span> disponivel\n <span class="k">ORDER BY</span> ultimo_lead\n <span class="k">FOR UPDATE SKIP LOCKED</span>\n <span class="k">LIMIT</span> <span class="n">1</span>;`,
   `<span class="c"># atendimento: sem duplicar</span>\n<span class="k">if</span> solicitacao_aberta(imovel):\n    <span class="k">return</span> avisar_andamento()\nabrir_solicitacao()`,

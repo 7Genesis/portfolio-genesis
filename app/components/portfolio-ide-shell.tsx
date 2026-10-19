@@ -215,7 +215,7 @@ export default function PortfolioIdeShell({ children }: { children: ReactNode })
       )}
 
       <footer className="portfolio-ide__statusbar">
-        <div><span>⎇ main</span><span>Genesis Melo · Desenvolvedor Full Stack Júnior</span></div>
+        <div><span>⎇ main</span><span>Genesis Melo · Desenvolvedor Backend e Full Stack Júnior</span></div>
         <div><span>TypeScript</span><span>UTF-8</span><a href="https://github.com/7Genesis" target="_blank" rel="noreferrer">GitHub ↗</a><button type="button" onClick={() => setTerminalOpen((open) => !open)} aria-expanded={terminalOpen}>›_ Terminal</button></div>
       </footer>
 

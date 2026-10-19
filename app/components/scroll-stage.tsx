@@ -133,7 +133,7 @@ export default function ScrollStage() {
                 </h1>
 
                 <p data-hero="sub" className="font-display mt-6 max-w-[31rem] text-2xl italic leading-tight text-[#34372f]/85 md:text-3xl">
-                  Full Stack Júnior. Backend em destaque, do primeiro dado à entrega.
+                  Backend e Full Stack Júnior, do primeiro dado à entrega.
                 </p>
 
                 <div className="mt-9 flex flex-wrap items-center gap-3">

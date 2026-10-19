@@ -84,7 +84,7 @@ export default function Portfolio() {
           <div>
             <p className="folio-welcome__comment"># Olá, eu sou</p>
             <h1>Genesis<br /><i>Melo.</i></h1>
-            <p className="folio-welcome__role">Desenvolvedor Full Stack Júnior</p>
+            <p className="folio-welcome__role">Desenvolvedor Backend e Full Stack Júnior</p>
             <p className="folio-welcome__intro">Construo APIs, integrações e produtos web e mobile. Gosto de entender o problema, organizar o fluxo e entregar software que funciona no dia a dia.</p>
             <div className="folio-welcome__actions">
               <a href="#projetos">Ver projetos <ArrowUpRight /></a>
@@ -251,7 +251,7 @@ export default function Portfolio() {
       <footer id="contato" className="folio-footer">
         <FolioLabel n="06">Próxima conversa</FolioLabel>
         <div className="folio-footer__content"><h2>Tem um problema<br />interessante?</h2><a href="https://wa.me/5574998055726?text=Ol%C3%A1%20Genesis%2C%20vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%21" target="_blank" rel="noreferrer">Me conta. <ArrowUpRight /></a></div>
-        <div className="folio-footer__bottom"><span>Genesis Melo · Desenvolvedor Full Stack Júnior</span><div><a href="https://www.linkedin.com/in/genesis-melo/" target="_blank" rel="noreferrer">LinkedIn</a><a href="mailto:genesis.melo4398@hotmail.com">E-mail</a><span>© {new Date().getFullYear()}</span></div></div>
+        <div className="folio-footer__bottom"><span>Genesis Melo · Desenvolvedor Backend e Full Stack Júnior</span><div><a href="https://www.linkedin.com/in/genesis-melo/" target="_blank" rel="noreferrer">LinkedIn</a><a href="mailto:genesis.melo4398@hotmail.com">E-mail</a><span>© {new Date().getFullYear()}</span></div></div>
       </footer>
       </PortfolioIdeShell>
     </div>
