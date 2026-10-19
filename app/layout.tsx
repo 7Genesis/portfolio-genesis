@@ -18,13 +18,13 @@ const siteUrl = "https://portfolio-genesis-one.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Genesis Melo | Desenvolvedor Full Stack Júnior",
+  title: "Genesis Melo | Desenvolvedor Backend e Full Stack Júnior",
   description:
-    "Desenvolvedor Full Stack Júnior com foco em backend, APIs e integrações. Node.js, TypeScript, NestJS, Python, Django, PostgreSQL, React e React Native.",
+    "Desenvolvedor Backend e Full Stack Júnior: APIs, integrações e aplicações web e mobile. Node.js, TypeScript, NestJS, Python, Django, PostgreSQL, React e React Native.",
   alternates: { canonical: "/" },
   authors: [{ name: "Genesis Melo", url: siteUrl }],
   keywords: [
-    "Desenvolvedor Full Stack Júnior",
+    "Desenvolvedor Backend e Full Stack Júnior",
     "Backend e APIs",
     "Python",
     "Node.js",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "chatbot com IA",
   ],
   openGraph: {
-    title: "Genesis Melo | Desenvolvedor Full Stack Júnior",
+    title: "Genesis Melo | Desenvolvedor Backend e Full Stack Júnior",
     description:
       "Full Stack Júnior com foco em backend: APIs, integrações e aplicações web e mobile com Node.js, TypeScript, NestJS, Python, React e PostgreSQL.",
     url: siteUrl,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Genesis Melo | Desenvolvedor Full Stack Júnior",
+    title: "Genesis Melo | Desenvolvedor Backend e Full Stack Júnior",
     description:
       "Full Stack Júnior com foco em backend: APIs, integrações e aplicações web e mobile com Node.js, TypeScript, NestJS, Python, React e PostgreSQL.",
   },
@@ -55,7 +55,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Genesis Melo",
-  jobTitle: "Desenvolvedor Full Stack Júnior",
+  jobTitle: "Desenvolvedor Backend e Full Stack Júnior",
   url: siteUrl,
   image: `${siteUrl}/genesis-melo.jpg`,
   sameAs: ["https://www.linkedin.com/in/genesis-melo/", "https://github.com/7Genesis"],

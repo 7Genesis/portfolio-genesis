@@ -1,1 +1,1 @@
-Genesis Melo, Desenvolvedor Full Stack Júnior com foco em backend: Python, Django, Node.js, TypeScript, APIs, React e aplicações com IA.
+Genesis Melo, Desenvolvedor Backend e Full Stack Júnior: Python, Django, Node.js, TypeScript, APIs, React e aplicações com IA.
