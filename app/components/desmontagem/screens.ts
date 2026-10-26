@@ -157,7 +157,7 @@ export function createScreens(IM: Images, F: Fonts) {
       });
       x.fillStyle = "#ffcab0";
       x.font = sans(700, 54);
-      x.fillText("34 → 3", 60, 590);
+      x.fillText("20 → 2", 60, 590);
       x.fillStyle = "#a9a69c";
       x.font = mono(500, 22);
       x.fillText("diferença média entre vendedores (teste local)", 60, 670);

@@ -12,10 +12,10 @@ import FluxoAtendimento from '../components/fluxo-atendimento';
 const featured = [
   {
     id: 'project-leadflow', n: '01', title: 'LeadFlow Engine', note: 'Backend · NestJS',
-    description: 'Uma API recebe leads por webhook, valida os dados, organiza o trabalho no Redis e distribui oportunidades em rodízio. Em teste concorrente local, a diferença média entre vendedores foi de 3,2 leads.',
+    description: 'Uma API recebe leads por webhook, valida os dados, organiza o trabalho no Redis e distribui oportunidades em rodízio. Em teste concorrente local, a diferença média entre vendedores foi de 2,2 leads.',
     stack: 'NestJS · Redis · BullMQ · Prisma · PostgreSQL',
     href: 'https://github.com/7Genesis/leadflow-engine', link: 'Explorar repositório',
-    detail: 'Teste concorrente local no PostgreSQL 15: em 10 rodadas de 300 leads, com 10 simultâneos, FOR UPDATE SKIP LOCKED reduziu a diferença média entre quem mais e menos recebeu de 33,7 para 3,2 leads, comparado a FOR UPDATE. A medição descreve esse teste, não tráfego de produção.',
+    detail: 'Teste concorrente local no PostgreSQL 15: em 10 rodadas de 300 leads, com 10 simultâneos, FOR UPDATE SKIP LOCKED reduziu a diferença média entre quem mais e menos recebeu de 20,1 para 2,2 leads, comparado a FOR UPDATE. O comando npm run bench:rodizio, no repositório, repete a medição; os valores variam por máquina. A medição descreve esse teste, não tráfego de produção.',
     flow: [{ label: 'Entrada', value: 'Webhook' }, { label: 'Fila', value: 'Redis · BullMQ' }, { label: 'Entrega', value: 'Rodízio' }],
   },
   {

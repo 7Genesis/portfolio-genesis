@@ -87,7 +87,7 @@ export const STEPS: Step[] = [
     n: "03",
     kicker: "03 · Backend · placa-mãe",
     title: "LeadFlow Engine",
-    text: "Webhook, fila e rodízio entre vendedores. Em teste de concorrência local, a diferença média caiu de 34 para 3 leads.",
+    text: "Webhook, fila e rodízio entre vendedores. Em teste de concorrência local, a diferença média caiu de cerca de 20 para cerca de 2 leads.",
     chips: ["NestJS", "Redis · BullMQ", "PostgreSQL", "Docker · CI"],
     actions: [{ label: "Ver código", href: LEADFLOW_REPO, primary: true }],
   },
