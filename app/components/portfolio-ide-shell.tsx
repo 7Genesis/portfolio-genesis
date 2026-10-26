@@ -117,6 +117,8 @@ export default function PortfolioIdeShell({ children }: { children: ReactNode })
     { label: 'Abrir GitHub', detail: 'Ver repositórios e código', run: () => navigate('github') },
     { label: 'Ir para contato', detail: 'Encontrar e-mail e redes', run: () => navigate('contato') },
   ];
+  // Falso positivo: o filtro lê só label e detail; as refs ficam dentro de `run`, que só roda em eventos.
+  // eslint-disable-next-line react-hooks/refs
   const filteredCommands = commands.filter((command) => `${command.label} ${command.detail}`.toLocaleLowerCase('pt-BR').includes(query.toLocaleLowerCase('pt-BR')));
   const runSelectedCommand = (event: ReactKeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'ArrowDown') {
